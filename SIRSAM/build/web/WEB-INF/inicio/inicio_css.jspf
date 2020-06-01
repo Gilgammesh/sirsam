@@ -1,0 +1,5 @@
+<%--
+ @author CARLOS SANTANDER
+--%>
+<link href="<% out.print(request.getContextPath());%>/templates/plugins/cssslider/css/style_slider.css" rel="stylesheet" type="text/css" />
+<link href="<% out.print(request.getContextPath());%>/templates/project/css/inicio.css" rel="stylesheet" type="text/css" />

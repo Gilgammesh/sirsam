@@ -1,0 +1,168 @@
+<%--
+ @author CARLOS SANTANDER
+--%>
+<section id="section_proyecto_ficha" class="naranja_princ">
+    <div class="menu_indice">
+        <div class ="container">   
+            <ol class="breadcrumb">
+                <li>
+                    <a id="aProyBusquedaRegresar" href="#proyectos">
+                        <i class="fa fa-cube"></i>  Inversión Pública
+                    </a>
+                </li>
+                <li id="liProySnip"><i class="fa fa-building"></i></li>
+            </ol>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="filtro_princ naranja_secun">
+            <div id="divBtnProyBusquedaPdf" class="btn-proy-busqueda oculto">
+                <a>
+                    <img src="./templates/plugins/datatables/images/pdf.png" alt="Exportar a PDF" title="Ficha Completa PDF">
+                </a>
+            </div>
+            <div id="divBtnProyResumPdf" class="btn-proy-busqueda oculto">
+                <a>
+                    <img src="./resources/images/ficha.png" alt="Exportar a PDF" title="Ficha Resumen PDF">
+                </a>
+            </div>
+            <div id="divBtnProyBusquedaEdit" class="btn-proy-busqueda">
+                <a>
+                    <img src="./resources/images/edit.png" alt="Editar PIP" title="Editar PIP">
+                </a>
+            </div>
+            <br>
+            <div class="titulo_ficha_proyecto">
+                <label id="lblProyTitulo"></label> 
+            </div>
+            <br>            
+            <div class="margen-ficha">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label ficha-sombreado1">PIP :</label>
+                    <label id="lblProyPip" class="col-sm-10 col-form-label ficha-sombreado2"></label>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label ficha-sombreado1">Código SNIP :</label>
+                    <label id="lblProySnip" class="col-sm-1 col-form-label ficha-sombreado2"></label>
+                    <label class="col-sm-1"></label>
+                    <label class="col-sm-2 col-form-label ficha-sombreado1">Código SIAF :</label>
+                    <label id="lblProySiaf" class="col-sm-1 col-form-label ficha-sombreado2"></label>
+                    <label class="col-sm-1"></label>
+                    <label class="col-sm-2 col-form-label ficha-sombreado1">Fecha Registro :</label>
+                    <label id="lblProyFechaRegistro" class="col-sm-1 col-form-label ficha-sombreado2"></label>
+                </div>  
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label ficha-sombreado1">Cadena Funcional :</label>
+                    <label id="lblProyCadenaFunc" class="col-sm-5 col-form-label ficha-sombreado2"></label>
+                    <label class="col-sm-1"></label>
+                    <label class="col-sm-2 col-form-label ficha-sombreado1">Fecha Viabilidad :</label>
+                    <label id="lblProyFechaViable" class="col-sm-1 col-form-label ficha-sombreado2"></label>
+                </div>  
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label ficha-sombreado1">Unidad Ejecutora :</label>
+                    <label id="lblProyEjecutora" class="col-sm-5 col-form-label ficha-sombreado2"></label>
+                    <label class="col-sm-1"></label>
+                    <label class="col-sm-2 col-form-label ficha-sombreado1">Beneficiarios :</label>
+                    <label id="lblProyBeneficiarios" class="col-sm-1 col-form-label ficha-sombreado2"></label>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label ficha-sombreado1">Ubicación :</label>
+                    <label id="lblProyUbicacion" class="col-sm-10 col-form-label ficha-sombreado2"></label>
+                </div>                 
+            </div>
+            <br>
+            <div>
+                <table id="tblProyFormulacion" class="display" cellspacing="0" width="100%">
+                    <thead class="tblProyHead">
+                        <tr>
+                            <th id="tblProyFormulacionHeadTh" class="ficha-sombreado2 titulo_tabla_ficha">REPORTE - FORMULACIÓN Y EVALUACIÓN</th>
+                        </tr>
+                        <tr id="tblProyFormulacionHeadTr">
+                            <th class="texto-centrado ficha-sombreado1" style="width: 110px;">Monto de Inversión Viable (S/)</th>
+                            <th class="texto-centrado ficha-sombreado1" style="width: 110px;">Monto Fase Ejecución F15 (S/)</th>
+                            <th class="texto-centrado ficha-sombreado1">Unidad Formuladora</th>
+                            <th class="texto-centrado ficha-sombreado1" style="width: 110px;">Monto Máximo de Variación (S/)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tblProyBody">
+                        <tr id="tblProyFormulacionBodyTr">
+                            <td id="thProyMontoViable" class="texto-centrado"></td>
+                            <td id="thProyMontoF15" class="texto-centrado"></td>
+                            <td id="thProyFormuladora" class="texto-centrado"></td>
+                            <td id="thProyMontoMax" class="texto-centrado"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <div>
+                <table class="display" cellspacing="0" width="100%">
+                    <thead class="tblProyHead">
+                        <tr>
+                            <th class="ficha-sombreado2 titulo_tabla_ficha">REPORTE - EJECUCIÓN</th>
+                        </tr>
+                    </thead>
+                    </tbody>
+                </table>
+            </div>
+            <div class="margen-ficha">            
+                <div id="divProyComponentes" class="form-group row">
+                    <label class="col-sm-12 sub_titulo_tabla_ficha1">I.- REPORTE ESTUDIO DEFINITIVO</label>                    
+                </div>           
+            </div>
+            <div>
+                <table id="tblProyEstudio" class="display" cellspacing="0" width="100%">
+                    <thead class="tblProyHead">
+                        <tr id="tblProyEstudioHeadTr">
+                            <th class="celda-blanca" style="width: 10%;"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="tblProyBody">
+                        <tr id="tblProyEstudioBodyTr1">
+                            <td class="ficha-sombreado2">Fecha Aprobación de Exp. Técnico</td>
+                        </tr>
+                        <tr id="tblProyEstudioBodyTr2">
+                            <td class="ficha-sombreado2">Responsable de Elaboración</td>
+                        </tr>
+                        <tr id="tblProyEstudioBodyTr3">
+                            <td class="ficha-sombreado2">Modalidad de ejecución</td>
+                        </tr>
+                        <tr id="tblProyEstudioBodyTr4_1">
+                            <td rowspan="2" class="ficha-sombreado2">Contrato</td>
+                        </tr>
+                        <tr id="tblProyEstudioBodyTr4_2">                            
+                        </tr>
+                        <tr id="tblProyEstudioBodyTr5_1">
+                            <td rowspan="2" class="ficha-sombreado2">Monto Contratado (S/)</td>
+                        </tr>
+                        <tr id="tblProyEstudioBodyTr5_2">                            
+                        </tr>
+                        <tr id="tblProyEstudioBodyTr6_1">
+                            <td rowspan="2" class="ficha-sombreado2">Monto Ejecutado (S/)</td>
+                        </tr>
+                        <tr id="tblProyEstudioBodyTr6_2">                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <div id="divImgProyTotal" class="imagen_centrada"></div>
+            <br>
+            <div id="divTblProyFinanc"></div>
+            <br>
+            <button id="btnProyFinancDet" class="btn btn-default btn-m" style="color: #004489;"></button>
+            <div id="divTblProyFinancDet" style="margin-top: 15px;"></div>
+            <br>
+            <div class="form-group row" style="margin-top: 15px;">
+                <label class="col-sm-12 sub_titulo_tabla_ficha">PANEL FOTOGRÁFICO</label>
+            </div>
+            <div class="form-group row" id="divProyGaleria"></div>
+            <button id="btnProyGaleria" class="btn btn-default btn-m" style="color: #004489;"></button>
+            <div id="divProyGaleriaMas" style="margin-top: 15px;"></div>
+            <br>
+            <div id="divProyEjecucionComponentes" style="margin-top: 15px;"></div>
+            <br>
+        </div> 
+    </div>
+</section>

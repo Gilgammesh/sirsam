@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+ // @author CARLOS SANTANDER
+-->
+<mapper namespace="Usuario">
+    
+    <resultMap id="UsuarioMap" type="Usuario">
+        <result property="usuaId" column="usua_id" />        
+        <result property="usuaLogin" column="usua_login" />        
+        <result property="usuaClave" column="usua_clave" />
+        <result property="usuaNombres" column="usua_nombres" />        
+        <result property="usuaApellidoPaterno" column="usua_apellido_paterno" />        
+        <result property="usuaApellidoMaterno" column="usua_apellido_materno" />
+        <result property="usuaSexo" column="usua_sexo" />        
+        <result property="perfId" column="perf_id" />        
+        <result property="perfNombre" column="perf_nombre" /> 
+        <result property="perfDescripcion" column="perf_descripcion" /> 
+        <result property="usuaEstado" column="usua_estado" /> 
+        <result property="sec_ejec" column="sec_ejec" /> 
+        <result property="ejecutora" column="ejecutora" /> 
+        <result property="nombre" column="nombre" />  
+        <result property="registra" column="registra" /> 
+        <result property="activo" column="activo" />
+        <result property="menuId" column="menu_id" /> 
+        <result property="menuNombre" column="menu_nombre" /> 
+        <result property="menuDescripcion" column="menu_descripcion" /> 
+    </resultMap> 
+    
+    <select id="getListaDatos" parameterType="HashMap" resultMap="UsuarioMap">      
+        SELECT usua_id, usua_login, usua_clave, usua_nombres, usua_apellido_paterno, 
+        usua_apellido_materno, usua_sexo, perf_id, usua_estado, sec_ejec
+        FROM sistema.usuario ${c}
+        ORDER BY usua_apellido_paterno, usua_apellido_materno ASC    
+    </select>
+    
+    <select id="getListaUsuarios" parameterType="HashMap" resultMap="UsuarioMap">      
+        SELECT a.usua_id, a.usua_login, a.usua_clave, a.usua_nombres, a.usua_apellido_paterno, 
+        a.usua_apellido_materno, a.usua_sexo, a.perf_id, b.perf_nombre, a.usua_estado, 
+        a.sec_ejec, c.ejecutora, trim(c.nombre) as nombre
+        FROM sistema.usuario as a 
+        INNER JOIN sistema.perfil as b ON (a.perf_id = b.perf_id) 
+        LEFT JOIN presupuesto.ejecutora as c ON (a.sec_ejec = c.sec_ejec ${c}) 
+        ORDER BY a.usua_apellido_paterno, a.usua_apellido_materno, a.usua_nombres ASC    
+    </select> 
+    
+    <select id="getListaPerfiles" parameterType="HashMap" resultMap="UsuarioMap">      
+        SELECT perf_id, perf_nombre, perf_descripcion
+        FROM sistema.perfil ${c}   
+    </select>
+    
+    <select id="getListaPermisos" parameterType="HashMap" resultMap="UsuarioMap">      
+        SELECT a.perf_id, a.menu_id, a.registra, a.activo, b.menu_nombre, b.menu_descripcion, 
+        c.perf_nombre, c.perf_descripcion
+        FROM sistema.permiso as a
+        INNER JOIN sistema.menu as b ON (a.menu_id = b.menu_id)
+        INNER JOIN sistema.perfil as c ON (a.perf_id = c.perf_id) ${c} 
+    </select>     
+    
+    <select id="getDatos" parameterType="HashMap" resultMap="UsuarioMap">
+        SELECT usua_id, usua_login, usua_clave, usua_nombres, usua_apellido_paterno, 
+        usua_apellido_materno, usua_sexo, perf_id, usua_estado, sec_ejec
+        FROM sistema.usuario ${c}       
+    </select> 
+    
+    <select id="getNroReg" parameterType="HashMap" resultType="Integer">
+        SELECT count(usua_id)::integer
+        FROM sistema.usuario ${c}            
+    </select>
+    
+    <insert id="insert" parameterType="Usuario" >
+        <selectKey keyProperty="usuaId" resultType="int" order="BEFORE">
+            select cast(((case when max(usua_id) is null then 0 else max(usua_id) end) +1) as int) from sistema.usuario
+        </selectKey>
+        INSERT INTO sistema.usuario(
+        usua_id, usua_login, usua_clave, usua_nombres, usua_apellido_paterno, 
+        usua_apellido_materno, usua_sexo, perf_id, usua_estado, sec_ejec)
+        VALUES (#{usuaId}, #{usuaLogin}, #{usuaClave}, #{usuaNombres}, #{usuaApellidoPaterno}, 
+        #{usuaApellidoMaterno}, #{usuaSexo}, #{perfId}, #{usuaEstado}, #{sec_ejec});
+    </insert>   
+              
+    <update id="update" parameterType="Usuario"> 
+        UPDATE sistema.usuario
+        SET usua_login=#{usuaLogin}, usua_clave=#{usuaClave}, usua_nombres=#{usuaNombres},
+        usua_apellido_paterno=#{usuaApellidoPaterno}, usua_apellido_materno=#{usuaApellidoMaterno},
+        usua_sexo=#{usuaSexo}, perf_id=#{perfId}, usua_estado=#{usuaEstado}, sec_ejec=#{sec_ejec}
+        WHERE usua_id=#{usuaId};
+    </update>
+    
+    <update id="updatePass" parameterType="Usuario"> 
+        UPDATE sistema.usuario
+        SET usua_clave=#{usuaClave}
+        WHERE usua_id=#{usuaId};
+    </update> 
+    
+    <delete id="deleteUsuario" parameterType="Usuario"> 
+        DELETE FROM sistema.usuario
+        WHERE usua_id=#{usuaId};
+    </delete>
+    
+    <delete id="deleteSesion" parameterType="Usuario"> 
+        DELETE FROM sistema.sesion
+        WHERE usua_id=#{usuaId};
+    </delete>
+    
+    <insert id="insertPerfil" parameterType="Usuario" >
+        <selectKey keyProperty="perfId" resultType="int" order="BEFORE">
+            select cast(((case when max(perf_id) is null then 0 else max(perf_id) end) +1) as int) from sistema.perfil
+        </selectKey>
+        INSERT INTO sistema.perfil(
+        perf_id, perf_nombre, perf_descripcion)
+        VALUES (#{perfId}, #{perfNombre}, #{perfDescripcion});
+    </insert>   
+    
+    <update id="updatePerfil" parameterType="Usuario"> 
+        UPDATE sistema.perfil
+        SET perf_nombre=#{perfNombre}, perf_descripcion=#{perfDescripcion}
+        WHERE perf_id=#{perfId};
+    </update> 
+   
+    <delete id="deletePerfil" parameterType="Usuario"> 
+        DELETE FROM sistema.perfil
+        WHERE perf_id=#{perfId};
+    </delete>    
+    
+    <insert id="upsertPermisos" parameterType="Usuario" >
+        INSERT INTO sistema.permiso(
+        perf_id, menu_id, registra, activo)
+        VALUES (#{perfId}, #{menuId}, #{registra}, #{activo})
+        ON CONFLICT ON CONSTRAINT id_permiso_pk 
+        DO UPDATE SET
+        registra=#{registra}, activo=#{activo};
+    </insert> 
+       
+    <delete id="deletePermisos" parameterType="Usuario"> 
+        DELETE FROM sistema.permiso
+        WHERE perf_id=#{perfId};
+    </delete> 
+    
+    <select id="getListMenu" parameterType="HashMap" resultMap="UsuarioMap">
+        SELECT menu_id, menu_nombre, menu_descripcion
+        FROM sistema.menu ${c}       
+    </select> 
+   
+</mapper>

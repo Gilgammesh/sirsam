@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+ // @author CARLOS SANTANDER
+-->
+<mapper namespace="Proyectos">
+    
+    <resultMap id="ProyectosMap" type="Proyectos">
+        
+        <result property="proyCodigoSiaf" column="proy_codigo_siaf"/>
+        <result property="proyCodigoInversion" column="proy_codigo_inversion"/>
+        <result property="proyNombre" column="proy_nombre"/>
+        <result property="proyFechaRegistro" column="proy_fecha_registro"/>
+        <result property="proyCadenaFuncional" column="proy_cadena_funcional"/>
+        <result property="proyUnidadFormuladora" column="proy_unidad_formuladora"/>
+        <result property="proyUnidadEjecutora" column="proy_unidad_ejecutora"/>
+        <result property="proyUnidadEjecutoraInversion" column="proy_unidad_ejecutora_inversion"/>
+        <result property="proyUnidadEjecutoraPresupuestal" column="proy_unidad_ejecutora_presupuestal"/>
+        <result property="proyUnidadEvaluadora" column="proy_unidad_evaluadora"/>
+        <result property="proyBeneficiarios" column="proy_beneficiarios"/>
+        <result property="proyFuenteFinanciamiento" column="proy_fuente_financiamiento"/>
+        <result property="proyResponsableViabilidad" column="proy_responsable_viabilidad"/>
+        <result property="proyFechaViabilidad" column="proy_fecha_viabilidad"/>
+        <result property="proySituacion" column="proy_situacion"/>
+        <result property="proyNivelViabilidad" column="proy_nivel_viabilidad"/>
+        <result property="proyUltimoEstudio" column="proy_ultimo_estudio"/>
+        <result property="proyEstado" column="proy_estado"/>
+        <result property="proyMontoViable" column="proy_monto_viable"/>
+        <result property="proyMontoLaudo" column="proy_monto_laudo"/>
+        <result property="proyMontoEstudioDefinitivo" column="proy_monto_estudio_definitivo"/>
+        <result property="proyMontoCartaFianza" column="proy_monto_carta_fianza"/>
+        <result property="proyMontoActualizado" column="proy_monto_actualizado"/>
+        <result property="proyPorEtapas" column="proy_por_etapas"/>
+        <result property="proyTieneExpedienteTecnico" column="proy_tiene_expediente_tecnico"/>
+        <result property="proyTieneInformeCierre" column="proy_tiene_informe_cierre"/>
+        <result property="proyObjetivo" column="proy_objetivo"/>
+        <result property="proyTipo" column="proy_tipo"/>
+        <result property="proySupervision" column="proy_supervision"/>
+        <result property="pramNro" column="pram_nro"/>
+        <result property="pramDias" column="pram_dias"/>
+        <result property="pramDocumento" column="pram_documento"/>
+        <result property="pramFecha" column="pram_fecha"/>
+        <result property="pramProcedente" column="pram_procedente"/>
+        <result property="prcpComponente" column="prcp_componente"/>
+        <result property="prcpOrden" column="prcp_orden"/>
+        <result property="prcpUnidadMedida" column="prcp_unidad_medida"/>
+        <result property="prcpMontoViable" column="prcp_monto_viable"/>
+        <result property="prcpMontoEstudio" column="prcp_monto_estudio"/>
+        <result property="prcpMontoContratado" column="prcp_monto_contratado"/>
+        <result property="prcpMontoActualizado" column="prcp_monto_actualizado"/>
+        <result property="prcpComentarios" column="prcp_comentarios"/>
+        <result property="prcoOrden" column="prco_orden"/>
+        <result property="prcoContratista" column="prco_contratista"/>
+        <result property="prcoTipoProceso" column="prco_tipo_proceso"/>
+        <result property="prcoContrato" column="prco_contrato"/>
+        <result property="prcoFechaSuscripcion" column="prco_fecha_suscripcion"/>
+        <result property="prcoMontoSuscripcion" column="prco_monto_suscripcion"/>        
+        <result property="prcoUrlWindows" column="prco_url_windows"/>
+        <result property="prcoUrlLinux" column="prco_url_linux"/>           
+        <result property="prejProceso" column="prej_proceso"/>
+        <result property="prejContrato" column="prej_contrato"/>
+        <result property="prejMontoContrato" column="prej_monto_contrato"/>
+        <result property="prejProveedor" column="prej_proveedor"/>
+        <result property="prejModalidadContrato" column="prej_modalidad_contrato"/>
+        <result property="prejResidenteNombre" column="prej_residente_nombre"/>
+        <result property="prejResidenteCelular" column="prej_residente_celular"/>
+        <result property="prejPlazo" column="prej_plazo"/>
+        <result property="prejFechaInicio" column="prej_fecha_inicio"/>    
+        <result property="prejTieneAdelantoMaterial" column="prej_tiene_adelanto_material"/>        
+        <result property="presFechaAproba" column="pres_fecha_aproba"/>
+        <result property="presDocAproba" column="pres_doc_aproba"/>
+        <result property="presContrato" column="pres_contrato"/>
+        <result property="presResponsable" column="pres_responsable"/>
+        <result property="prmoFechaModificacion" column="prmo_fecha_modificacion"/>
+        <result property="prmoMontoActualizado" column="prmo_monto_actualizado"/>
+        <result property="prmoComentarios" column="prmo_comentarios"/>
+        <result property="prmoUsuario" column="prmo_usuario"/>
+        <result property="prmoTipoDocumento" column="prmo_tipo_documento"/>
+        <result property="prpeAno" column="prpe_ano"/>
+        <result property="prpeMes" column="prpe_mes"/>
+        <result property="nombreMes" column="nombre_mes"/>
+        <result property="prsuProceso" column="prsu_proceso"/>
+        <result property="prsuContrato" column="prsu_contrato"/>
+        <result property="prsuFechaFirma" column="prsu_fecha_firma"/>
+        <result property="prsuMontoContrato" column="prsu_monto_contrato"/>
+        <result property="prsuProveedor" column="prsu_proveedor"/>
+        <result property="prsuModalidadContrato" column="prsu_modalidad_contrato"/>
+        <result property="prsuSupervisorNombre" column="prsu_supervisor_nombre"/>
+        <result property="prsuSupervisorCelular" column="prsu_supervisor_celular"/>
+        <result property="prsuCoordinadorNombre" column="prsu_coordinador_nombre"/>
+        <result property="prsuCoordinadorCelular" column="prsu_coordinador_celular"/>
+        <result property="prsuAdminContNombre" column="prsu_admin_cont_nombre"/>
+        <result property="prsuAdminContCelular" column="prsu_admin_cont_celular"/>
+        <result property="prsuFechaInicio" column="prsu_fecha_inicio"/>
+        <result property="prsuFechaFin" column="prsu_fecha_fin"/>
+        <result property="prsuTieneAdelanto" column="prsu_tiene_adelanto"/>
+        <result property="prubDepartamento" column="prub_departamento"/>
+        <result property="prubProvincia" column="prub_provincia"/>
+        <result property="prubDistrito" column="prub_distrito"/>
+        <result property="prubLocalidad" column="prub_localidad"/>
+        <result property="prubLatitud" column="prub_latitud"/>
+        <result property="prubLongitud" column="prub_longitud"/>
+        <result property="prvaMontoProgramado" column="prva_monto_programado"/>
+        <result property="prvaMontoEjecutado" column="prva_monto_ejecutado"/>
+        <result property="prvaMontoPagado" column="prva_monto_pagado"/>
+        <result property="prsuFechaFirmaContrato" column="prsu_fecha_firma_contrato"/>
+        <result property="prejFechaFirmaContra" column="prej_fecha_firma_contra"/>
+        <result property="prejFechaEntregaTerre" column="prej_fecha_entrega_terre"/>      
+        <result property="prejTieneAdelantoDirecto" column="prej_tiene_adelanto_directo"/> 
+        <result property="prfoOrden" column="prfo_orden"/>  
+        <result property="prfoTitulo" column="prfo_titulo"/>  
+        <result property="prfoDescripcion" column="prfo_descripcion"/>  
+        <result property="prfoUrlWindows" column="prfo_url_windows"/>  
+        <result property="prfoUrlLinux" column="prfo_url_linux"/>  
+        <result property="prfoPrincipal" column="prfo_principal"/>  
+        <result property="prfoTipo" column="prfo_tipo"/>          
+        <result property="presetEtapa" column="preset_etapa"/>  
+        <result property="presetFechaAproba" column="preset_fecha_aproba"/>  
+        <result property="presetDocAproba" column="preset_doc_aproba"/>  
+        <result property="presetContrato" column="preset_contrato"/>  
+        <result property="presetResponsable" column="preset_responsable"/>
+        <result property="prejadNro" column="prejad_nro"/>  
+        <result property="prejadMonto" column="prejad_monto"/>  
+        <result property="prejadTipo" column="prejad_tipo"/>
+        <result property="prejadFecha" column="prejad_fecha"/>  
+        <result property="prejadComentario" column="prejad_comentario"/>
+        <result property="prsuadNro" column="prsuad_nro"/>  
+        <result property="prsuadMonto" column="prsuad_monto"/>  
+        <result property="prsuadFecha" column="prsuad_fecha"/>  
+        <result property="prsuadComentario" column="prsuad_comentario"/>  
+        <result property="prpsNro" column="prps_nro"/>
+        <result property="prpsDias" column="prps_dias"/>
+        <result property="prpsDocumento" column="prps_documento"/>
+        <result property="prpsFecha" column="prps_fecha"/>
+        <result property="prpsTipo" column="prps_tipo"/>
+        <result property="ano_eje" column="ano_eje"/>
+        <result property="sec_ejec" column="sec_ejec"/>
+        <result property="ejecutora" column="ejecutora"/>
+        <result property="nombre_ejecutora" column="nombre_ejecutora"/>
+        <result property="act_proy" column="act_proy"/>
+        <result property="pia" column="pia"/>
+        <result property="pim" column="pim"/>
+        <result property="devengado" column="devengado"/>
+        <result property="devengado_acumulado" column="devengado_acumulado"/>        
+        <result property="fecha_doc" column="fecha_doc"/>
+        <result property="expediente" column="expediente"/>
+        <result property="sec_func" column="sec_func"/>
+        <result property="fuente_financ" column="fuente_financ"/>
+        <result property="nombre_fuente_financ" column="nombre_fuente_financ"/>
+        <result property="clasificador" column="clasificador"/>
+        <result property="ruc" column="ruc"/>
+        <result property="razon_social" column="razon_social"/>
+        <result property="certificacion" column="certificacion"/>
+        <result property="funcion" column="funcion"/>
+        <result property="nombre_funcion" column="nombre_funcion"/>
+        
+    </resultMap>
+    
+    <select id="getListProyectos" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, proy_codigo_inversion, proy_nombre, proy_fecha_registro, proy_cadena_funcional, 
+        proy_unidad_formuladora, proy_unidad_ejecutora, proy_unidad_ejecutora_inversion, proy_unidad_ejecutora_presupuestal, 
+        proy_unidad_evaluadora, proy_beneficiarios, proy_fuente_financiamiento, proy_responsable_viabilidad, 
+        proy_fecha_viabilidad, proy_situacion, proy_nivel_viabilidad, proy_ultimo_estudio, proy_estado, proy_monto_viable, 
+        proy_monto_laudo, proy_monto_estudio_definitivo, proy_monto_carta_fianza, proy_monto_actualizado, proy_por_etapas, 
+        proy_tiene_expediente_tecnico, proy_tiene_informe_cierre, proy_objetivo, proy_tipo, proy_supervision
+        FROM inversion.proyecto ${c}
+    </select>
+    
+    <update id="updateProyecto" parameterType="Proyectos"> 
+        UPDATE inversion.proyecto
+        SET proy_supervision=#{proySupervision}
+        WHERE proy_codigo_siaf=#{proyCodigoSiaf};
+    </update>
+    
+    <select id="getListProyAmpliaciones" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, pram_nro, pram_dias, pram_documento, pram_fecha, pram_procedente
+        FROM inversion.proyecto_ampliaciones ${c}
+    </select>
+    
+    <insert id="upsertProyAmpliaciones" parameterType="Proyectos" >
+        INSERT INTO inversion.proyecto_ampliaciones(
+        proy_codigo_siaf, pram_nro, pram_dias, pram_documento, pram_fecha, pram_procedente)
+        VALUES (#{proyCodigoSiaf}, #{pramNro}, #{pramDias}, #{pramDocumento}, #{pramFecha}, #{pramProcedente})
+        ON CONFLICT ON CONSTRAINT id_proyecto_ampliaciones_pk 
+        DO UPDATE SET
+        pram_dias=#{pramDias}, pram_documento=#{pramDocumento}, pram_fecha=#{pramFecha}, pram_procedente=#{pramProcedente};
+    </insert> 
+
+    <delete id="deleteProyAmpliaciones" parameterType="Proyectos"> 
+        DELETE FROM inversion.proyecto_ampliaciones
+        WHERE proy_codigo_siaf=#{proyCodigoSiaf} AND pram_nro=#{pramNro};
+    </delete>
+    
+    <select id="getProyAmpliacionesReg" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, SUM(pram_dias) as pram_dias
+        FROM inversion.proyecto_ampliaciones ${c}
+    </select> 
+    
+    <select id="getListProyCalendario" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT a.proy_codigo_siaf, a.prpe_ano, a.prpe_mes, b.nombre as nombre_mes, 
+        SUM(c.prva_monto_programado) as prva_monto_programado, SUM(c.prva_monto_ejecutado) as prva_monto_ejecutado, 
+        SUM(c.prva_monto_pagado) as prva_monto_pagado 
+        FROM inversion.proyecto_periodo as a
+        INNER JOIN utilitarios.meses as b ON (a.prpe_mes = b.mes)
+        LEFT JOIN inversion.proyecto_valorizaciones as c ON (a.prpe_ano = c.prpe_ano AND a.prpe_mes = c.prpe_mes) ${c}
+    </select>
+    
+    <select id="getListProyCalendarioComponente" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT a.proy_codigo_siaf, a.prcp_componente, a.prcp_orden, b.prva_monto_programado, b.prva_monto_ejecutado, b.prva_monto_pagado
+        FROM inversion.proyecto_componentes as a 
+        LEFT JOIN (SELECT proy_codigo_siaf, prcp_componente, prva_monto_programado, prva_monto_ejecutado, prva_monto_pagado
+        FROM inversion.proyecto_valorizaciones ${c}) as b 
+        ON (a.proy_codigo_siaf = b.proy_codigo_siaf AND a.prcp_componente = b.prcp_componente) ${d}
+    </select>
+    
+    <select id="getListProyComponentes" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, prcp_componente, prcp_orden, prcp_unidad_medida, prcp_monto_viable, 
+        prcp_monto_estudio, prcp_monto_contratado, prcp_monto_actualizado, prcp_comentarios
+        FROM inversion.proyecto_componentes ${c}
+    </select>
+    
+    <update id="updateProyComponentes" parameterType="Proyectos"> 
+        UPDATE inversion.proyecto_componentes
+        SET prcp_monto_estudio=#{prcpMontoEstudio}, prcp_monto_contratado=#{prcpMontoContratado}, 
+        prcp_monto_actualizado=#{prcpMontoActualizado}, prcp_comentarios=#{prcpComentarios}
+        WHERE proy_codigo_siaf=#{proyCodigoSiaf} AND prcp_orden=#{prcpOrden};
+    </update>
+    
+    <select id="getListProyComponentesAvance" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT a.proy_codigo_siaf, a.prcp_componente, a.prcp_orden, a.prcp_monto_viable, a.prcp_monto_estudio, a.prcp_monto_contratado, 
+        a.prcp_monto_actualizado, a.prcp_comentarios, b.prva_monto_programado, b.prva_monto_ejecutado, b.prva_monto_pagado
+        FROM inversion.proyecto_componentes as a
+        LEFT JOIN (SELECT proy_codigo_siaf, prcp_componente, prcp_orden, SUM(prva_monto_programado) as prva_monto_programado, 
+        SUM(prva_monto_ejecutado) as prva_monto_ejecutado, SUM(prva_monto_pagado) as prva_monto_pagado
+        FROM inversion.proyecto_valorizaciones GROUP BY proy_codigo_siaf, prcp_componente, prcp_orden) as b 
+        ON (a.proy_codigo_siaf = b.proy_codigo_siaf AND a.prcp_componente = b.prcp_componente AND a.prcp_orden = b.prcp_orden) ${c}
+    </select>
+    
+    <select id="getListProyContrataciones" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, prco_orden, prco_contratista, prco_tipo_proceso, prco_contrato, 
+        prco_fecha_suscripcion, prco_monto_suscripcion, prco_url_windows, prco_url_linux
+        FROM inversion.proyecto_contrataciones ${c}
+    </select>
+    
+    <update id="updateProyContrataciones" parameterType="Proyectos"> 
+        UPDATE inversion.proyecto_contrataciones
+        SET prco_url_windows=#{prcoUrlWindows}, prco_url_linux=#{prcoUrlLinux}
+        WHERE proy_codigo_siaf=#{proyCodigoSiaf} AND prco_orden=#{prcoOrden};
+    </update>
+    
+    <select id="getListProyEjecucion" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, prej_proceso, prej_contrato, prej_monto_contrato, prej_proveedor, prej_modalidad_contrato, 
+        prej_residente_nombre, prej_residente_celular, prej_plazo, prej_fecha_inicio, prej_tiene_adelanto_material, 
+        prej_fecha_firma_contra, prej_fecha_entrega_terre, prej_tiene_adelanto_directo
+        FROM inversion.proyecto_ejecucion ${c}
+    </select>
+    
+    <insert id="upsertProyEjecucion" parameterType="Proyectos" >
+        INSERT INTO inversion.proyecto_ejecucion(
+        proy_codigo_siaf, prej_proceso, prej_contrato, prej_monto_contrato, prej_proveedor, prej_modalidad_contrato, 
+        prej_residente_nombre, prej_residente_celular, prej_plazo, prej_fecha_inicio, prej_tiene_adelanto_material, 
+        prej_fecha_firma_contra, prej_fecha_entrega_terre, prej_tiene_adelanto_directo)
+        VALUES (#{proyCodigoSiaf}, #{prejProceso}, #{prejContrato}, #{prejMontoContrato}, #{prejProveedor}, #{prejModalidadContrato}, 
+        #{prejResidenteNombre}, #{prejResidenteCelular}, #{prejPlazo}, #{prejFechaInicio}, #{prejTieneAdelantoMaterial}, 
+        #{prejFechaFirmaContra}, #{prejFechaEntregaTerre}, #{prejTieneAdelantoDirecto})
+        ON CONFLICT ON CONSTRAINT id_proyecto_ejecucion_pk 
+        DO UPDATE SET
+        prej_proceso=#{prejProceso}, prej_contrato=#{prejContrato}, prej_monto_contrato=#{prejMontoContrato}, 
+        prej_proveedor=#{prejProveedor}, prej_modalidad_contrato=#{prejModalidadContrato}, prej_residente_nombre=#{prejResidenteNombre}, 
+        prej_residente_celular=#{prejResidenteCelular}, prej_plazo=#{prejPlazo}, prej_fecha_inicio=#{prejFechaInicio}, 
+        prej_tiene_adelanto_material=#{prejTieneAdelantoMaterial}, prej_fecha_firma_contra=#{prejFechaFirmaContra}, 
+        prej_fecha_entrega_terre=#{prejFechaEntregaTerre}, prej_tiene_adelanto_directo=#{prejTieneAdelantoDirecto};
+    </insert> 
+    
+    <select id="getListProyEjecucionAdelanto" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, prejad_nro, prejad_monto, prejad_tipo, prejad_fecha, prejad_comentario
+        FROM inversion.proyecto_ejecucion_adelanto ${c}
+    </select>
+    
+    <insert id="upsertProyEjecucionAdelanto" parameterType="Proyectos" >
+        INSERT INTO inversion.proyecto_ejecucion_adelanto(
+        proy_codigo_siaf, prejad_nro, prejad_monto, prejad_tipo, prejad_fecha, prejad_comentario)
+        VALUES (#{proyCodigoSiaf}, #{prejadNro}, #{prejadMonto}, #{prejadTipo}, #{prejadFecha}, #{prejadComentario})
+        ON CONFLICT ON CONSTRAINT id_proyecto_ejecucion_adelanto_pk 
+        DO UPDATE SET
+        prejad_monto=#{prejadMonto}, prejad_fecha=#{prejadFecha}, prejad_comentario=#{prejadComentario};
+    </insert> 
+    
+    <delete id="deleteProyEjecucionAdelanto" parameterType="Proyectos"> 
+        DELETE FROM inversion.proyecto_ejecucion_adelanto
+        WHERE proy_codigo_siaf=#{proyCodigoSiaf} AND prejad_nro=#{prejadNro} AND prejad_tipo=#{prejadTipo};
+    </delete> 
+    
+    <select id="getListProyEstudio" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, pres_fecha_aproba, pres_doc_aproba, pres_contrato, pres_responsable
+        FROM inversion.proyecto_estudio ${c}
+    </select>
+    
+    <insert id="upsertProyEstudio" parameterType="Proyectos" >
+        INSERT INTO inversion.proyecto_estudio(
+        proy_codigo_siaf, pres_fecha_aproba, pres_doc_aproba, pres_contrato, pres_responsable)
+        VALUES (#{proyCodigoSiaf}, #{presFechaAproba}, #{presDocAproba}, #{presContrato}, #{presResponsable})
+        ON CONFLICT ON CONSTRAINT id_proyecto_estudio_pk 
+        DO UPDATE SET
+        pres_fecha_aproba=#{presFechaAproba}, pres_doc_aproba=#{presDocAproba}, pres_contrato=#{presContrato}, 
+        pres_responsable=#{presResponsable};
+    </insert> 
+    
+    <select id="getListProyEstudioEtapas" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, preset_etapa, preset_fecha_aproba, preset_doc_aproba, 
+        preset_contrato, preset_responsable
+        FROM inversion.proyecto_estudio_etapas ${c}
+    </select>
+    
+    <insert id="upsertProyEstudioEtapas" parameterType="Proyectos" >
+        INSERT INTO inversion.proyecto_estudio_etapas(
+        proy_codigo_siaf, preset_etapa, preset_fecha_aproba, preset_doc_aproba, 
+        preset_contrato, preset_responsable)
+        VALUES (#{proyCodigoSiaf}, #{presetEtapa}, #{presetFechaAproba}, #{presetDocAproba}, 
+        #{presetContrato}, #{presetResponsable})
+        ON CONFLICT ON CONSTRAINT id_proyecto_estudio_etapas_pk 
+        DO UPDATE SET
+        preset_fecha_aproba=#{presetFechaAproba}, preset_doc_aproba=#{presetDocAproba}, 
+        preset_contrato=#{presetContrato}, preset_responsable=#{presetResponsable};
+    </insert> 
+    
+    <delete id="deleteProyEstudioEtapas" parameterType="Proyectos"> 
+        DELETE FROM inversion.proyecto_estudio_etapas
+        WHERE proy_codigo_siaf=#{proyCodigoSiaf} AND preset_etapa=#{presetEtapa};
+    </delete> 
+    
+    <select id="getListProyFotos" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, prfo_orden, prfo_titulo, prfo_descripcion, 
+        prfo_url_windows, prfo_url_linux, prfo_principal, prfo_tipo
+        FROM inversion.proyecto_fotos ${c}
+    </select>   
+    
+    <insert id="upsertProyFotos" parameterType="Proyectos" >
+        INSERT INTO inversion.proyecto_fotos(
+        proy_codigo_siaf, prfo_orden, prfo_titulo, prfo_descripcion, 
+        prfo_url_windows, prfo_url_linux, prfo_principal, prfo_tipo)
+        VALUES (#{proyCodigoSiaf}, #{prfoOrden}, #{prfoTitulo}, #{prfoDescripcion}, 
+        #{prfoUrlWindows}, #{prfoUrlLinux}, #{prfoPrincipal}, #{prfoTipo})
+        ON CONFLICT ON CONSTRAINT id_proyecto_fotos_pk 
+        DO UPDATE SET
+        prfo_titulo=#{prfoTitulo}, prfo_descripcion=#{prfoDescripcion}, 
+        prfo_url_windows=#{prfoUrlWindows}, prfo_url_linux=#{prfoUrlLinux}, 
+        prfo_principal=#{prfoPrincipal}, prfo_tipo=#{prfoTipo};
+    </insert>
+    
+    <update id="updateProyFotosPrinc" parameterType="Proyectos" >
+        UPDATE inversion.proyecto_fotos
+        SET prfo_principal=#{prfoPrincipal}
+        WHERE proy_codigo_siaf=#{proyCodigoSiaf};        
+    </update>
+    
+    <update id="updateProyFotosFileNull" parameterType="Proyectos" >
+        UPDATE inversion.proyecto_fotos
+        SET prfo_titulo=#{prfoTitulo}, prfo_descripcion=#{prfoDescripcion}, 
+        prfo_principal=#{prfoPrincipal}
+        WHERE proy_codigo_siaf=#{proyCodigoSiaf} AND prfo_orden=#{prfoOrden};      
+    </update>
+
+    <delete id="deleteProyFotos" parameterType="Proyectos"> 
+        DELETE FROM inversion.proyecto_fotos
+        WHERE proy_codigo_siaf=#{proyCodigoSiaf} AND prfo_orden=#{prfoOrden};
+    </delete> 
+    
+    <select id="getListProyModificaciones" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, prmo_fecha_modificacion, prmo_monto_actualizado, 
+        prmo_comentarios, prmo_usuario, prmo_tipo_documento
+        FROM inversion.proyecto_modificaciones ${c}
+    </select> 
+    
+    <select id="getListProyParalizaSuspen" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, prps_nro, prps_dias, prps_documento, prps_fecha, prps_tipo
+        FROM inversion.proyecto_paraliza_suspen ${c}
+    </select>
+    
+    <insert id="upsertProyParalizaSuspen" parameterType="Proyectos" >
+        INSERT INTO inversion.proyecto_paraliza_suspen(
+        proy_codigo_siaf, prps_nro, prps_dias, prps_documento, prps_fecha, prps_tipo)
+        VALUES (#{proyCodigoSiaf}, #{prpsNro}, #{prpsDias}, #{prpsDocumento}, #{prpsFecha}, #{prpsTipo})
+        ON CONFLICT ON CONSTRAINT id_proyecto_paraliza_suspen_pk 
+        DO UPDATE SET
+        prps_dias=#{prpsDias}, prps_documento=#{prpsDocumento}, 
+        prps_fecha=#{prpsFecha}, prps_tipo=#{prpsTipo};
+    </insert> 
+
+    <delete id="deleteProyParalizaSuspen" parameterType="Proyectos"> 
+        DELETE FROM inversion.proyecto_paraliza_suspen
+        WHERE proy_codigo_siaf=#{proyCodigoSiaf} AND prps_nro=#{prpsNro};
+    </delete>    
+    
+    <select id="getProyParalizaSuspenReg" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, SUM(prps_dias) as prps_dias
+        FROM inversion.proyecto_paraliza_suspen ${c}
+    </select> 
+    
+    <select id="getListProyPeriodo" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT a.proy_codigo_siaf, a.prpe_ano, a.prpe_mes, b.nombre as nombre_mes
+        FROM inversion.proyecto_periodo as a
+        INNER JOIN utilitarios.meses as b ON (a.prpe_mes = b.mes) ${c}
+    </select>
+    
+    <insert id="insertProyPeriodo" parameterType="Proyectos" >
+        INSERT INTO inversion.proyecto_periodo(
+        proy_codigo_siaf, prpe_ano, prpe_mes)
+        VALUES (#{proyCodigoSiaf}, #{prpeAno}, #{prpeMes});
+    </insert> 
+
+    <delete id="deleteProyPeriodo" parameterType="Proyectos"> 
+        DELETE FROM inversion.proyecto_periodo
+        WHERE proy_codigo_siaf=#{proyCodigoSiaf} AND prpe_ano=#{prpeAno} AND prpe_mes=#{prpeMes};
+    </delete> 
+    
+    <select id="getListProySupervision" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, prsu_proceso, prsu_contrato, prsu_monto_contrato, prsu_proveedor, 
+        prsu_modalidad_contrato, prsu_supervisor_nombre, prsu_supervisor_celular, prsu_coordinador_nombre, 
+        prsu_coordinador_celular, prsu_admin_cont_nombre, prsu_admin_cont_celular, prsu_fecha_inicio, 
+        prsu_fecha_fin, prsu_tiene_adelanto, prsu_fecha_firma_contrato
+        FROM inversion.proyecto_supervision ${c}
+    </select>
+    
+    <insert id="upsertProySupervision" parameterType="Proyectos" >
+        INSERT INTO inversion.proyecto_supervision(
+        proy_codigo_siaf, prsu_proceso, prsu_contrato, prsu_monto_contrato, prsu_proveedor, 
+        prsu_modalidad_contrato, prsu_supervisor_nombre, prsu_supervisor_celular, prsu_coordinador_nombre, 
+        prsu_coordinador_celular, prsu_admin_cont_nombre, prsu_admin_cont_celular, prsu_fecha_inicio, 
+        prsu_fecha_fin, prsu_tiene_adelanto, prsu_fecha_firma_contrato)
+        VALUES (#{proyCodigoSiaf}, #{prsuProceso}, #{prsuContrato}, #{prsuMontoContrato}, #{prsuProveedor}, 
+        #{prsuModalidadContrato}, #{prsuSupervisorNombre}, #{prsuSupervisorCelular}, #{prsuCoordinadorNombre}, 
+        #{prsuCoordinadorCelular}, #{prsuAdminContNombre}, #{prsuAdminContCelular}, #{prsuFechaInicio}, 
+        #{prsuFechaFin}, #{prsuTieneAdelanto}, #{prsuFechaFirmaContrato})
+        ON CONFLICT ON CONSTRAINT id_proyecto_supervision_pk 
+        DO UPDATE SET
+        prsu_proceso=#{prsuProceso}, prsu_contrato=#{prsuContrato}, prsu_monto_contrato=#{prsuMontoContrato}, 
+        prsu_proveedor=#{prsuProveedor}, prsu_modalidad_contrato=#{prsuModalidadContrato}, 
+        prsu_supervisor_nombre=#{prsuSupervisorNombre}, prsu_supervisor_celular=#{prsuSupervisorCelular}, 
+        prsu_coordinador_nombre=#{prsuCoordinadorNombre}, prsu_coordinador_celular=#{prsuCoordinadorCelular}, 
+        prsu_admin_cont_nombre=#{prsuAdminContNombre}, prsu_admin_cont_celular=#{prsuAdminContCelular}, 
+        prsu_fecha_inicio=#{prsuFechaInicio}, prsu_fecha_fin=#{prsuFechaFin}, 
+        prsu_tiene_adelanto=#{prsuTieneAdelanto}, prsu_fecha_firma_contrato=#{prsuFechaFirmaContrato};
+    </insert> 
+    
+    <select id="getListProySupervisionAdelanto" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, prsuad_nro, prsuad_monto, prsuad_fecha, prsuad_comentario
+        FROM inversion.proyecto_supervision_adelanto ${c}
+    </select>
+    
+    <insert id="upsertProySupervisionAdelanto" parameterType="Proyectos" >
+        INSERT INTO inversion.proyecto_supervision_adelanto(
+        proy_codigo_siaf, prsuad_nro, prsuad_monto, prsuad_fecha, prsuad_comentario)
+        VALUES (#{proyCodigoSiaf}, #{prsuadNro}, #{prsuadMonto}, #{prsuadFecha}, #{prsuadComentario})
+        ON CONFLICT ON CONSTRAINT id_proyecto_supervision_adelanto_pk 
+        DO UPDATE SET
+        prsuad_monto=#{prsuadMonto}, prsuad_fecha=#{prsuadFecha}, prsuad_comentario=#{prsuadComentario};
+    </insert> 
+    
+    <delete id="deleteProySupervisionAdelanto" parameterType="Proyectos"> 
+        DELETE FROM inversion.proyecto_supervision_adelanto
+        WHERE proy_codigo_siaf=#{proyCodigoSiaf} AND prsuad_nro=#{prsuadNro};
+    </delete> 
+    
+    <select id="getListProyUbicacion" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, prub_departamento, prub_provincia, prub_distrito, 
+        prub_localidad, prub_latitud, prub_longitud
+        FROM inversion.proyecto_ubicacion ${c}
+    </select>
+    
+    <update id="updateProyUbicacion" parameterType="Proyectos"> 
+        UPDATE inversion.proyecto_ubicacion
+        SET prub_latitud=#{prubLatitud}, prub_longitud=#{prubLongitud}
+        WHERE proy_codigo_siaf=#{proyCodigoSiaf} AND prub_departamento=#{prubDepartamento} AND 
+        prub_provincia=#{prubProvincia} AND prub_distrito=#{prubDistrito} AND prub_localidad=#{prubLocalidad};
+    </update>    
+    
+    <select id="getListProyValorizaciones" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, prcp_componente, prcp_orden, prpe_ano, prpe_mes, prva_monto_programado, 
+        prva_monto_ejecutado, prva_monto_pagado
+        FROM inversion.proyecto_valorizaciones ${c}
+    </select>
+    
+    <insert id="upsertProyValorizaciones" parameterType="Proyectos" >
+        INSERT INTO inversion.proyecto_valorizaciones(
+        proy_codigo_siaf, prcp_componente, prcp_orden, prpe_ano, prpe_mes, prva_monto_programado, 
+        prva_monto_ejecutado, prva_monto_pagado)
+        VALUES (#{proyCodigoSiaf}, #{prcpComponente}, #{prcpOrden}, #{prpeAno}, #{prpeMes}, #{prvaMontoProgramado}, 
+        #{prvaMontoEjecutado}, #{prvaMontoPagado})
+        ON CONFLICT ON CONSTRAINT id_proyecto_valorizaciones_pk 
+        DO UPDATE SET
+        prcp_orden=#{prcpOrden}, prva_monto_programado=#{prvaMontoProgramado}, 
+        prva_monto_ejecutado=#{prvaMontoEjecutado}, prva_monto_pagado=#{prvaMontoPagado};
+    </insert> 
+
+    <delete id="deleteProyValorizaciones" parameterType="Proyectos"> 
+        DELETE FROM inversion.proyecto_valorizaciones
+        WHERE proy_codigo_siaf=#{proyCodigoSiaf} AND prpe_ano=#{prpeAno} AND prpe_mes=#{prpeMes};
+    </delete> 
+    
+    <select id="getListaEjecutoras" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT a.sec_ejec, b.ejecutora, trim(b.nombre) as nombre_ejecutora
+        FROM presupuesto.meta as a 
+        INNER JOIN presupuesto.ejecutora as b ON (a.ano_eje = b.ano_eje AND a.sec_ejec = b.sec_ejec AND a.estado = b.estado) ${c}  
+    </select> 
+    
+    <select id="getListaFuncion" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT a.funcion, trim(b.nombre) as nombre_funcion
+        FROM presupuesto.meta as a 
+        INNER JOIN presupuesto.funcion as b ON (a.ano_eje = b.ano_eje AND a.funcion = b.funcion AND a.estado = b.estado) ${c}  
+    </select> 
+    
+    <select id="getListaSemaforo1" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT a.act_proy, trim(d.nombre) as proy_nombre, ${c} SUM(b.pia) as pia, SUM(b.pim) as pim, SUM(c.devengado) as devengado
+        FROM presupuesto.meta as a
+        INNER JOIN (SELECT ano_eje, sec_ejec, sec_func, SUM(presupuesto) as pia, SUM(presupuesto) + SUM(modificacion) as pim
+        FROM presupuesto.gasto GROUP BY ano_eje, sec_ejec, sec_func) as b ON (a.ano_eje = b.ano_eje AND a.sec_ejec = b.sec_ejec AND a.sec_func = b.sec_func)
+        LEFT JOIN (SELECT ano_eje, sec_ejec, sec_func, SUM(monto_nacional) as devengado
+        FROM presupuesto.expediente_meta WHERE ciclo = 'G' AND fase = 'D' AND estado_envio = 'A' GROUP BY ano_eje, sec_ejec, sec_func) as c ON 
+        (a.ano_eje = c.ano_eje AND a.sec_ejec = c.sec_ejec AND a.sec_func = c.sec_func) 
+        INNER JOIN presupuesto.act_proy_nombre as d ON (a.ano_eje = d.ano_eje AND a.act_proy = d.act_proy AND d.estado = 'A')
+        INNER JOIN presupuesto.ejecutora as e ON (a.ano_eje = e.ano_eje AND a.sec_ejec = e.sec_ejec AND e.estado = 'A') ${d}
+    </select> 
+    
+    <select id="getListaSemaforo2" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT a.act_proy, a.pia, a.pim, a.devengado, a.proy_codigo_inversion, a.proy_nombre, a.proy_monto_actualizado, a.prcp_monto_contratado,
+        a.prva_monto_ejecutado, a.devengado_acumulado, a.avance
+        FROM (
+        SELECT a.act_proy, a.pia, a.pim, a.devengado, b.proy_codigo_inversion, b.proy_nombre, b.proy_monto_actualizado, c.prcp_monto_contratado,
+        d.prva_monto_ejecutado, e.devengado_acumulado, 
+        (CASE WHEN c.prcp_monto_contratado is null THEN 0 WHEN c.prcp_monto_contratado = 0.00 THEN 0 ELSE (d.prva_monto_ejecutado/c.prcp_monto_contratado)*100 END) as avance
+        FROM
+        (SELECT a.act_proy, SUM(b.pia) as pia, SUM(b.pim) as pim, SUM(c.devengado) as devengado
+        FROM presupuesto.meta as a
+        INNER JOIN (SELECT ano_eje, sec_ejec, sec_func, SUM(presupuesto) as pia, SUM(presupuesto) + SUM(modificacion) as pim
+        FROM presupuesto.gasto GROUP BY ano_eje, sec_ejec, sec_func) as b ON (a.ano_eje = b.ano_eje AND a.sec_ejec = b.sec_ejec AND a.sec_func = b.sec_func)
+        LEFT JOIN (SELECT ano_eje, sec_ejec, sec_func, SUM(monto_nacional) as devengado
+        FROM presupuesto.expediente_meta WHERE ciclo = 'G' AND fase = 'D' AND estado_envio = 'A' GROUP BY ano_eje, sec_ejec, sec_func) as c ON 
+        (a.ano_eje = c.ano_eje AND a.sec_ejec = c.sec_ejec AND a.sec_func = c.sec_func) ${c}) as a
+        LEFT JOIN inversion.proyecto as b ON (a.act_proy = b.proy_codigo_siaf)
+        LEFT JOIN (SELECT proy_codigo_siaf, SUM(prcp_monto_contratado) as prcp_monto_contratado
+        FROM inversion.proyecto_componentes GROUP BY proy_codigo_siaf) as c ON (a.act_proy = c.proy_codigo_siaf)
+        LEFT JOIN (SELECT proy_codigo_siaf, SUM(prva_monto_ejecutado) as prva_monto_ejecutado
+        FROM inversion.proyecto_valorizaciones GROUP BY proy_codigo_siaf) as d ON (a.act_proy = d.proy_codigo_siaf)
+        LEFT JOIN (SELECT proy_codigo_siaf, SUM(devengado) as devengado_acumulado
+        FROM inversion.proyecto_historico_financiero ${d}) as e ON (a.act_proy = e.proy_codigo_siaf) ${e}) as a
+        ORDER BY a.avance DESC 
+    </select> 
+    
+    <select id="getListaSemaforo3" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT a.proy_codigo_siaf, b.proy_codigo_inversion, b.proy_nombre, b.proy_monto_actualizado, c.prcp_monto_contratado,
+        d.prva_monto_ejecutado, e.devengado_acumulado
+        FROM (SELECT proy_codigo_siaf FROM inversion.proyecto
+        EXCEPT SELECT act_proy FROM presupuesto.meta ${c} ${d}) as a
+        INNER JOIN inversion.proyecto as b ON (a.proy_codigo_siaf = b.proy_codigo_siaf)
+        LEFT JOIN (SELECT proy_codigo_siaf, SUM(prcp_monto_contratado) as prcp_monto_contratado
+        FROM inversion.proyecto_componentes GROUP BY proy_codigo_siaf) as c ON (a.proy_codigo_siaf = c.proy_codigo_siaf)
+        LEFT JOIN (SELECT proy_codigo_siaf, SUM(prva_monto_ejecutado) as prva_monto_ejecutado
+        FROM inversion.proyecto_valorizaciones GROUP BY proy_codigo_siaf) as d ON (a.proy_codigo_siaf = d.proy_codigo_siaf)
+        LEFT JOIN (SELECT proy_codigo_siaf, SUM(devengado) as devengado_acumulado
+        FROM inversion.proyecto_historico_financiero ${e}) as e ON (a.proy_codigo_siaf = e.proy_codigo_siaf) ${f}
+    </select> 
+    
+    <select id="getListaActProyEjec" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT a.act_proy, a.sec_ejec, c.ejecutora, trim(c.nombre) as nombre_ejecutora, SUM(b.presupuesto) + SUM(b.modificacion) as pim
+        FROM presupuesto.meta as a
+        INNER JOIN presupuesto.gasto as b ON (a.ano_eje = b.ano_eje AND a.sec_ejec = b.sec_ejec AND a.sec_func = b.sec_func)
+        INNER JOIN presupuesto.ejecutora as c ON (a.sec_ejec = c.sec_ejec AND c.estado = 'A') ${c}
+    </select>
+    
+    <select id="getListaHistoricoFinanciero" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, ano_eje, pia, pim, devengado
+        FROM inversion.proyecto_historico_financiero ${c}
+    </select>
+    
+    <select id="getListaHistoricoFinancieroAcum" parameterType="HashMap" resultMap="ProyectosMap">      
+        SELECT proy_codigo_siaf, SUM(pia) as pia, SUM(pim) as pim, SUM(devengado) as devengado
+        FROM inversion.proyecto_historico_financiero ${c}
+    </select>      
+    
+    <select id="getListaActualFinanciero" parameterType="HashMap" resultMap="ProyectosMap">     
+        SELECT a.act_proy, a.ano_eje, SUM(b.pia) as pia, SUM(b.pim) as pim, SUM(c.devengado) as devengado
+        FROM presupuesto.meta as a
+        INNER JOIN (SELECT ano_eje, sec_ejec, sec_func, SUM(presupuesto) as pia, SUM(presupuesto) + SUM(modificacion) as pim
+        FROM presupuesto.gasto GROUP BY ano_eje, sec_ejec, sec_func) as b ON (a.ano_eje = b.ano_eje AND a.sec_ejec = b.sec_ejec AND a.sec_func = b.sec_func)
+        LEFT JOIN (SELECT ano_eje, sec_ejec, sec_func, SUM(monto_nacional) as devengado
+        FROM presupuesto.expediente_meta WHERE ciclo = 'G' AND fase = 'D' AND estado_envio = 'A' GROUP BY ano_eje, sec_ejec, sec_func) as c ON 
+        (a.ano_eje = c.ano_eje AND a.sec_ejec = c.sec_ejec AND a.sec_func = c.sec_func) ${c}
+    </select>  
+    
+    <select id="getListaActualDetallado" parameterType="HashMap" resultMap="ProyectosMap">              
+        SELECT a.ano_eje, a.sec_ejec, e.ejecutora, a.fuente_financ, trim(g.nombre) as nombre_fuente_financ, a.sec_func, f.clasificador, a.pia, a.pim, b.devengado
+        FROM (SELECT ano_eje, sec_ejec, fuente_financ, sec_func, id_clasificador, SUM(presupuesto) as pia,
+        SUM(presupuesto) + SUM(modificacion) as pim FROM presupuesto.gasto GROUP BY ano_eje, sec_ejec, fuente_financ, sec_func, id_clasificador) as a
+        LEFT JOIN (SELECT a.ano_eje, a.sec_ejec, b.fuente_financ, a.sec_func, a.id_clasificador, SUM(a.monto_nacional) as devengado
+        FROM presupuesto.expediente_meta as a 
+        LEFT JOIN presupuesto.expediente_fase as b ON (a.ano_eje = b.ano_eje AND a.sec_ejec = b.sec_ejec AND a.expediente = b.expediente AND 
+        a.ciclo = b.ciclo AND a.fase = b.fase AND a.secuencia = b.secuencia AND a.estado_envio = b.estado_envio)
+        WHERE a.ciclo = 'G' AND a.fase = 'D' AND a.estado_envio = 'A'
+        GROUP BY a.ano_eje, a.sec_ejec, b.fuente_financ, a.sec_func, a.id_clasificador) as b   
+        ON (a.ano_eje = b.ano_eje AND a.sec_ejec = b.sec_ejec AND a.fuente_financ = b.fuente_financ AND a.sec_func = b.sec_func AND a.id_clasificador = b.id_clasificador)    
+        INNER JOIN presupuesto.meta as d ON (a.ano_eje = d.ano_eje AND a.sec_ejec = d.sec_ejec AND a.sec_func = d.sec_func AND d.estado = 'A')
+        INNER JOIN presupuesto.ejecutora as e ON (a.ano_eje = e.ano_eje AND a.sec_ejec = e.sec_ejec AND e.estado = 'A')
+        INNER JOIN presupuesto.especifica_det as f ON (a.ano_eje = f.ano_eje AND a.id_clasificador = f.id_clasificador AND f.estado = 'A')
+        INNER JOIN presupuesto.fuente_financ as g ON (a.ano_eje = g.ano_eje AND a.fuente_financ = g.fuente_financ AND g.estado = 'A') ${c} 
+    </select>   
+        
+    <select id="getListaHistoricoPagos" parameterType="HashMap" resultMap="ProyectosMap">    
+        SELECT a.ano_eje, a.sec_ejec, e.ejecutora, c.fecha_doc, a.expediente, a.sec_func, b.fuente_financ, f.clasificador, b.ruc, 
+        g.nombre as razon_social, b.certificado as certificacion, a.monto_nacional as devengado
+        FROM presupuesto.expediente_meta as a
+        INNER JOIN presupuesto.expediente_fase as b ON (a.ano_eje = b.ano_eje AND a.sec_ejec = b.sec_ejec AND a.expediente = b.expediente AND 
+        a.ciclo = b.ciclo AND a.fase = b.fase AND a.secuencia = b.secuencia AND a.estado_envio = b.estado_envio)
+        INNER JOIN presupuesto.expediente_secuencia as c ON (a.ano_eje = c.ano_eje AND a.sec_ejec = c.sec_ejec AND a.expediente = c.expediente AND 
+        a.ciclo = c.ciclo AND a.fase = c.fase AND a.secuencia = c.secuencia AND a.correlativo = c.correlativo AND a.estado_envio = c.estado_envio)
+        INNER JOIN presupuesto.meta as d ON (a.ano_eje = d.ano_eje AND a.sec_ejec = d.sec_ejec AND a.sec_func = d.sec_func AND d.estado = 'A')
+        INNER JOIN presupuesto.ejecutora as e ON (a.ano_eje = e.ano_eje AND a.sec_ejec = e.sec_ejec AND e.estado = 'A')
+        INNER JOIN presupuesto.especifica_det as f ON (a.ano_eje = f.ano_eje AND a.id_clasificador = f.id_clasificador AND f.estado = 'A')
+        LEFT JOIN presupuesto.persona as g ON (b.ruc = g.ruc AND g.estado = 'A') ${c}
+    </select>                    
+            
+</mapper>

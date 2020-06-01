@@ -1,0 +1,1833 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://webservice.presupuesto/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webservice.presupuesto/">
+
+<xs:element name="insertLogsSincronizar" type="tns:insertLogsSincronizar" />
+
+<xs:element name="insertLogsSincronizarResponse" type="tns:insertLogsSincronizarResponse" />
+
+<xs:element name="upsertActProyNombre" type="tns:upsertActProyNombre" />
+
+<xs:element name="upsertActProyNombreResponse" type="tns:upsertActProyNombreResponse" />
+
+<xs:element name="upsertBanco" type="tns:upsertBanco" />
+
+<xs:element name="upsertBancoResponse" type="tns:upsertBancoResponse" />
+
+<xs:element name="upsertCategoriaGasto" type="tns:upsertCategoriaGasto" />
+
+<xs:element name="upsertCategoriaGastoResponse" type="tns:upsertCategoriaGastoResponse" />
+
+<xs:element name="upsertCategoriaIngreso" type="tns:upsertCategoriaIngreso" />
+
+<xs:element name="upsertCategoriaIngresoResponse" type="tns:upsertCategoriaIngresoResponse" />
+
+<xs:element name="upsertCertificado" type="tns:upsertCertificado" />
+
+<xs:element name="upsertCertificadoFase" type="tns:upsertCertificadoFase" />
+
+<xs:element name="upsertCertificadoFaseResponse" type="tns:upsertCertificadoFaseResponse" />
+
+<xs:element name="upsertCertificadoMeta" type="tns:upsertCertificadoMeta" />
+
+<xs:element name="upsertCertificadoMetaResponse" type="tns:upsertCertificadoMetaResponse" />
+
+<xs:element name="upsertCertificadoResponse" type="tns:upsertCertificadoResponse" />
+
+<xs:element name="upsertCertificadoSecuencia" type="tns:upsertCertificadoSecuencia" />
+
+<xs:element name="upsertCertificadoSecuenciaResponse" type="tns:upsertCertificadoSecuenciaResponse" />
+
+<xs:element name="upsertCiclo" type="tns:upsertCiclo" />
+
+<xs:element name="upsertCicloResponse" type="tns:upsertCicloResponse" />
+
+<xs:element name="upsertComponenteNombre" type="tns:upsertComponenteNombre" />
+
+<xs:element name="upsertComponenteNombreResponse" type="tns:upsertComponenteNombreResponse" />
+
+<xs:element name="upsertCtaCte" type="tns:upsertCtaCte" />
+
+<xs:element name="upsertCtaCteResponse" type="tns:upsertCtaCteResponse" />
+
+<xs:element name="upsertDepartamento" type="tns:upsertDepartamento" />
+
+<xs:element name="upsertDepartamentoResponse" type="tns:upsertDepartamentoResponse" />
+
+<xs:element name="upsertDistrito" type="tns:upsertDistrito" />
+
+<xs:element name="upsertDistritoResponse" type="tns:upsertDistritoResponse" />
+
+<xs:element name="upsertEjecucionHistoricaActual" type="tns:upsertEjecucionHistoricaActual" />
+
+<xs:element name="upsertEjecucionHistoricaActualResponse" type="tns:upsertEjecucionHistoricaActualResponse" />
+
+<xs:element name="upsertEjecucionHistoricaTotal" type="tns:upsertEjecucionHistoricaTotal" />
+
+<xs:element name="upsertEjecucionHistoricaTotalResponse" type="tns:upsertEjecucionHistoricaTotalResponse" />
+
+<xs:element name="upsertEjecutora" type="tns:upsertEjecutora" />
+
+<xs:element name="upsertEjecutoraResponse" type="tns:upsertEjecutoraResponse" />
+
+<xs:element name="upsertEspecifica" type="tns:upsertEspecifica" />
+
+<xs:element name="upsertEspecificaDet" type="tns:upsertEspecificaDet" />
+
+<xs:element name="upsertEspecificaDetResponse" type="tns:upsertEspecificaDetResponse" />
+
+<xs:element name="upsertEspecificaResponse" type="tns:upsertEspecificaResponse" />
+
+<xs:element name="upsertExpediente" type="tns:upsertExpediente" />
+
+<xs:element name="upsertExpedienteAdjunto" type="tns:upsertExpedienteAdjunto" />
+
+<xs:element name="upsertExpedienteAdjuntoResponse" type="tns:upsertExpedienteAdjuntoResponse" />
+
+<xs:element name="upsertExpedienteDocumento" type="tns:upsertExpedienteDocumento" />
+
+<xs:element name="upsertExpedienteDocumentoResponse" type="tns:upsertExpedienteDocumentoResponse" />
+
+<xs:element name="upsertExpedienteFase" type="tns:upsertExpedienteFase" />
+
+<xs:element name="upsertExpedienteFaseResponse" type="tns:upsertExpedienteFaseResponse" />
+
+<xs:element name="upsertExpedienteIngreso" type="tns:upsertExpedienteIngreso" />
+
+<xs:element name="upsertExpedienteIngresoResponse" type="tns:upsertExpedienteIngresoResponse" />
+
+<xs:element name="upsertExpedienteMeta" type="tns:upsertExpedienteMeta" />
+
+<xs:element name="upsertExpedienteMetaResponse" type="tns:upsertExpedienteMetaResponse" />
+
+<xs:element name="upsertExpedienteNota" type="tns:upsertExpedienteNota" />
+
+<xs:element name="upsertExpedienteNotaResponse" type="tns:upsertExpedienteNotaResponse" />
+
+<xs:element name="upsertExpedienteResponse" type="tns:upsertExpedienteResponse" />
+
+<xs:element name="upsertExpedienteSecuencia" type="tns:upsertExpedienteSecuencia" />
+
+<xs:element name="upsertExpedienteSecuenciaResponse" type="tns:upsertExpedienteSecuenciaResponse" />
+
+<xs:element name="upsertFase" type="tns:upsertFase" />
+
+<xs:element name="upsertFaseResponse" type="tns:upsertFaseResponse" />
+
+<xs:element name="upsertFinalidad" type="tns:upsertFinalidad" />
+
+<xs:element name="upsertFinalidadResponse" type="tns:upsertFinalidadResponse" />
+
+<xs:element name="upsertFuenteFinanc" type="tns:upsertFuenteFinanc" />
+
+<xs:element name="upsertFuenteFinancAgregada" type="tns:upsertFuenteFinancAgregada" />
+
+<xs:element name="upsertFuenteFinancAgregadaResponse" type="tns:upsertFuenteFinancAgregadaResponse" />
+
+<xs:element name="upsertFuenteFinancResponse" type="tns:upsertFuenteFinancResponse" />
+
+<xs:element name="upsertFuncion" type="tns:upsertFuncion" />
+
+<xs:element name="upsertFuncionResponse" type="tns:upsertFuncionResponse" />
+
+<xs:element name="upsertGasto" type="tns:upsertGasto" />
+
+<xs:element name="upsertGastoResponse" type="tns:upsertGastoResponse" />
+
+<xs:element name="upsertGenerica" type="tns:upsertGenerica" />
+
+<xs:element name="upsertGenericaResponse" type="tns:upsertGenericaResponse" />
+
+<xs:element name="upsertIngreso" type="tns:upsertIngreso" />
+
+<xs:element name="upsertIngresoResponse" type="tns:upsertIngresoResponse" />
+
+<xs:element name="upsertMaestroDocumento" type="tns:upsertMaestroDocumento" />
+
+<xs:element name="upsertMaestroDocumentoResponse" type="tns:upsertMaestroDocumentoResponse" />
+
+<xs:element name="upsertMeta" type="tns:upsertMeta" />
+
+<xs:element name="upsertMetaResponse" type="tns:upsertMetaResponse" />
+
+<xs:element name="upsertNotaModificatoriaCab" type="tns:upsertNotaModificatoriaCab" />
+
+<xs:element name="upsertNotaModificatoriaCabResponse" type="tns:upsertNotaModificatoriaCabResponse" />
+
+<xs:element name="upsertNotaModificatoriaDet" type="tns:upsertNotaModificatoriaDet" />
+
+<xs:element name="upsertNotaModificatoriaDetResponse" type="tns:upsertNotaModificatoriaDetResponse" />
+
+<xs:element name="upsertNotaModificatoriaDoc" type="tns:upsertNotaModificatoriaDoc" />
+
+<xs:element name="upsertNotaModificatoriaDocResponse" type="tns:upsertNotaModificatoriaDocResponse" />
+
+<xs:element name="upsertNotaModificatoriaIng" type="tns:upsertNotaModificatoriaIng" />
+
+<xs:element name="upsertNotaModificatoriaIngResponse" type="tns:upsertNotaModificatoriaIngResponse" />
+
+<xs:element name="upsertNotaModificatoriaSec" type="tns:upsertNotaModificatoriaSec" />
+
+<xs:element name="upsertNotaModificatoriaSecResponse" type="tns:upsertNotaModificatoriaSecResponse" />
+
+<xs:element name="upsertPadronPersona" type="tns:upsertPadronPersona" />
+
+<xs:element name="upsertPadronPersonaResponse" type="tns:upsertPadronPersonaResponse" />
+
+<xs:element name="upsertPersona" type="tns:upsertPersona" />
+
+<xs:element name="upsertPersonaCciEjec" type="tns:upsertPersonaCciEjec" />
+
+<xs:element name="upsertPersonaCciEjecResponse" type="tns:upsertPersonaCciEjecResponse" />
+
+<xs:element name="upsertPersonaResponse" type="tns:upsertPersonaResponse" />
+
+<xs:element name="upsertPliego" type="tns:upsertPliego" />
+
+<xs:element name="upsertPliegoResponse" type="tns:upsertPliegoResponse" />
+
+<xs:element name="upsertProgramaNombre" type="tns:upsertProgramaNombre" />
+
+<xs:element name="upsertProgramaNombreResponse" type="tns:upsertProgramaNombreResponse" />
+
+<xs:element name="upsertProgramaPptoNombre" type="tns:upsertProgramaPptoNombre" />
+
+<xs:element name="upsertProgramaPptoNombreResponse" type="tns:upsertProgramaPptoNombreResponse" />
+
+<xs:element name="upsertProvincia" type="tns:upsertProvincia" />
+
+<xs:element name="upsertProvinciaResponse" type="tns:upsertProvinciaResponse" />
+
+<xs:element name="upsertRecaudacionHistoricaActual" type="tns:upsertRecaudacionHistoricaActual" />
+
+<xs:element name="upsertRecaudacionHistoricaActualResponse" type="tns:upsertRecaudacionHistoricaActualResponse" />
+
+<xs:element name="upsertRecaudacionHistoricaTotal" type="tns:upsertRecaudacionHistoricaTotal" />
+
+<xs:element name="upsertRecaudacionHistoricaTotalResponse" type="tns:upsertRecaudacionHistoricaTotalResponse" />
+
+<xs:element name="upsertSector" type="tns:upsertSector" />
+
+<xs:element name="upsertSectorResponse" type="tns:upsertSectorResponse" />
+
+<xs:element name="upsertSubGenerica" type="tns:upsertSubGenerica" />
+
+<xs:element name="upsertSubGenericaDet" type="tns:upsertSubGenericaDet" />
+
+<xs:element name="upsertSubGenericaDetResponse" type="tns:upsertSubGenericaDetResponse" />
+
+<xs:element name="upsertSubGenericaResponse" type="tns:upsertSubGenericaResponse" />
+
+<xs:element name="upsertSubProgramaNombre" type="tns:upsertSubProgramaNombre" />
+
+<xs:element name="upsertSubProgramaNombreResponse" type="tns:upsertSubProgramaNombreResponse" />
+
+<xs:element name="upsertTipoDocumento" type="tns:upsertTipoDocumento" />
+
+<xs:element name="upsertTipoDocumentoResponse" type="tns:upsertTipoDocumentoResponse" />
+
+<xs:element name="upsertTipoOperacion" type="tns:upsertTipoOperacion" />
+
+<xs:element name="upsertTipoOperacionResponse" type="tns:upsertTipoOperacionResponse" />
+
+<xs:element name="upsertTipoProgramaPpto" type="tns:upsertTipoProgramaPpto" />
+
+<xs:element name="upsertTipoProgramaPptoResponse" type="tns:upsertTipoProgramaPptoResponse" />
+
+<xs:element name="upsertTipoRecurso" type="tns:upsertTipoRecurso" />
+
+<xs:element name="upsertTipoRecursoResponse" type="tns:upsertTipoRecursoResponse" />
+
+<xs:element name="upsertTipoTransaccion" type="tns:upsertTipoTransaccion" />
+
+<xs:element name="upsertTipoTransaccionResponse" type="tns:upsertTipoTransaccionResponse" />
+
+<xs:complexType name="upsertEjecucionHistoricaTotal">
+<xs:sequence>
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertEjecucionHistoricaTotalResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertCategoriaGasto">
+<xs:sequence>
+<xs:element name="dataCategoriaGasto" type="tns:categoriaGasto" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="categoriaGasto">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="categ_gasto" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertCategoriaGastoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertDepartamento">
+<xs:sequence>
+<xs:element name="dataDepartamento" type="tns:departamento" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="departamento">
+<xs:sequence>
+<xs:element name="departamento" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertDepartamentoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertTipoOperacion">
+<xs:sequence>
+<xs:element name="dataTipoOperacion" type="tns:tipoOperacion" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipoOperacion">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="ciclo" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_operacion" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertTipoOperacionResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertTipoTransaccion">
+<xs:sequence>
+<xs:element name="dataTipoTransaccion" type="tns:tipoTransaccion" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipoTransaccion">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_transaccion" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertTipoTransaccionResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertMeta">
+<xs:sequence>
+<xs:element name="dataMeta" type="tns:meta" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="meta">
+<xs:sequence>
+<xs:element name="act_proy" type="xs:string" minOccurs="0" />
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="componente" type="xs:string" minOccurs="0" />
+<xs:element name="departamento" type="xs:string" minOccurs="0" />
+<xs:element name="distrito" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="finalidad" type="xs:string" minOccurs="0" />
+<xs:element name="funcion" type="xs:string" minOccurs="0" />
+<xs:element name="meta" type="xs:string" minOccurs="0" />
+<xs:element name="programa" type="xs:string" minOccurs="0" />
+<xs:element name="programa_ppto" type="xs:string" minOccurs="0" />
+<xs:element name="provincia" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="sec_func" type="xs:string" minOccurs="0" />
+<xs:element name="sub_programa" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertMetaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertEspecificaDet">
+<xs:sequence>
+<xs:element name="dataEspecificaDet" type="tns:especificaDet" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="especificaDet">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="clasificador" type="xs:string" minOccurs="0" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="especifica" type="xs:string" minOccurs="0" />
+<xs:element name="especifica_det" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="generica" type="xs:string" minOccurs="0" />
+<xs:element name="id_clasificador" type="xs:string" minOccurs="0" />
+<xs:element name="subgenerica" type="xs:string" minOccurs="0" />
+<xs:element name="subgenerica_det" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_transaccion" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertEspecificaDetResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertExpediente">
+<xs:sequence>
+<xs:element name="dataExpediente" type="tns:expediente" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="expediente">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="estado_envio" type="xs:string" minOccurs="0" />
+<xs:element name="expediente" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertExpedienteResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertProgramaNombre">
+<xs:sequence>
+<xs:element name="dataProgramaNombre" type="tns:programaNombre" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="programaNombre">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="programa" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertProgramaNombreResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertRecaudacionHistoricaActual">
+<xs:sequence>
+<xs:element name="ano" type="xs:int" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertRecaudacionHistoricaActualResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertSector">
+<xs:sequence>
+<xs:element name="dataSector" type="tns:sector" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sector">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="sector" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertSectorResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertTipoDocumento">
+<xs:sequence>
+<xs:element name="dataTipoDocumento" type="tns:tipoDocumento" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipoDocumento">
+<xs:sequence>
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_documento" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertTipoDocumentoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertTipoProgramaPpto">
+<xs:sequence>
+<xs:element name="dataTipoProgramaPpto" type="tns:tipoProgramaPpto" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipoProgramaPpto">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_programa_ppto" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertTipoProgramaPptoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertBanco">
+<xs:sequence>
+<xs:element name="dataBanco" type="tns:banco" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="banco">
+<xs:sequence>
+<xs:element name="banco" type="xs:string" minOccurs="0" />
+<xs:element name="es_financiera" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec_ruc" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertBancoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertProgramaPptoNombre">
+<xs:sequence>
+<xs:element name="dataProgramaPptoNombre" type="tns:programaPptoNombre" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="programaPptoNombre">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="programa_ppto" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertProgramaPptoNombreResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertExpedienteSecuencia">
+<xs:sequence>
+<xs:element name="dataExpedienteSecuencia" type="tns:expedienteSecuencia" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="expedienteSecuencia">
+<xs:sequence>
+<xs:element name="ano_cta_cte" type="xs:string" minOccurs="0" />
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="banco" type="xs:string" minOccurs="0" />
+<xs:element name="ciclo" type="xs:string" minOccurs="0" />
+<xs:element name="cod_doc" type="xs:string" minOccurs="0" />
+<xs:element name="correlativo" type="xs:string" minOccurs="0" />
+<xs:element name="cta_cte" type="xs:string" minOccurs="0" />
+<xs:element name="estado_envio" type="xs:string" minOccurs="0" />
+<xs:element name="expediente" type="xs:string" minOccurs="0" />
+<xs:element name="fase" type="xs:string" minOccurs="0" />
+<xs:element name="fecha_autorizacion" type="xs:dateTime" minOccurs="0" />
+<xs:element name="fecha_autorizacion_xml" type="xs:anySimpleType" minOccurs="0" />
+<xs:element name="fecha_doc" type="xs:dateTime" minOccurs="0" />
+<xs:element name="fecha_doc_xml" type="xs:anySimpleType" minOccurs="0" />
+<xs:element name="monto" type="xs:decimal" minOccurs="0" />
+<xs:element name="monto_nacional" type="xs:decimal" minOccurs="0" />
+<xs:element name="num_doc" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="secuencia" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertExpedienteSecuenciaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertCertificadoFase">
+<xs:sequence>
+<xs:element name="dataCertificadoFase" type="tns:certificadoFase" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="certificadoFase">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="certificado" type="xs:string" minOccurs="0" />
+<xs:element name="estado_envio" type="xs:string" minOccurs="0" />
+<xs:element name="estado_registro" type="xs:string" minOccurs="0" />
+<xs:element name="etapa" type="xs:string" minOccurs="0" />
+<xs:element name="fuente_financ" type="xs:string" minOccurs="0" />
+<xs:element name="glosa" type="xs:string" minOccurs="0" />
+<xs:element name="monto" type="xs:decimal" minOccurs="0" />
+<xs:element name="monto_comprometido" type="xs:decimal" minOccurs="0" />
+<xs:element name="monto_nacional" type="xs:decimal" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="secuencia" type="xs:string" minOccurs="0" />
+<xs:element name="secuencia_padre" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertCertificadoFaseResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertCtaCte">
+<xs:sequence>
+<xs:element name="dataCtaCte" type="tns:ctaCte" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ctaCte">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="banco" type="xs:string" minOccurs="0" />
+<xs:element name="cta_cte" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertCtaCteResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertSubGenericaDet">
+<xs:sequence>
+<xs:element name="dataSubGenericaDet" type="tns:subGenericaDet" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="subGenericaDet">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="categoria_gasto" type="xs:string" minOccurs="0" />
+<xs:element name="categoria_ingreso" type="xs:string" minOccurs="0" />
+<xs:element name="clasificador" type="xs:string" minOccurs="0" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="generica" type="xs:string" minOccurs="0" />
+<xs:element name="subgenerica" type="xs:string" minOccurs="0" />
+<xs:element name="subgenerica_det" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_transaccion" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertSubGenericaDetResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertPliego">
+<xs:sequence>
+<xs:element name="dataPliego" type="tns:pliego" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pliego">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="pliego" type="xs:string" minOccurs="0" />
+<xs:element name="sector" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertPliegoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertExpedienteAdjunto">
+<xs:sequence>
+<xs:element name="dataExpedienteAdjunto" type="tns:expedienteAdjunto" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="expedienteAdjunto">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="ciclo" type="xs:string" minOccurs="0" />
+<xs:element name="correlativo" type="xs:string" minOccurs="0" />
+<xs:element name="cta_bancaria" type="xs:string" minOccurs="0" />
+<xs:element name="estado_envio" type="xs:string" minOccurs="0" />
+<xs:element name="expediente" type="xs:string" minOccurs="0" />
+<xs:element name="fase" type="xs:string" minOccurs="0" />
+<xs:element name="monto" type="xs:decimal" minOccurs="0" />
+<xs:element name="num_doc" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="secuencia" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_doc" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertExpedienteAdjuntoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertFuenteFinancAgregada">
+<xs:sequence>
+<xs:element name="dataFuenteFinancAgregada" type="tns:fuenteFinancAgregada" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="fuenteFinancAgregada">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="fuente_financ_agregada" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertFuenteFinancAgregadaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertNotaModificatoriaIng">
+<xs:sequence>
+<xs:element name="dataNotaModificatoriaIng" type="tns:notaModificatoriaIng" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="notaModificatoriaIng">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="fuente_financ" type="xs:string" minOccurs="0" />
+<xs:element name="id_clasificador" type="xs:string" minOccurs="0" />
+<xs:element name="monto_a" type="xs:decimal" minOccurs="0" />
+<xs:element name="monto_de" type="xs:decimal" minOccurs="0" />
+<xs:element name="origen" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec2" type="xs:string" minOccurs="0" />
+<xs:element name="sec_nota" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_recurso" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertNotaModificatoriaIngResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertExpedienteFase">
+<xs:sequence>
+<xs:element name="dataExpedienteFase" type="tns:expedienteFase" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="expedienteFase">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="certificado" type="xs:string" minOccurs="0" />
+<xs:element name="ciclo" type="xs:string" minOccurs="0" />
+<xs:element name="estado_envio" type="xs:string" minOccurs="0" />
+<xs:element name="expediente" type="xs:string" minOccurs="0" />
+<xs:element name="fase" type="xs:string" minOccurs="0" />
+<xs:element name="fuente_financ" type="xs:string" minOccurs="0" />
+<xs:element name="monto_nacional" type="xs:decimal" minOccurs="0" />
+<xs:element name="ruc" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="secuencia" type="xs:string" minOccurs="0" />
+<xs:element name="secuencia_padre" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_id" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_pago" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_recurso" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertExpedienteFaseResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertEjecucionHistoricaActual">
+<xs:sequence>
+<xs:element name="ano" type="xs:int" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertEjecucionHistoricaActualResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertDistrito">
+<xs:sequence>
+<xs:element name="dataDistrito" type="tns:distrito" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="distrito">
+<xs:sequence>
+<xs:element name="departamento" type="xs:string" minOccurs="0" />
+<xs:element name="distrito" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="provincia" type="xs:string" minOccurs="0" />
+<xs:element name="region" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertDistritoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertNotaModificatoriaSec">
+<xs:sequence>
+<xs:element name="dataNotaModificatoriaSec" type="tns:notaModificatoriaSec" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="notaModificatoriaSec">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="estado2" type="xs:string" minOccurs="0" />
+<xs:element name="fecha" type="xs:dateTime" minOccurs="0" />
+<xs:element name="fecha_xml" type="xs:anySimpleType" minOccurs="0" />
+<xs:element name="notas" type="xs:string" minOccurs="0" />
+<xs:element name="sec_doc" type="xs:string" minOccurs="0" />
+<xs:element name="sec_doc_r" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec2" type="xs:string" minOccurs="0" />
+<xs:element name="sec_nota" type="xs:string" minOccurs="0" />
+<xs:element name="secuencia" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertNotaModificatoriaSecResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertPersona">
+<xs:sequence>
+<xs:element name="dataPersona" type="tns:persona" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="persona">
+<xs:sequence>
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="ruc" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_id" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertPersonaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertGasto">
+<xs:sequence>
+<xs:element name="dataGasto" type="tns:gasto" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="gasto">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="compromiso" type="xs:decimal" minOccurs="0" />
+<xs:element name="devengado" type="xs:decimal" minOccurs="0" />
+<xs:element name="ejecucion" type="xs:decimal" minOccurs="0" />
+<xs:element name="fuente_financ" type="xs:string" minOccurs="0" />
+<xs:element name="girado" type="xs:decimal" minOccurs="0" />
+<xs:element name="id_clasificador" type="xs:string" minOccurs="0" />
+<xs:element name="modificacion" type="xs:decimal" minOccurs="0" />
+<xs:element name="monto_certificado" type="xs:decimal" minOccurs="0" />
+<xs:element name="monto_comprometido_anual" type="xs:decimal" minOccurs="0" />
+<xs:element name="monto_precertificado" type="xs:decimal" minOccurs="0" />
+<xs:element name="origen" type="xs:string" minOccurs="0" />
+<xs:element name="pagado" type="xs:decimal" minOccurs="0" />
+<xs:element name="presupuesto" type="xs:decimal" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="sec_func" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_recurso" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertGastoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertCategoriaIngreso">
+<xs:sequence>
+<xs:element name="dataCategoriaIngreso" type="tns:categoriaIngreso" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="categoriaIngreso">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="categoria_ingreso" type="xs:string" minOccurs="0" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertCategoriaIngresoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertSubGenerica">
+<xs:sequence>
+<xs:element name="dataSubGenerica" type="tns:subGenerica" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="subGenerica">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="clasificador" type="xs:string" minOccurs="0" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="generica" type="xs:string" minOccurs="0" />
+<xs:element name="subgenerica" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_transaccion" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertSubGenericaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertExpedienteDocumento">
+<xs:sequence>
+<xs:element name="dataExpedienteDocumento" type="tns:expedienteDocumento" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="expedienteDocumento">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="ciclo" type="xs:string" minOccurs="0" />
+<xs:element name="cod_doc" type="xs:string" minOccurs="0" />
+<xs:element name="correlativo" type="xs:string" minOccurs="0" />
+<xs:element name="estado_envio" type="xs:string" minOccurs="0" />
+<xs:element name="expediente" type="xs:string" minOccurs="0" />
+<xs:element name="fase" type="xs:string" minOccurs="0" />
+<xs:element name="fecha_doc" type="xs:dateTime" minOccurs="0" />
+<xs:element name="fecha_doc_xml" type="xs:anySimpleType" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="num_doc" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="secuencia" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertExpedienteDocumentoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertFase">
+<xs:sequence>
+<xs:element name="dataFase" type="tns:fase" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="fase">
+<xs:sequence>
+<xs:element name="ciclo" type="xs:string" minOccurs="0" />
+<xs:element name="fase" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertFaseResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertNotaModificatoriaCab">
+<xs:sequence>
+<xs:element name="dataNotaModificatoriaCab" type="tns:notaModificatoriaCab" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="notaModificatoriaCab">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="ind_habilita" type="xs:string" minOccurs="0" />
+<xs:element name="mes_eje" type="xs:string" minOccurs="0" />
+<xs:element name="monto" type="xs:decimal" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec2" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec_procedencia" type="xs:string" minOccurs="0" />
+<xs:element name="sec_nota" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_modificacion" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertNotaModificatoriaCabResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertPersonaCciEjec">
+<xs:sequence>
+<xs:element name="dataPersonaCciEjec" type="tns:personaCciEjec" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="personaCciEjec">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="cci" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="observaciones" type="xs:string" minOccurs="0" />
+<xs:element name="ruc" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="secuencia" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_id" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertPersonaCciEjecResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertTipoRecurso">
+<xs:sequence>
+<xs:element name="dataTipoRecurso" type="tns:tipoRecurso" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipoRecurso">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="fuente_financ" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="origen" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_recurso" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertTipoRecursoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="insertLogsSincronizar">
+<xs:sequence>
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+<xs:element name="sync" type="xs:string" minOccurs="0" />
+<xs:element name="log_cliente" type="xs:string" minOccurs="0" />
+<xs:element name="log_servidor" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertLogsSincronizarResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertCiclo">
+<xs:sequence>
+<xs:element name="dataCiclo" type="tns:ciclo" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ciclo">
+<xs:sequence>
+<xs:element name="ciclo" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertCicloResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertGenerica">
+<xs:sequence>
+<xs:element name="dataGenerica" type="tns:generica" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="generica">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="clasificador" type="xs:string" minOccurs="0" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="generica" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_transaccion" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertGenericaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertProvincia">
+<xs:sequence>
+<xs:element name="dataProvincia" type="tns:provincia" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="provincia">
+<xs:sequence>
+<xs:element name="departamento" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="provincia" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertProvinciaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertNotaModificatoriaDoc">
+<xs:sequence>
+<xs:element name="dataNotaModificatoriaDoc" type="tns:notaModificatoriaDoc" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="notaModificatoriaDoc">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="cod_doc" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="fecha_doc" type="xs:dateTime" minOccurs="0" />
+<xs:element name="fecha_doc_xml" type="xs:anySimpleType" minOccurs="0" />
+<xs:element name="num_doc" type="xs:string" minOccurs="0" />
+<xs:element name="observacion" type="xs:string" minOccurs="0" />
+<xs:element name="sec_doc" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertNotaModificatoriaDocResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertFinalidad">
+<xs:sequence>
+<xs:element name="dataFinalidad" type="tns:finalidad" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="finalidad">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="finalidad" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertFinalidadResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertIngreso">
+<xs:sequence>
+<xs:element name="dataIngreso" type="tns:ingreso" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ingreso">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="ejecucion" type="xs:decimal" minOccurs="0" />
+<xs:element name="fuente_financ" type="xs:string" minOccurs="0" />
+<xs:element name="id_clasificador" type="xs:string" minOccurs="0" />
+<xs:element name="modificacion" type="xs:decimal" minOccurs="0" />
+<xs:element name="origen" type="xs:string" minOccurs="0" />
+<xs:element name="presupuesto" type="xs:decimal" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_recurso" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertIngresoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertRecaudacionHistoricaTotal">
+<xs:sequence>
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertRecaudacionHistoricaTotalResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertCertificadoMeta">
+<xs:sequence>
+<xs:element name="dataCertificadoMeta" type="tns:certificadoMeta" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="certificadoMeta">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="certificado" type="xs:string" minOccurs="0" />
+<xs:element name="correlativo" type="xs:string" minOccurs="0" />
+<xs:element name="estado_envio" type="xs:string" minOccurs="0" />
+<xs:element name="estado_registro" type="xs:string" minOccurs="0" />
+<xs:element name="id_clasificador" type="xs:string" minOccurs="0" />
+<xs:element name="monto" type="xs:decimal" minOccurs="0" />
+<xs:element name="monto_comprometido" type="xs:decimal" minOccurs="0" />
+<xs:element name="monto_nacional" type="xs:decimal" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="sec_func" type="xs:string" minOccurs="0" />
+<xs:element name="secuencia" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertCertificadoMetaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertExpedienteIngreso">
+<xs:sequence>
+<xs:element name="dataExpedienteIngreso" type="tns:expedienteIngreso" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="expedienteIngreso">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="ciclo" type="xs:string" minOccurs="0" />
+<xs:element name="correlativo" type="xs:string" minOccurs="0" />
+<xs:element name="estado_envio" type="xs:string" minOccurs="0" />
+<xs:element name="expediente" type="xs:string" minOccurs="0" />
+<xs:element name="fase" type="xs:string" minOccurs="0" />
+<xs:element name="id_clasificador" type="xs:string" minOccurs="0" />
+<xs:element name="monto" type="xs:decimal" minOccurs="0" />
+<xs:element name="monto_nacional" type="xs:decimal" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="secuencia" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertExpedienteIngresoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertMaestroDocumento">
+<xs:sequence>
+<xs:element name="dataMaestroDocumento" type="tns:maestroDocumento" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="maestroDocumento">
+<xs:sequence>
+<xs:element name="cod_doc" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertMaestroDocumentoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertEjecutora">
+<xs:sequence>
+<xs:element name="dataEjecutora" type="tns:ejecutora" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ejecutora">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="ejecutora" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="pliego" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="sector" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_unidad" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertEjecutoraResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertExpedienteMeta">
+<xs:sequence>
+<xs:element name="dataExpedienteMeta" type="tns:expedienteMeta" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="expedienteMeta">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="ciclo" type="xs:string" minOccurs="0" />
+<xs:element name="correlativo" type="xs:string" minOccurs="0" />
+<xs:element name="estado_envio" type="xs:string" minOccurs="0" />
+<xs:element name="expediente" type="xs:string" minOccurs="0" />
+<xs:element name="fase" type="xs:string" minOccurs="0" />
+<xs:element name="id_clasificador" type="xs:string" minOccurs="0" />
+<xs:element name="monto" type="xs:decimal" minOccurs="0" />
+<xs:element name="monto_nacional" type="xs:decimal" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="sec_func" type="xs:string" minOccurs="0" />
+<xs:element name="secuencia" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertExpedienteMetaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertEspecifica">
+<xs:sequence>
+<xs:element name="dataEspecifica" type="tns:especifica" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="especifica">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="clasificador" type="xs:string" minOccurs="0" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="especifica" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="generica" type="xs:string" minOccurs="0" />
+<xs:element name="subgenerica" type="xs:string" minOccurs="0" />
+<xs:element name="subgenerica_det" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_transaccion" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertEspecificaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertSubProgramaNombre">
+<xs:sequence>
+<xs:element name="dataSubProgramaNombre" type="tns:subProgramaNombre" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="subProgramaNombre">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="sub_programa" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertSubProgramaNombreResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertFuenteFinanc">
+<xs:sequence>
+<xs:element name="dataFuenteFinanc" type="tns:fuenteFinanc" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="fuenteFinanc">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="fuente_financ" type="xs:string" minOccurs="0" />
+<xs:element name="fuente_financ_agregada" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertFuenteFinancResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertActProyNombre">
+<xs:sequence>
+<xs:element name="dataActProyNombre" type="tns:actProyNombre" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actProyNombre">
+<xs:sequence>
+<xs:element name="act_proy" type="xs:string" minOccurs="0" />
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="es_foniprel" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="proyecto_snip" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_act_proy" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertActProyNombreResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertPadronPersona">
+<xs:sequence>
+<xs:element name="dataPadronPersona" type="tns:padronPersona" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="padronPersona">
+<xs:sequence>
+<xs:element name="apellido_materno" type="xs:string" minOccurs="0" />
+<xs:element name="apellido_paterno" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="fecha_nacimiento" type="xs:dateTime" minOccurs="0" />
+<xs:element name="fecha_nacimiento_xml" type="xs:anySimpleType" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="numero_documento" type="xs:string" minOccurs="0" />
+<xs:element name="sexo" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_documento" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertPadronPersonaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertFuncion">
+<xs:sequence>
+<xs:element name="dataFuncion" type="tns:funcion" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="funcion">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="funcion" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertFuncionResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertCertificadoSecuencia">
+<xs:sequence>
+<xs:element name="dataCertificadoSecuencia" type="tns:certificadoSecuencia" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="certificadoSecuencia">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="certificado" type="xs:string" minOccurs="0" />
+<xs:element name="cod_doc" type="xs:string" minOccurs="0" />
+<xs:element name="correlativo" type="xs:string" minOccurs="0" />
+<xs:element name="estado_envio" type="xs:string" minOccurs="0" />
+<xs:element name="estado_registro" type="xs:string" minOccurs="0" />
+<xs:element name="fecha_doc" type="xs:dateTime" minOccurs="0" />
+<xs:element name="fecha_doc_xml" type="xs:anySimpleType" minOccurs="0" />
+<xs:element name="monto" type="xs:decimal" minOccurs="0" />
+<xs:element name="monto_comprometido" type="xs:decimal" minOccurs="0" />
+<xs:element name="monto_nacional" type="xs:decimal" minOccurs="0" />
+<xs:element name="num_doc" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="secuencia" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_registro" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertCertificadoSecuenciaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertExpedienteNota">
+<xs:sequence>
+<xs:element name="dataExpedienteNota" type="tns:expedienteNota" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="expedienteNota">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="ciclo" type="xs:string" minOccurs="0" />
+<xs:element name="estado_envio" type="xs:string" minOccurs="0" />
+<xs:element name="expediente" type="xs:string" minOccurs="0" />
+<xs:element name="fase" type="xs:string" minOccurs="0" />
+<xs:element name="notas" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="secuencia" type="xs:string" minOccurs="0" />
+<xs:element name="secuencia_nota" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertExpedienteNotaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertCertificado">
+<xs:sequence>
+<xs:element name="dataCertificado" type="tns:certificado" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="certificado">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="certificado" type="xs:string" minOccurs="0" />
+<xs:element name="estado_envio" type="xs:string" minOccurs="0" />
+<xs:element name="estado_registro" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertCertificadoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertComponenteNombre">
+<xs:sequence>
+<xs:element name="dataComponenteNombre" type="tns:componenteNombre" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="componenteNombre">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="componente" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_componente" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertComponenteNombreResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertNotaModificatoriaDet">
+<xs:sequence>
+<xs:element name="dataNotaModificatoriaDet" type="tns:notaModificatoriaDet" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="ejec" type="xs:string" minOccurs="0" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="notaModificatoriaDet">
+<xs:sequence>
+<xs:element name="ano_eje" type="xs:string" minOccurs="0" />
+<xs:element name="fuente_financ" type="xs:string" minOccurs="0" />
+<xs:element name="id_clasificador" type="xs:string" minOccurs="0" />
+<xs:element name="monto_a" type="xs:decimal" minOccurs="0" />
+<xs:element name="monto_de" type="xs:decimal" minOccurs="0" />
+<xs:element name="origen" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec" type="xs:string" minOccurs="0" />
+<xs:element name="sec_ejec2" type="xs:string" minOccurs="0" />
+<xs:element name="sec_func" type="xs:string" minOccurs="0" />
+<xs:element name="sec_nota" type="xs:string" minOccurs="0" />
+<xs:element name="tipo_recurso" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertNotaModificatoriaDetResponse">
+<xs:sequence />
+</xs:complexType>
+</xs:schema>

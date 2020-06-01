@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+ // @author CARLOS SANTANDER
+-->
+<mapper namespace="Estadistica">
+    
+    <select id="getInstitucionesEducativas" parameterType="HashMap" resultType="estadistica.webservice.InstitucionEducativa">         
+        SELECT cod_mod as codMod, anexo, codlocal, cen_edu as cenEdu, niv_mod as nivMod, d_niv_mod as dNivMod, d_forma as dForma, 
+        cod_car as codCar, d_cod_car as dCodCar, tipssexo, d_tipssexo as dTipssexo, gestion, d_gestion as dGestion, ges_dep as gesDep, 
+        d_ges_dep as dGesDep, director, telefono, email, pagweb, dir_cen as dirCen, referencia, localidad, codcp_inei as codcpInei, 
+        codccpp, cen_pob as cenPob, area_censo as areaCenso, dareacenso, codgeo, d_dpto as dDpto, d_prov as dProv, d_dist as dDist, 
+        d_region as dRegion, codooii, d_dreugel as dDreugel, nlat_ie as nlatIe, nlong_ie as nlongIe, tipoprog, d_tipoprog as dTipoprog, 
+        cod_tur as codTur, d_cod_tur as dCodTur, estado, d_estado as dEstado, d_fte_dato as dFteDato, talum_hom as talumHom, 
+        talum_muj as talumMuj, talumno, tdocente, tseccion, fechareg, fecha_act as fechaAct
+        FROM Padron_web ${c}
+    </select>
+    
+</mapper>
+

@@ -1,0 +1,4 @@
+<%--
+ @author CARLOS SANTANDER
+--%>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/normas.js" type="text/javascript"></script>

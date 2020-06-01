@@ -1,0 +1,66 @@
+<%--
+ @author CARLOS SANTANDER
+--%>
+<section id="section_normas" >
+
+    <form id="formUpload" method="post" enctype="multipart/form-data" action="./Upload?tipo=01">
+        <input type="file" name="fileUp" class="dropify" data-height="500" accept="image/*"/>
+        <input type="submit" />
+    </form>
+
+</section>
+
+
+<script>
+    $(document).ready(function () {
+        // Basico
+        $('.dropify').dropify();
+
+        // Eventos usados
+        var drEvent = $('#input-file-events').dropify();
+        drEvent.on('dropify.beforeClear', function (event, element) {
+            return confirm("Desear borrar el archivo \"" + element.file.name + "\" ?");
+        });
+        drEvent.on('dropify.afterClear', function (event, element) {
+            alert('Archivo borrado');
+        });
+        drEvent.on('dropify.errors', function (event, element) {
+            console.log('Tiene errores');
+        });
+
+        var drDestroy = $('#input-file-to-destroy').dropify();
+        drDestroy = drDestroy.data('dropify');
+        $('#toggleDropify').on('click', function (e) {
+            e.preventDefault();
+            if (drDestroy.isDropified()) {
+                drDestroy.destroy();
+            } else {
+                drDestroy.init();
+            }
+        });
+    });
+
+    $("#formUpload").submit(function (evt) {
+        toastr.options.closeButton = true;
+        toastr.options.timeOut = 2500;
+        evt.preventDefault();
+        var form = new FormData($("#formUpload")[0]);
+        $.ajax({
+            dataType: 'json',
+            processData: false,
+            url: $(this).attr("action"),
+            method: "POST",
+            data: form,
+            contentType: false,
+            success: function (response) {
+                if (response.estado) {
+                    alertify.log("se guardo correctamente");
+                } else {
+                    toastr.options.positionClass = "toast-middle-center";
+                    toastr.warning("no se pudo", 'Subida');
+                }
+            }
+        });
+    });
+
+</script>

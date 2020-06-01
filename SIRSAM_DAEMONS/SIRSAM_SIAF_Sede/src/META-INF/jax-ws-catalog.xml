@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://web.regionsanmartin.gob.pe:8080/SIRSAMWebService/SincronizarSIAF?wsdl" uri="wsdl/web.regionsanmartin.gob.pe_8080/SIRSAMWebService/SincronizarSIAF.wsdl"/>
+    <system systemId="http://web.regionsanmartin.gob.pe:8080/SIRSAMWebService/SincronizarSIAF?xsd=1" uri="wsdl/web.regionsanmartin.gob.pe_8080/SIRSAMWebService/SincronizarSIAF.xsd_1.xsd"/>
+    <system systemId="http://localhost:8084/SIRSAMWebService/SincronizarSIAF?wsdl" uri="wsdl/localhost_8084/SIRSAMWebService/SincronizarSIAF.wsdl"/>
+    <system systemId="http://localhost:8084/SIRSAMWebService/SincronizarSIAF?xsd=1" uri="wsdl/localhost_8084/SIRSAMWebService/SincronizarSIAF.xsd_1.xsd"/>
+    <system systemId="https://web.regionsanmartin.gob.pe/SIRSAMWebService/SincronizarSIAF?wsdl" uri="wsdl/web.regionsanmartin.gob.pe/SIRSAMWebService/SincronizarSIAF.wsdl"/>
+    <system systemId="https://web.regionsanmartin.gob.pe:443/SIRSAMWebService/SincronizarSIAF?xsd=1" uri="wsdl/web.regionsanmartin.gob.pe_443/SIRSAMWebService/SincronizarSIAF.xsd_1.xsd"/>
+</catalog>

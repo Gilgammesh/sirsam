@@ -1,0 +1,6 @@
+body { 
+    background: url(../../resources/images/fondo.jpg) no-repeat top center fixed;
+    background-size: contain;  
+    overflow: hidden;    
+}
+

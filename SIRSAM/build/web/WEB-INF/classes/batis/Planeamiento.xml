@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+ // @author CARLOS SANTANDER
+-->
+<mapper namespace="Planeamiento">
+    
+    <resultMap id="PlaneamientoMap" type="Planeamiento">
+        <result property="cateId" column="cate_id" />        
+        <result property="cateNombre" column="cate_nombre" />
+        <result property="cateDescripcion" column="cate_descripcion" />
+        <result property="cateIcon" column="cate_icon" />
+        <result property="cateSubNivel" column="cate_sub_nivel" />
+        <result property="cateEstado" column="cate_estado" />                        
+        <result property="niveId" column="nive_id" /> 
+        <result property="niveCodigo" column="nive_codigo" /> 
+        <result property="niveNombre" column="nive_nombre" /> 
+        <result property="niveSigla" column="nive_sigla" /> 
+        <result property="nivePadreId" column="nive_padre_id" /> 
+        <result property="nivePadreSub" column="nive_padre_sub" /> 
+        <result property="niveJerarquia" column="nive_jerarquia" /> 
+        <result property="niveEstado" column="nive_estado" /> 
+        <result property="niveDetalle" column="nive_detalle" /> 
+        <result property="niveSub" column="nive_sub" />
+        <result property="niveIndicador" column="nive_indicador" />      
+        <result property="niveJerarquiaNombre" column="nive_jerarquia_nombre" />        
+        <result property="nisuId" column="nisu_id" />  
+        <result property="nisuInicio" column="nisu_inicio" />  
+        <result property="nisuFin" column="nisu_fin" />  
+        <result property="nisuActualiza" column="nisu_actualiza" />          
+        <result property="nisuDepartamento" column="nisu_departamento" />  
+        <result property="departamento" column="departamento" />  
+        <result property="nisuProvincia" column="nisu_provincia" />  
+        <result property="provincia" column="provincia" />  
+        <result property="nisuDistrito" column="nisu_distrito" />  
+        <result property="distrito" column="distrito" />  
+        <result property="nisuEstado" column="nisu_estado" />  
+        <result property="nisuIndicador" column="nisu_indicador" />  
+        <result property="nideId" column="nide_id" />  
+        <result property="nideDocLegalUrlWindows" column="nide_doc_legal_url_windows" />  
+        <result property="nideDocLegalUrlLinux" column="nide_doc_legal_url_linux" />  
+        <result property="tidoId" column="tido_id" />  
+        <result property="tidoNombre" column="tido_nombre" /> 
+        <result property="tidoEstado" column="tido_estado" />  
+        <result property="nideDocLegalNum" column="nide_doc_legal_num" />  
+        <result property="nideDocLegalActivo" column="nide_doc_legal_activo" />  
+        <result property="nideDocContenidoUrlWindows" column="nide_doc_contenido_url_windows" />  
+        <result property="nideDocContenidoUrlLinux" column="nide_doc_contenido_url_linux" />  
+        <result property="nideDocContenidoNombre" column="nide_doc_contenido_nombre" />           
+        <result property="nideDocContenidoActivo" column="nide_doc_contenido_activo" />  
+        <result property="nideEstado" column="nide_estado" />           
+        <result property="indiId" column="indi_id" />  
+        <result property="indiNombre" column="indi_nombre" />  
+        <result property="indiSigla" column="indi_sigla" />  
+        <result property="indiDefinicion" column="indi_definicion" />  
+        <result property="tiinId" column="tiin_id" />  
+        <result property="tiinNombre" column="tiin_nombre" />  
+        <result property="tiinDescripcion" column="tiin_descripcion" />  
+        <result property="tiinSigla" column="tiin_sigla" />  
+        <result property="tiinEstado" column="tiin_estado" />  
+        <result property="unmeId" column="unme_id" />  
+        <result property="unmeNombre" column="unme_nombre" />  
+        <result property="unmeSimbolo" column="unme_simbolo" />  
+        <result property="magnId" column="magn_id" />  
+        <result property="magnNombre" column="magn_nombre" />  
+        <result property="magnEstado" column="magn_estado" />  
+        <result property="unmeEstado" column="unme_estado" />  
+        <result property="indiDesagregaGeografica" column="indi_desagrega_geografica" />  
+        <result property="indiJustificacion" column="indi_justificacion" />  
+        <result property="indiLimitaciones" column="indi_limitaciones" /> 
+        <result property="indiFormula" column="indi_formula" />  
+        <result property="periId" column="peri_id" />  
+        <result property="periNombre" column="peri_nombre" />  
+        <result property="periEstado" column="peri_estado" />  
+        <result property="indiFuenteDatos" column="indi_fuente_datos" />  
+        <result property="indiFuenteVerificacion" column="indi_fuente_verificacion" />  
+        <result property="indiOrganoResponsable" column="indi_organo_responsable" />  
+        <result property="indiEstado" column="indi_estado" />  
+        <result property="indiFicha" column="indi_ficha" />        
+        <result property="indiSentido" column="indi_sentido" /> 
+        <result property="indiFrecuencia" column="indi_frecuencia" /> 
+        <result property="infoId" column="info_id" />  
+        <result property="infoFormula" column="info_formula" />  
+        <result property="infoQuery" column="info_query" />  
+        <result property="infoEstado" column="info_estado" />  
+        <result property="infoOrden" column="info_orden" />  
+        <result property="infoPrincipal" column="info_principal" />        
+        <result property="invaId" column="inva_id" />  
+        <result property="invaEtiqueta" column="inva_etiqueta" />  
+        <result property="invaNombre" column="inva_nombre" />  
+        <result property="invaEstado" column="inva_estado" />  
+        <result property="tivaId" column="tiva_id" />  
+        <result property="tivaNombre" column="tiva_nombre" />  
+        <result property="tivaEstado" column="tiva_estado" /> 
+        <result property="tigaId" column="tiga_id" />  
+        <result property="tigaNombre" column="tiga_nombre" />  
+        <result property="tigaAbreviatura" column="tiga_abreviatura" />
+        <result property="tigaEstado" column="tiga_estado" /> 
+        <result property="invaColumna" column="inva_columna" />  
+        <result property="invaPrincipal" column="inva_principal" />  
+        <result property="invaDesagregado" column="inva_desagregado" /> 
+        <result property="invaFormula" column="inva_formula" />        
+        <result property="intaId" column="inta_id" /> 
+        <result property="intaOrden" column="inta_orden" />  
+        <result property="intaPosicion" column="inta_posicion" /> 
+        <result property="intaEstado" column="inta_estado" />          
+        <result property="grafId" column="graf_id" />               
+        <result property="fontId" column="font_id" />       
+        <result property="fontNombre" column="font_nombre" />           
+        <result property="fostId" column="fost_id" />        
+        <result property="fostNombre" column="fost_nombre" />     
+        <result property="tempId" column="temp_id" />        
+        <result property="tempUrl" column="temp_url" />   
+    </resultMap>     
+    
+    <select id="getCategorias" parameterType="HashMap" resultMap="PlaneamientoMap">      
+        SELECT cate_id, cate_nombre, cate_descripcion, cate_icon, cate_estado, cate_sub_nivel
+        FROM planeamiento.categorias ${c}
+    </select>
+    
+    <insert id="insertCategorias" parameterType="Planeamiento" >
+        <selectKey keyProperty="cateId" resultType="int" order="BEFORE">
+            select cast(((case when max(cate_id) is null then 0 else max(cate_id) end) +1) as int) 
+            from planeamiento.categorias
+        </selectKey>
+        INSERT INTO planeamiento.categorias(
+        cate_id, cate_nombre, cate_descripcion, cate_icon, cate_estado, cate_sub_nivel)
+        VALUES (#{cateId}, #{cateNombre}, #{cateDescripcion}, #{cateIcon}, #{cateEstado}, #{cateSubNivel});
+    </insert>  
+    
+    <update id="updateCategorias" parameterType="Planeamiento"> 
+        UPDATE planeamiento.categorias
+        SET cate_nombre=#{cateNombre}, cate_descripcion=#{cateDescripcion}, cate_icon=#{cateIcon}, cate_sub_nivel=#{cateSubNivel}
+        WHERE cate_id=#{cateId};
+    </update>
+    
+    <update id="deleteCategorias" parameterType="Planeamiento"> 
+        UPDATE planeamiento.categorias
+        SET cate_estado=#{cateEstado}
+        WHERE cate_id=#{cateId};
+    </update>
+    
+    <select id="getNiveles" parameterType="HashMap" resultMap="PlaneamientoMap">
+        SELECT nive_id, nive_codigo, nive_nombre, nive_sigla, nive_padre_id, nive_padre_sub, 
+        nive_jerarquia, nive_estado, cate_id, nive_detalle, nive_sub, nive_indicador, nide_id
+        FROM planeamiento.niveles ${c}
+    </select>
+    
+    <insert id="insertNiveles" parameterType="Planeamiento" >
+        <selectKey keyProperty="niveId" resultType="int" order="BEFORE">
+            select cast(((case when max(nive_id) is null then 0 else max(nive_id) end) +1) as int) 
+            from planeamiento.niveles
+        </selectKey>
+        INSERT INTO planeamiento.niveles(
+        nive_id, nive_codigo, nive_nombre, nive_sigla, nive_padre_id, nive_padre_sub, nive_jerarquia, nive_estado, 
+        cate_id, nive_detalle, nive_sub, nive_indicador, nide_id)
+        VALUES (#{niveId}, #{niveCodigo}, #{niveNombre}, #{niveSigla}, #{nivePadreId}, #{nivePadreSub}, #{niveJerarquia}, 
+        #{niveEstado}, #{cateId}, #{niveDetalle}, #{niveSub}, #{niveIndicador}, #{nideId});       
+    </insert>  
+    
+    <update id="updateNiveles" parameterType="Planeamiento"> 
+        UPDATE planeamiento.niveles
+        SET nive_codigo=#{niveCodigo}, nive_nombre=#{niveNombre}, 
+        nive_sigla=#{niveSigla}, nide_id=#{nideId}
+        WHERE nive_id=#{niveId};
+    </update>
+    
+    <update id="deleteNiveles" parameterType="Planeamiento"> 
+        UPDATE planeamiento.niveles
+        SET nive_estado=#{niveEstado}
+        WHERE nive_id=#{niveId};
+    </update>
+    
+    <select id="getNivelesJerarquia" parameterType="HashMap" resultMap="PlaneamientoMap">
+        SELECT nive_id, nive_jerarquia, nive_jerarquia_nombre, nive_estado, nive_sub, nive_indicador
+        FROM planeamiento.niveles_jerarquias ${c}
+    </select>
+    
+    <insert id="insertNivelesJerarquia" parameterType="Planeamiento" >     
+        INSERT INTO planeamiento.niveles_jerarquias(
+        nive_id, nive_jerarquia, nive_jerarquia_nombre, nive_estado, nive_sub, nive_indicador)
+        VALUES (#{niveId}, #{niveJerarquia}, #{niveJerarquiaNombre}, #{niveEstado}, 
+        #{niveSub}, #{niveIndicador});       
+    </insert>  
+    
+    <update id="updateNivelesJerarquia" parameterType="Planeamiento"> 
+        UPDATE planeamiento.niveles_jerarquias
+        SET nive_jerarquia_nombre=#{niveJerarquiaNombre}, 
+        nive_sub=#{niveSub}, nive_indicador=#{niveIndicador}
+        WHERE nive_id=#{niveId};
+    </update>
+    
+    <update id="deleteNivelesJerarquia" parameterType="Planeamiento"> 
+        UPDATE planeamiento.niveles_jerarquias
+        SET nive_estado=#{niveEstado}
+        WHERE nive_id=#{niveId};
+    </update>
+    
+    <select id="getNivelesSub" parameterType="HashMap" resultMap="PlaneamientoMap">
+        SELECT a.nisu_id, a.nisu_inicio, a.nisu_fin, a.nisu_actualiza, a.nisu_departamento, 
+        a.nisu_provincia, a.nisu_distrito, a.nive_id, a.nive_jerarquia, a.nive_detalle, 
+        a.nisu_estado, a.nisu_indicador, a.nide_id, trim(de.nombre) as departamento, 
+        trim(pr.nombre) as provincia, trim(di.nombre) as distrito 
+        FROM planeamiento.niveles_sub as a
+        LEFT JOIN presupuesto.departamento as de ON (a.nisu_departamento = de.departamento AND a.nisu_estado = de.estado)
+        LEFT JOIN presupuesto.provincia as pr ON (a.nisu_departamento = pr.departamento AND a.nisu_provincia = pr.provincia 
+        AND a.nisu_estado = pr.estado)
+        LEFT JOIN presupuesto.distrito as di ON (a.nisu_departamento = di.departamento AND a.nisu_provincia = di.provincia 
+        AND a.nisu_distrito = di.distrito AND a.nisu_estado = di.estado) ${c}
+    </select>
+    
+    <insert id="insertNivelesSub" parameterType="Planeamiento" >
+        <selectKey keyProperty="nisuId" resultType="int" order="BEFORE">
+            select cast(((case when max(nisu_id) is null then 0 else max(nisu_id) end) +1) as int) 
+            from planeamiento.niveles_sub
+        </selectKey>
+        INSERT INTO planeamiento.niveles_sub(
+        nisu_id, nisu_inicio, nisu_fin, nisu_actualiza, nisu_departamento, nisu_provincia, 
+        nisu_distrito, nive_id, nive_jerarquia, nive_detalle, nisu_estado, nisu_indicador, nide_id)
+        VALUES (#{nisuId}, #{nisuInicio}, #{nisuFin}, #{nisuActualiza}, #{nisuDepartamento}, 
+        #{nisuProvincia}, #{nisuDistrito}, #{niveId}, #{niveJerarquia}, #{niveDetalle}, 
+        #{nisuEstado}, #{nisuIndicador}, #{nideId});      
+    </insert>  
+    
+    <update id="updateNivelesSub" parameterType="Planeamiento"> 
+        UPDATE planeamiento.niveles_sub
+        SET nisu_inicio=#{nisuInicio}, nisu_fin=#{nisuFin}, 
+        nisu_actualiza=#{nisuActualiza}, nide_id=#{nideId}
+        WHERE nisu_id=#{nisuId};
+    </update>
+    
+    <update id="deleteNivelesSub" parameterType="Planeamiento"> 
+        UPDATE planeamiento.niveles_sub
+        SET nisu_estado=#{nisuEstado}
+        WHERE nisu_id=#{nisuId};
+    </update>
+    
+    <select id="getNivelesDetalle" parameterType="HashMap" resultMap="PlaneamientoMap">
+        SELECT a.nide_id, a.nide_doc_legal_url_windows, a.nide_doc_legal_url_linux, 
+        a.tido_id, b.tido_nombre, a.nide_doc_legal_num, a.nide_doc_legal_activo, a.nide_doc_contenido_url_windows, 
+        a.nide_doc_contenido_url_linux, a.nide_doc_contenido_nombre, a.nide_doc_contenido_activo, a.nide_estado        
+        FROM planeamiento.niveles_detalle as a
+        LEFT JOIN planeamiento.tipo_documento as b ON (a.tido_id = b.tido_id) ${c}
+    </select>
+    
+    <insert id="insertNivelesDetalle" parameterType="Planeamiento" >
+        <selectKey keyProperty="nideId" resultType="int" order="BEFORE">
+            select cast(((case when max(nide_id) is null then 0 else max(nide_id) end) +1) as int) 
+            from planeamiento.niveles_detalle
+        </selectKey>
+        INSERT INTO planeamiento.niveles_detalle(
+        nide_id, nide_doc_legal_url_windows, nide_doc_legal_url_linux, tido_id, nide_doc_legal_num, 
+        nide_doc_legal_activo, nide_doc_contenido_url_windows, nide_doc_contenido_url_linux, 
+        nide_doc_contenido_nombre, nide_doc_contenido_activo, nide_estado)
+        VALUES (#{nideId}, #{nideDocLegalUrlWindows}, #{nideDocLegalUrlLinux}, #{tidoId}, 
+        #{nideDocLegalNum}, #{nideDocLegalActivo}, #{nideDocContenidoUrlWindows}, 
+        #{nideDocContenidoUrlLinux}, #{nideDocContenidoNombre}, #{nideDocContenidoActivo}, #{nideEstado});
+    </insert>  
+    
+    <update id="updateNivelesDetalle" parameterType="Planeamiento"> 
+        UPDATE planeamiento.niveles_detalle
+        SET nide_doc_legal_url_windows=#{nideDocLegalUrlWindows}, nide_doc_legal_url_linux=#{nideDocLegalUrlLinux},         
+        tido_id=#{tidoId}, nide_doc_legal_num=#{nideDocLegalNum}, nide_doc_contenido_url_windows=#{nideDocContenidoUrlWindows}, 
+        nide_doc_contenido_url_linux=#{nideDocContenidoUrlLinux}, nide_doc_contenido_nombre=#{nideDocContenidoNombre}
+        WHERE nide_id=#{nideId};
+    </update>
+    
+    <update id="deleteNivelesDetalle" parameterType="Planeamiento"> 
+        UPDATE planeamiento.niveles_detalle
+        SET nide_estado=#{nideEstado}
+        WHERE nide_id=#{nideId}
+    </update>
+    
+    <select id="getIndicadores" parameterType="HashMap" resultMap="PlaneamientoMap">
+        SELECT a.indi_id, a.indi_nombre, a.indi_sigla, a.indi_definicion, a.tiin_id, a.unme_id, a.indi_desagrega_geografica, 
+        a.indi_justificacion, a.indi_limitaciones, a.indi_formula, a.peri_id, a.indi_fuente_datos, a.indi_fuente_verificacion, 
+        a.indi_organo_responsable, a.indi_estado, a.indi_ficha, a.nive_id, a.nisu_id, a.nive_sub, a.indi_sentido, a.indi_frecuencia, 
+        b.tiin_nombre, b.tiin_descripcion, b.tiin_sigla, c.unme_nombre, c.unme_simbolo, d.magn_id, d.magn_nombre, e.peri_id, e.peri_nombre
+        FROM planeamiento.indicadores as a
+        INNER JOIN estadistica.tipo_indicador as b ON (a.tiin_id = b.tiin_id) 
+        INNER JOIN estadistica.unidad_medida as c ON (a.unme_id = c.unme_id)
+        INNER JOIN estadistica.magnitud as d ON (c.magn_id = d.magn_id)
+        INNER JOIN estadistica.periodo as e ON (a.peri_id = e.peri_id) ${c}
+    </select>
+    
+    <insert id="insertIndicadores" parameterType="Planeamiento" >
+        <selectKey keyProperty="indiId" resultType="int" order="BEFORE">
+            select cast(((case when max(indi_id) is null then 0 else max(indi_id) end) +1) as int) 
+            from planeamiento.indicadores
+        </selectKey>
+        INSERT INTO planeamiento.indicadores(
+        indi_id, indi_nombre, indi_sigla, indi_definicion, tiin_id, unme_id, 
+        indi_desagrega_geografica, indi_justificacion, indi_limitaciones, 
+        indi_formula, peri_id, indi_fuente_datos, indi_fuente_verificacion, 
+        indi_organo_responsable, indi_estado, indi_ficha, nive_id, nisu_id, 
+        nive_sub, indi_sentido, indi_frecuencia)
+        VALUES (#{indiId}, #{indiNombre}, #{indiSigla}, #{indiDefinicion}, #{tiinId}, #{unmeId}, 
+        #{indiDesagregaGeografica}, #{indiJustificacion}, #{indiLimitaciones}, #{indiFormula}, 
+        #{periId}, #{indiFuenteDatos}, #{indiFuenteVerificacion}, #{indiOrganoResponsable}, 
+        #{indiEstado}, #{indiFicha}, #{niveId}, #{nisuId}, #{niveSub}, #{indiSentido}, #{indiFrecuencia});
+    </insert>  
+    
+    <update id="updateIndicadores" parameterType="Planeamiento"> 
+        UPDATE planeamiento.indicadores
+        SET indi_nombre=#{indiNombre}, indi_sigla=#{indiSigla}, indi_definicion=#{indiDefinicion}, 
+        tiin_id=#{tiinId}, indi_desagrega_geografica=#{indiDesagregaGeografica}, indi_justificacion=#{indiJustificacion}, 
+        indi_limitaciones=#{indiLimitaciones}, indi_formula=#{indiFormula}, peri_id=#{periId}, 
+        indi_fuente_datos=#{indiFuenteDatos}, indi_fuente_verificacion=#{indiFuenteVerificacion}, 
+        indi_organo_responsable=#{indiOrganoResponsable}, indi_sentido=#{indiSentido}, indi_frecuencia=#{indiFrecuencia}
+        WHERE indi_id=#{indiId};
+    </update>
+    
+    <update id="deleteIndicadores" parameterType="Planeamiento"> 
+        UPDATE planeamiento.indicadores
+        SET indi_estado=#{indiEstado}
+        WHERE indi_id=#{indiId};
+    </update>
+    
+    <select id="getIndicadoresFormula" parameterType="HashMap" resultMap="PlaneamientoMap">
+        SELECT info_id, info_formula, info_query, info_estado, indi_id, info_orden, info_principal
+        FROM planeamiento.indicadores_formula ${c}
+    </select>
+    
+    <insert id="insertIndicadoresFormula" parameterType="Planeamiento" >
+        <selectKey keyProperty="infoId" resultType="int" order="BEFORE">
+            select cast(((case when max(info_id) is null then 0 else max(info_id) end) +1) as int) 
+            from planeamiento.indicadores_formula
+        </selectKey>
+        INSERT INTO planeamiento.indicadores_formula(
+        info_id, info_formula, info_query, info_estado, indi_id, info_orden, info_principal)
+        VALUES (#{infoId}, #{infoFormula}, #{infoQuery}, #{infoEstado}, #{indiId}, #{infoOrden}, #{infoPrincipal});
+    </insert>  
+    
+    <update id="updateIndicadoresFormula" parameterType="Planeamiento"> 
+        UPDATE planeamiento.indicadores_formula
+        SET info_formula=#{infoFormula}, info_query=#{infoQuery},
+        info_orden=#{infoOrden}, info_principal=#{infoPrincipal}
+        WHERE info_id=#{infoId};
+    </update>
+    
+    <update id="deleteIndicadoresFormula" parameterType="Planeamiento"> 
+        UPDATE planeamiento.indicadores_formula
+        SET info_estado=#{infoEstado}
+        WHERE info_id=#{infoId};
+    </update>
+    
+    <select id="getIndicadoresVariables" parameterType="HashMap" resultMap="PlaneamientoMap">
+        SELECT a.inva_id, a.inva_etiqueta, a.inva_nombre, a.inva_estado, a.tiva_id, b.tiva_nombre, 
+        a.inva_columna, a.inva_principal, a.inva_desagregado, a.inva_formula, a.indi_id
+        FROM planeamiento.indicadores_variables as a 
+        INNER JOIN estadistica.tipo_variable as b ON (a.tiva_id = b.tiva_id) ${c}
+    </select>
+    
+    <insert id="insertIndicadoresVariables" parameterType="Planeamiento" >
+        <selectKey keyProperty="invaId" resultType="int" order="BEFORE">
+            select cast(((case when max(inva_id) is null then 0 else max(inva_id) end) +1) as int) 
+            from planeamiento.indicadores_variables
+        </selectKey>
+        INSERT INTO planeamiento.indicadores_variables(
+        inva_id, inva_etiqueta, inva_nombre, inva_estado, tiva_id, inva_columna, 
+        inva_principal, inva_desagregado, inva_formula, indi_id)
+        VALUES (#{invaId}, #{invaEtiqueta}, #{invaNombre}, #{invaEstado}, #{tivaId}, 
+        #{invaColumna}, #{invaPrincipal}, #{invaDesagregado}, #{invaFormula}, #{indiId});
+    </insert>  
+    
+    <update id="updateIndicadoresVariables" parameterType="Planeamiento"> 
+        UPDATE planeamiento.indicadores_variables
+        SET inva_etiqueta=#{invaEtiqueta}, inva_nombre=#{invaNombre}, tiva_id=#{tivaId}, 
+        inva_columna=#{invaColumna}, inva_principal=#{invaPrincipal}, 
+        inva_desagregado=#{invaDesagregado}, inva_formula=#{invaFormula}
+        WHERE inva_id=#{invaId};
+    </update>
+    
+    <update id="deleteIndicadoresVariables" parameterType="Planeamiento"> 
+        UPDATE planeamiento.indicadores_variables
+        SET inva_estado=#{invaEstado}
+        WHERE inva_id=#{invaId};
+    </update>
+    
+    <select id="getTipoDocumento" parameterType="HashMap" resultMap="PlaneamientoMap">
+        SELECT tido_id, tido_nombre, tido_estado
+        FROM planeamiento.tipo_documento ${c}
+    </select>
+    
+    <insert id="insertTipoDocumento" parameterType="Planeamiento" >
+        <selectKey keyProperty="tidoId" resultType="int" order="BEFORE">
+            select cast(((case when max(tido_id) is null then 0 else max(tido_id) end) +1) as int) 
+            from planeamiento.tipo_documento
+        </selectKey>
+        INSERT INTO planeamiento.tipo_documento(
+        tido_id, tido_nombre, tido_estado)
+        VALUES (#{tidoId}, #{tidoNombre}, #{tidoEstado});
+    </insert>  
+    
+    <update id="updateTipoDocumento" parameterType="Planeamiento"> 
+        UPDATE planeamiento.tipo_documento
+        SET tido_nombre=#{tidoNombre}
+        WHERE tido_id=#{tidoId};
+    </update>
+    
+    <update id="deleteTipoDocumento" parameterType="Planeamiento"> 
+        UPDATE planeamiento.tipo_documento
+        SET tido_estado=#{tidoEstado}
+        WHERE tido_id=#{tidoId};
+    </update>
+    
+    <select id="getDepartamentos" parameterType="HashMap" resultMap="PlaneamientoMap">
+        SELECT trim(nombre) as departamento
+        FROM presupuesto.departamento ${c}
+    </select>
+    
+    <select id="getProvincias" parameterType="HashMap" resultMap="PlaneamientoMap">
+        SELECT trim(nombre) as provincia
+        FROM presupuesto.provincia ${c}
+    </select>
+    
+    <select id="getDistritos" parameterType="HashMap" resultMap="PlaneamientoMap">
+        SELECT trim(nombre) as distrito
+        presupuesto.distrito ${c}
+    </select>
+    
+    <select id="getIndicadoresTablero" parameterType="HashMap" resultMap="PlaneamientoMap">
+        SELECT inta_id, inta_orden, inta_posicion, tiga_id, graf_id, inta_estado, indi_id
+        FROM planeamiento.indicadores_tablero ${c}
+    </select>
+    
+    <insert id="insertIndicadoresTablero" parameterType="Planeamiento" >
+        <selectKey keyProperty="intaId" resultType="int" order="BEFORE">
+            select cast(((case when max(inta_id) is null then 0 else max(inta_id) end) +1) as int) 
+            from planeamiento.indicadores_tablero
+        </selectKey>
+        INSERT INTO planeamiento.indicadores_tablero(
+        inta_id, inta_orden, inta_posicion, tiga_id, graf_id, inta_estado, indi_id)
+        VALUES (#{intaId}, #{intaOrden}, #{intaPosicion}, #{tigaId}, #{grafId}, #{intaEstado}, #{indiId});
+    </insert>  
+    
+    <update id="updateIndicadoresTablero" parameterType="Planeamiento"> 
+        UPDATE planeamiento.indicadores_tablero
+        SET inta_orden=#{intaOrden}, inta_posicion=#{intaPosicion}, 
+        tiga_id=#{tigaId}, graf_id=#{grafId}
+        WHERE inta_id=#{intaId};
+    </update>
+    
+    <update id="deleteIndicadoresTablero" parameterType="Planeamiento"> 
+        UPDATE planeamiento.indicadores_tablero
+        SET inta_estado=#{intaEstado}
+        WHERE inta_id=#{intaId};
+    </update>  
+    
+    <select id="getArchivosTemp" parameterType="HashMap" resultMap="PlaneamientoMap">
+        SELECT temp_id, temp_url
+        FROM planeamiento.archivos_temp ${c}
+    </select>
+    
+    <insert id="insertArchivosTemp" parameterType="Planeamiento" >  
+        INSERT INTO planeamiento.archivos_temp(
+        temp_id, temp_url)
+        VALUES (#{tempId}, #{tempUrl})
+        ON CONFLICT ON CONSTRAINT id_archivos_temp_pk 
+        DO UPDATE SET
+        temp_url=#{tempUrl};
+    </insert>  
+    
+    <select id="getTipoGrafico" parameterType="HashMap" resultMap="PlaneamientoMap">
+        SELECT tiga_id, tiga_nombre, tiga_abreviatura, tiga_estado
+        FROM estadistica.tipo_grafico ${c}
+    </select>
+
+</mapper>

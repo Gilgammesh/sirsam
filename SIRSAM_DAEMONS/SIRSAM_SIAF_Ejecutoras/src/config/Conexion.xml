@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--
+ // @author CARLOS SANTANDER
+-->
+<configuration>
+    <typeAliases></typeAliases>
+    
+    <environments default="Seguridad">
+        <!--BASE DATOS DE SIAF LOCAL-->
+        <environment id="BDSIAF">
+            <transactionManager type="JDBC"/>
+            <dataSource type="UNPOOLED">
+                <property name="driver" value="sun.jdbc.odbc.JdbcOdbcDriver"/>
+                <property name="url" value="jdbc:odbc:SIAF"/>
+                <property name="username" value=""/>
+                <property name="password" value=""/>
+            </dataSource>
+        </environment>                 
+    </environments>
+               
+    <mappers>        
+        <!--BASE DATOS DE SIAF LOCAL-->
+        <mapper resource="config/Siaf.xml" />        
+    </mappers>
+    
+</configuration>
+
+
+

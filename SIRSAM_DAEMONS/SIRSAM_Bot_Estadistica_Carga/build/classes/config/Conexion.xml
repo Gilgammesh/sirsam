@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--
+ // @author CARLOS SANTANDER
+-->
+<configuration>
+    <typeAliases></typeAliases>
+    
+    <environments default="Seguridad">
+        
+        <!--BASE DATOS DE FUENTES ESTADÍSTICAS-->
+        <environment id="BDESTAD">
+            <transactionManager type="JDBC"/>
+            <dataSource type="UNPOOLED">
+                <property name="driver" value="sun.jdbc.odbc.JdbcOdbcDriver"/>
+                <property name="url" value="jdbc:odbc:Estadistica"/>
+                <property name="username" value=""/>
+                <property name="password" value=""/>
+            </dataSource>
+        </environment>  
+                       
+    </environments>
+               
+    <mappers>          
+        <mapper resource="config/Estadistica.xml" />                
+    </mappers>
+    
+</configuration>
+
+
+

@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://webservice.inversion/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webservice.inversion/">
+
+<xs:element name="getCodigoSIAF" type="tns:getCodigoSIAF" />
+
+<xs:element name="getCodigoSIAFResponse" type="tns:getCodigoSIAFResponse" />
+
+<xs:element name="getCodigosSIAF" type="tns:getCodigosSIAF" />
+
+<xs:element name="getCodigosSIAFResponse" type="tns:getCodigosSIAFResponse" />
+
+<xs:element name="getLogsBotCod" type="tns:getLogsBotCod" />
+
+<xs:element name="getLogsBotCodResponse" type="tns:getLogsBotCodResponse" />
+
+<xs:element name="insertLogsProyectosBot" type="tns:insertLogsProyectosBot" />
+
+<xs:element name="insertLogsProyectosBotResponse" type="tns:insertLogsProyectosBotResponse" />
+
+<xs:element name="updateLogsBotCod" type="tns:updateLogsBotCod" />
+
+<xs:element name="updateLogsBotCodResponse" type="tns:updateLogsBotCodResponse" />
+
+<xs:element name="upsertProyecto" type="tns:upsertProyecto" />
+
+<xs:element name="upsertProyectoComponentes" type="tns:upsertProyectoComponentes" />
+
+<xs:element name="upsertProyectoComponentesResponse" type="tns:upsertProyectoComponentesResponse" />
+
+<xs:element name="upsertProyectoContrataciones" type="tns:upsertProyectoContrataciones" />
+
+<xs:element name="upsertProyectoContratacionesResponse" type="tns:upsertProyectoContratacionesResponse" />
+
+<xs:element name="upsertProyectoModificaciones" type="tns:upsertProyectoModificaciones" />
+
+<xs:element name="upsertProyectoModificacionesResponse" type="tns:upsertProyectoModificacionesResponse" />
+
+<xs:element name="upsertProyectoResponse" type="tns:upsertProyectoResponse" />
+
+<xs:element name="upsertProyectoUbicacion" type="tns:upsertProyectoUbicacion" />
+
+<xs:element name="upsertProyectoUbicacionResponse" type="tns:upsertProyectoUbicacionResponse" />
+
+<xs:complexType name="upsertProyectoUbicacion">
+<xs:sequence>
+<xs:element name="data" type="tns:inversion" minOccurs="0" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="codigo" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="inversion">
+<xs:sequence>
+<xs:element name="fecha" type="xs:dateTime" minOccurs="0" />
+<xs:element name="logs_id" type="xs:int" minOccurs="0" />
+<xs:element name="prco_contratista" type="xs:string" minOccurs="0" />
+<xs:element name="prco_contrato" type="xs:string" minOccurs="0" />
+<xs:element name="prco_fecha_suscripcion" type="xs:dateTime" minOccurs="0" />
+<xs:element name="prco_monto_suscripcion" type="xs:decimal" minOccurs="0" />
+<xs:element name="prco_orden" type="xs:int" minOccurs="0" />
+<xs:element name="prco_tipo_proceso" type="xs:string" minOccurs="0" />
+<xs:element name="prcp_componente" type="xs:string" minOccurs="0" />
+<xs:element name="prcp_monto_viable" type="xs:decimal" minOccurs="0" />
+<xs:element name="prcp_orden" type="xs:int" minOccurs="0" />
+<xs:element name="prcp_unidad_medida" type="xs:string" minOccurs="0" />
+<xs:element name="prmo_comentarios" type="xs:string" minOccurs="0" />
+<xs:element name="prmo_fecha_modificacion" type="xs:string" minOccurs="0" />
+<xs:element name="prmo_monto_actualizado" type="xs:decimal" minOccurs="0" />
+<xs:element name="prmo_tipo_documento" type="xs:string" minOccurs="0" />
+<xs:element name="prmo_usuario" type="xs:string" minOccurs="0" />
+<xs:element name="proy_beneficiarios" type="xs:decimal" minOccurs="0" />
+<xs:element name="proy_cadena_funcional" type="xs:string" minOccurs="0" />
+<xs:element name="proy_codigo_inversion" type="xs:string" minOccurs="0" />
+<xs:element name="proy_codigo_siaf" type="xs:string" minOccurs="0" />
+<xs:element name="proy_estado" type="xs:string" minOccurs="0" />
+<xs:element name="proy_fecha_registro" type="xs:dateTime" minOccurs="0" />
+<xs:element name="proy_fecha_viabilidad" type="xs:dateTime" minOccurs="0" />
+<xs:element name="proy_fuente_financiamiento" type="xs:string" minOccurs="0" />
+<xs:element name="proy_monto_actualizado" type="xs:decimal" minOccurs="0" />
+<xs:element name="proy_monto_carta_fianza" type="xs:decimal" minOccurs="0" />
+<xs:element name="proy_monto_estudio_definitivo" type="xs:decimal" minOccurs="0" />
+<xs:element name="proy_monto_laudo" type="xs:decimal" minOccurs="0" />
+<xs:element name="proy_monto_viable" type="xs:decimal" minOccurs="0" />
+<xs:element name="proy_nivel_viabilidad" type="xs:string" minOccurs="0" />
+<xs:element name="proy_nombre" type="xs:string" minOccurs="0" />
+<xs:element name="proy_objetivo" type="xs:string" minOccurs="0" />
+<xs:element name="proy_por_etapas" type="xs:string" minOccurs="0" />
+<xs:element name="proy_responsable_viabilidad" type="xs:string" minOccurs="0" />
+<xs:element name="proy_situacion" type="xs:string" minOccurs="0" />
+<xs:element name="proy_tiene_expediente_tecnico" type="xs:string" minOccurs="0" />
+<xs:element name="proy_tiene_informe_cierre" type="xs:string" minOccurs="0" />
+<xs:element name="proy_tipo" type="xs:string" minOccurs="0" />
+<xs:element name="proy_ultimo_estudio" type="xs:string" minOccurs="0" />
+<xs:element name="proy_unidad_ejecutora" type="xs:string" minOccurs="0" />
+<xs:element name="proy_unidad_ejecutora_inversion" type="xs:string" minOccurs="0" />
+<xs:element name="proy_unidad_ejecutora_presupuestal" type="xs:string" minOccurs="0" />
+<xs:element name="proy_unidad_evaluadora" type="xs:string" minOccurs="0" />
+<xs:element name="proy_unidad_formuladora" type="xs:string" minOccurs="0" />
+<xs:element name="prub_departamento" type="xs:string" minOccurs="0" />
+<xs:element name="prub_distrito" type="xs:string" minOccurs="0" />
+<xs:element name="prub_localidad" type="xs:string" minOccurs="0" />
+<xs:element name="prub_provincia" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertProyectoUbicacionResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertProyectoComponentes">
+<xs:sequence>
+<xs:element name="data" type="tns:inversion" minOccurs="0" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="codigo" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertProyectoComponentesResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="getLogsBotCod">
+<xs:sequence>
+<xs:element name="query" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLogsBotCodResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:inversion" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertLogsProyectosBot">
+<xs:sequence>
+<xs:element name="time" type="xs:long" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="codigo" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+<xs:element name="actualizo" type="xs:string" minOccurs="0" />
+<xs:element name="log_cliente" type="xs:string" minOccurs="0" />
+<xs:element name="log_servidor" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertLogsProyectosBotResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="getCodigoSIAF">
+<xs:sequence>
+<xs:element name="query" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCodigoSIAFResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:inversion" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertProyectoModificaciones">
+<xs:sequence>
+<xs:element name="data" type="tns:inversion" minOccurs="0" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="codigo" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertProyectoModificacionesResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertProyectoContrataciones">
+<xs:sequence>
+<xs:element name="data" type="tns:inversion" minOccurs="0" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="codigo" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertProyectoContratacionesResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="upsertProyecto">
+<xs:sequence>
+<xs:element name="data" type="tns:inversion" minOccurs="0" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="codigo" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertProyectoResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="updateLogsBotCod">
+<xs:sequence>
+<xs:element name="codigo" type="xs:string" minOccurs="0" />
+<xs:element name="year" type="xs:int" />
+<xs:element name="month" type="xs:int" />
+<xs:element name="day" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateLogsBotCodResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="getCodigosSIAF">
+<xs:sequence>
+<xs:element name="query" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCodigosSIAFResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:inversion" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

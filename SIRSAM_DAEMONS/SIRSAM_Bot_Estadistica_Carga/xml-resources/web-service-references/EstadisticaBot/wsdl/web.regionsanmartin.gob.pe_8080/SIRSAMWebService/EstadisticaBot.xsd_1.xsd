@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://webservice.estadistica/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webservice.estadistica/">
+
+<xs:element name="insertLogsEstadisticaBot" type="tns:insertLogsEstadisticaBot" />
+
+<xs:element name="insertLogsEstadisticaBotResponse" type="tns:insertLogsEstadisticaBotResponse" />
+
+<xs:element name="upsertInstitucionEducativa" type="tns:upsertInstitucionEducativa" />
+
+<xs:element name="upsertInstitucionEducativaResponse" type="tns:upsertInstitucionEducativaResponse" />
+
+<xs:complexType name="upsertInstitucionEducativa">
+<xs:sequence>
+<xs:element name="data" type="tns:institucionEducativa" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="time" type="xs:long" />
+<xs:element name="fuente" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="institucionEducativa">
+<xs:sequence>
+<xs:element name="anexo" type="xs:string" minOccurs="0" />
+<xs:element name="area_censo" type="xs:string" minOccurs="0" />
+<xs:element name="cen_edu" type="xs:string" minOccurs="0" />
+<xs:element name="cen_pob" type="xs:string" minOccurs="0" />
+<xs:element name="cod_car" type="xs:string" minOccurs="0" />
+<xs:element name="cod_mod" type="xs:string" minOccurs="0" />
+<xs:element name="cod_tur" type="xs:string" minOccurs="0" />
+<xs:element name="codccpp" type="xs:string" minOccurs="0" />
+<xs:element name="codcp_inei" type="xs:string" minOccurs="0" />
+<xs:element name="codgeo" type="xs:string" minOccurs="0" />
+<xs:element name="codlocal" type="xs:string" minOccurs="0" />
+<xs:element name="codooii" type="xs:string" minOccurs="0" />
+<xs:element name="d_cod_car" type="xs:string" minOccurs="0" />
+<xs:element name="d_cod_tur" type="xs:string" minOccurs="0" />
+<xs:element name="d_dist" type="xs:string" minOccurs="0" />
+<xs:element name="d_dpto" type="xs:string" minOccurs="0" />
+<xs:element name="d_dreugel" type="xs:string" minOccurs="0" />
+<xs:element name="d_estado" type="xs:string" minOccurs="0" />
+<xs:element name="d_forma" type="xs:string" minOccurs="0" />
+<xs:element name="d_fte_dato" type="xs:string" minOccurs="0" />
+<xs:element name="d_ges_dep" type="xs:string" minOccurs="0" />
+<xs:element name="d_gestion" type="xs:string" minOccurs="0" />
+<xs:element name="d_niv_mod" type="xs:string" minOccurs="0" />
+<xs:element name="d_prov" type="xs:string" minOccurs="0" />
+<xs:element name="d_region" type="xs:string" minOccurs="0" />
+<xs:element name="d_tipoprog" type="xs:string" minOccurs="0" />
+<xs:element name="d_tipssexo" type="xs:string" minOccurs="0" />
+<xs:element name="dareacenso" type="xs:string" minOccurs="0" />
+<xs:element name="dir_cen" type="xs:string" minOccurs="0" />
+<xs:element name="director" type="xs:string" minOccurs="0" />
+<xs:element name="email" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="fecha_act" type="xs:string" minOccurs="0" />
+<xs:element name="fechareg" type="xs:string" minOccurs="0" />
+<xs:element name="ges_dep" type="xs:string" minOccurs="0" />
+<xs:element name="gestion" type="xs:string" minOccurs="0" />
+<xs:element name="localidad" type="xs:string" minOccurs="0" />
+<xs:element name="niv_mod" type="xs:string" minOccurs="0" />
+<xs:element name="nlat_ie" type="xs:decimal" minOccurs="0" />
+<xs:element name="nlong_ie" type="xs:decimal" minOccurs="0" />
+<xs:element name="pagweb" type="xs:string" minOccurs="0" />
+<xs:element name="referencia" type="xs:string" minOccurs="0" />
+<xs:element name="talum_hom" type="xs:decimal" minOccurs="0" />
+<xs:element name="talum_muj" type="xs:decimal" minOccurs="0" />
+<xs:element name="talumno" type="xs:decimal" minOccurs="0" />
+<xs:element name="tdocente" type="xs:decimal" minOccurs="0" />
+<xs:element name="telefono" type="xs:string" minOccurs="0" />
+<xs:element name="tipoprog" type="xs:string" minOccurs="0" />
+<xs:element name="tipssexo" type="xs:string" minOccurs="0" />
+<xs:element name="tseccion" type="xs:decimal" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="upsertInstitucionEducativaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="insertLogsEstadisticaBot">
+<xs:sequence>
+<xs:element name="time" type="xs:long" />
+<xs:element name="fuente" type="xs:string" minOccurs="0" />
+<xs:element name="host" type="xs:string" minOccurs="0" />
+<xs:element name="ip" type="xs:string" minOccurs="0" />
+<xs:element name="sync" type="xs:string" minOccurs="0" />
+<xs:element name="log_cliente" type="xs:string" minOccurs="0" />
+<xs:element name="log_servidor" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertLogsEstadisticaBotResponse">
+<xs:sequence />
+</xs:complexType>
+</xs:schema>

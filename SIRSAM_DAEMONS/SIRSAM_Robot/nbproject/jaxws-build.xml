@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${libs.jaxws21.classpath}"/>
+        </taskdef>
+    </target>
+    <target name="wsimport-client-ProyectosBot" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ProyectosBot"/>
+        <property name="wsdl-ProyectosBot" location="xml-resources/web-service-references/ProyectosBot/wsdl/web.regionsanmartin.gob.pe_8080/SIRSAMWebService/ProyectosBot.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ProyectosBot" destdir="${build.generated.dir}/jax-wsCache/ProyectosBot" wsdl="${wsdl-ProyectosBot}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://web.regionsanmartin.gob.pe:8080/SIRSAMWebService/ProyectosBot?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-ProyectosBot}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ProyectosBot"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ProyectosBot">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ProyectosBot" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/ProyectosBot"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/inversion/webservice"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-ProyectosBot"/>
+</project>

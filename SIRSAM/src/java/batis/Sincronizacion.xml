@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+ // @author CARLOS SANTANDER
+-->
+<mapper namespace="Sincronizacion">
+    
+    <resultMap id="SincronizacionMap" type="Sincronizacion">
+        <result property="sec_ejec" column="sec_ejec" />
+        <result property="ejecutora" column="ejecutora" />        
+        <result property="nombre" column="nombre" />       
+        <result property="fecha" column="fecha" />        
+        <result property="fechaHora" column="fecha_hora" />
+        <result property="tabla" column="tabla" />  
+        <result property="hostname" column="hostname" />
+        <result property="ipLocal" column="ip_local" />    
+        <result property="sincronizo" column="sincronizo" />  
+        <result property="logCliente" column="log_cliente" />
+        <result property="logServidor" column="log_servidor" />             
+    </resultMap> 
+    
+    <select id="getMonitorEjecutoras" parameterType="HashMap" resultMap="SincronizacionMap">      
+        SELECT a.sec_ejec, b.ejecutora, b.nombre, c.fecha
+        FROM (SELECT sec_ejec FROM presupuesto.gasto ${a}) as a
+        INNER JOIN (SELECT sec_ejec, ejecutora, trim(nombre) as nombre
+        FROM presupuesto.ejecutora ${b}) as b ON (a.sec_ejec = b.sec_ejec)        
+        LEFT JOIN (SELECT cast(fecha_hora as date) as fecha, sec_ejec
+        FROM presupuesto.logs_sincronizar ${c}) as c ON (a.sec_ejec = c.sec_ejec) ${d}       
+    </select>
+    
+    <select id="getMonitorTablas" parameterType="HashMap" resultMap="SincronizacionMap">      
+        SELECT fecha_hora, sec_ejec, tabla, hostname, ip_local, sincronizo, log_cliente, log_servidor
+        FROM presupuesto.logs_sincronizar ${c}    
+    </select>
+   
+</mapper>

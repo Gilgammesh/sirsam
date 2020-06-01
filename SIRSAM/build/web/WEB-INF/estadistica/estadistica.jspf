@@ -1,0 +1,19 @@
+<%--
+ @author CARLOS SANTANDER
+--%>
+<section id="section_estadistica" class="naranja_princ">
+
+    <img src="./resources/images/construccion.jpg">
+
+    <i class="choose-icon ion-archive"></i>
+
+    <i class="fa fa-ret"></i>
+
+    <span class="glyphicon glyphicon-backward spanBtn"></span>
+
+    <button class="btn-lg" ></button>
+    
+    
+    <i class="ti-bar-chart"></i>
+
+</section>

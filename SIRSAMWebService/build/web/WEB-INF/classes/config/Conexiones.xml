@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--
+ // @author CARLOS SANTANDER
+-->
+<configuration>
+    
+    <typeAliases>
+    </typeAliases>
+    
+    <environments default="Seguridad">
+        
+        <!--BASE DE DATOS DE SIRSAM (LOCAL)-->        
+        <environment id="SIRSAM">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">           
+                <property name="driver" value="org.postgresql.Driver"/>
+                <property name="url" value="jdbc:postgresql://localhost:5432/SIRSAM"/>
+                <property name="username" value="postgres"/>
+                <property name="password" value="123456"/> 
+            </dataSource>
+        </environment>         
+        
+        <!--BASE DE DATOS DE SIRSAM (PRODUCCION)     
+        <environment id="SIRSAM">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="org.postgresql.Driver"/>
+                <property name="url" value="jdbc:postgresql://172.16.100.36:5433/SIRSAM"/>
+                <property name="username" value="postgres"/>
+                <property name="password" value="@PostgreSQL"/>
+            </dataSource>
+        </environment>
+        -->    
+           
+    </environments>
+               
+    <mappers>     
+        
+        <!-- MÓDULO PRESUPUESTO -->
+        <mapper resource="config/Presupuesto.xml" />
+        <!-- MÓDULO PROYECTOS -->
+        <mapper resource="config/Inversion.xml" />
+        <!-- MÓDULO ESTADISTICA -->
+        <mapper resource="config/Estadistica.xml" />
+      
+    </mappers>
+    
+</configuration>
+
+
+

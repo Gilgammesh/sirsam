@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--
+ // @author CARLOS SANTANDER
+-->
+<configuration>
+    
+    <typeAliases>      
+        
+        <typeAlias alias="Estadistica" type="beans.Estadistica"/>
+        <typeAlias alias="Planeamiento" type="beans.Planeamiento"/>
+        <typeAlias alias="PlaneamientoGraficas" type="beans.PlaneamientoGraficas"/>
+        <typeAlias alias="PlaneamientoMetaData" type="beans.PlaneamientoMetaData"/>
+        <typeAlias alias="Presupuesto" type="beans.Presupuesto"/>
+        <typeAlias alias="Proyectos" type="beans.Proyectos"/>
+        <typeAlias alias="Sesion" type="beans.Sesion"/>
+        <typeAlias alias="Sincronizacion" type="beans.Sincronizacion"/>        
+        <typeAlias alias="User" type="beans.User"/>
+        <typeAlias alias="Usuario" type="beans.Usuario"/>
+        
+    </typeAliases>
+    
+    <environments default="Seguridad">       
+        
+        <!--  BASE DE DATOS SIRSAM PRODUCCIÓN  -->       
+        <environment id="SIRSAM">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">           
+                <property name="driver" value="org.postgresql.Driver"/>
+                <property name="url" value="jdbc:postgresql://172.16.100.36:5433/SIRSAM"/>
+                <property name="username" value="postgres"/>
+                <property name="password" value="git "/> 
+            </dataSource>
+        </environment>        
+        
+        <!--  BASE DE DATOS SIRSAM LOCAL          
+        <environment id="SIRSAM">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="org.postgresql.Driver"/>
+                <property name="url" value="jdbc:postgresql://localhost:5432/SIRSAM"/>
+                <property name="username" value="postgres"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+        -->            
+        
+    </environments>
+               
+    <mappers>       
+    
+        <mapper resource="batis/Estadistica.xml" />
+        <mapper resource="batis/Planeamiento.xml" />
+        <mapper resource="batis/PlaneamientoGraficas.xml" />
+        <mapper resource="batis/PlaneamientoMetaData.xml" />
+        <mapper resource="batis/Presupuesto.xml" />
+        <mapper resource="batis/Proyectos.xml" />
+        <mapper resource="batis/Sesion.xml" />
+        <mapper resource="batis/Sincronizacion.xml" />
+        <mapper resource="batis/Usuario.xml" />
+                
+    </mappers>
+    
+</configuration>
+
+
+
+
+

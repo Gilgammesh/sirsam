@@ -1,0 +1,5 @@
+<%--
+ @author CARLOS SANTANDER
+--%>
+<iframe id="<%= request.getAttribute("idFrame")%>" onload="scriptLoad();" src="<%= request.getAttribute("hrefFrame")%>" frameborder="0" class="iframe-archivos"/>
+

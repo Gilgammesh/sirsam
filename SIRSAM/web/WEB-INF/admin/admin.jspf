@@ -1,0 +1,11 @@
+<%--
+ @author CARLOS SANTANDER
+--%>
+<section id="section_admin" class="naranja_princ">
+
+  <i class="fa fa-us"></i>
+
+</section>
+
+<div id="divUsuario"></div>
+

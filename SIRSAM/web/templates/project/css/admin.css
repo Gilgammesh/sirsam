@@ -1,0 +1,148 @@
+#section_admin {
+    padding-bottom: 15px;
+    font-size: 13px;
+}
+
+.filtro_princ {
+    border-radius: 4px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 1px;     
+}
+
+.tabla_reporte {  
+    border-radius: 4px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+#btnNuevoUsuario,
+#btnNuevoPerfil {
+    color: #334A74;
+    font-weight: bold;  
+}
+
+.div-usuario {    
+    position: absolute;
+    margin: auto;
+    left: 0; 
+    right: 0;
+    color: #334A74;
+    padding: 20px;
+    max-width: 600px;    
+    border-radius: 8px;
+    box-shadow:1px 1px 8px 2px rgb(171, 186, 204);
+    -moz-box-shadow: 1px 1px 8px 2px rgb(171, 186, 204);
+    -webkit-box-shadow: 1px 1px 8px 2px rgb(171, 186, 204);
+    -o-box-shadow: 1px 1px 8px 2px rgb(171, 186, 204);
+    -ms-box-shadow: 1px 1px 8px 2px rgb(171, 186, 204);
+    overflow: hidden;
+    z-index: 9999;
+    background: white;
+}
+
+.div-perfil {    
+    position: absolute;
+    margin: auto;
+    left: 0; 
+    right: 0;
+    color: #334A74;
+    padding: 20px;
+    max-width: 500px;    
+    border-radius: 8px;
+    box-shadow:1px 1px 8px 2px rgb(171, 186, 204);
+    -moz-box-shadow: 1px 1px 8px 2px rgb(171, 186, 204);
+    -webkit-box-shadow: 1px 1px 8px 2px rgb(171, 186, 204);
+    -o-box-shadow: 1px 1px 8px 2px rgb(171, 186, 204);
+    -ms-box-shadow: 1px 1px 8px 2px rgb(171, 186, 204);
+    overflow: hidden;
+    z-index: 9999;
+    background: white;
+}
+
+.div-permisos {    
+    position: absolute;
+    margin: auto;
+    left: 0; 
+    right: 0;
+    color: #334A74;
+    padding: 20px;
+    max-width: 600px;    
+    border-radius: 8px;
+    box-shadow:1px 1px 8px 2px rgb(171, 186, 204);
+    -moz-box-shadow: 1px 1px 8px 2px rgb(171, 186, 204);
+    -webkit-box-shadow: 1px 1px 8px 2px rgb(171, 186, 204);
+    -o-box-shadow: 1px 1px 8px 2px rgb(171, 186, 204);
+    -ms-box-shadow: 1px 1px 8px 2px rgb(171, 186, 204);
+    overflow: hidden;
+    z-index: 9999;
+    background: white;
+}
+
+span.label {
+    border-radius: 3px;
+    padding: 0 6px;
+    font-size: 12px;
+}
+span.label1 {
+    border-radius: 3px;
+    padding: 6px;
+    font-size: 13px;
+}
+.label-primary,
+.badge-primary {
+    color: #fff !important;
+    background-color: #3c8dbc !important;
+}
+.label-success,
+.badge-success {
+    color: #fff !important;
+    background-color: #00a65a !important;
+}
+.label-danger,
+.badge-danger {
+    color: #fff !important;
+    background-color: #dd4b39 !important;
+}
+.label-warning,
+.badge-warning {
+    color: #fff !important;
+    background-color: #f39c12 !important;
+}
+.label-default,
+.badge-default {
+    background-color: #d2d6de;
+    color: #444;
+}
+
+.custom-control-input:checked ~ .custom-control-indicator.red {
+    color: #fff;
+    background-color: red;
+}
+
+.list-group .list-group-item.activado {    
+    color: white;
+    background-color: #3c8dbc;
+}
+
+#spanUserLog,
+#spanUserNav {
+    padding: 5px 7px;
+    font-size: 14px;
+}
+
+input::-webkit-inner-spin-button, input::-webkit-clear-button {
+    display: none;
+}
+
+.col-form-date {
+    border-radius: 4px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 7px;
+    padding-right: 4px;
+}
+

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+ // @author CARLOS SANTANDER
+-->
+<mapper namespace="PlaneamientoGraficas">
+    
+    <resultMap id="PlaneamientoGraficasMap" type="PlaneamientoGraficas">       
+        <result property="grafId" column="graf_id" /> 
+        <result property="titulo" column="titulo" /> 
+        <result property="titulodominio" column="titulodominio" /> 
+        <result property="titulorango" column="titulorango" /> 
+        <result property="incluirleyenda" column="incluirleyenda" /> 
+        <result property="incluirtooltips" column="incluirtooltips" /> 
+        <result property="anchoimg" column="anchoimg" /> 
+        <result property="altoimg" column="altoimg" /> 
+        <result property="fondoimg" column="fondoimg" /> 
+        <result property="bordeleyenda" column="bordeleyenda" /> 
+        <result property="fontleyendaname" column="fontleyendaname" /> 
+        <result property="fontleyendastyle" column="fontleyendastyle" /> 
+        <result property="fontleyendasize" column="fontleyendasize" /> 
+        <result property="alignleyenda" column="alignleyenda" /> 
+        <result property="colorleyenda" column="colorleyenda" /> 
+        <result property="fondoleyenda" column="fondoleyenda" /> 
+        <result property="fonttituloname" column="fonttituloname" /> 
+        <result property="fonttitulostyle" column="fonttitulostyle" /> 
+        <result property="fonttitulosize" column="fonttitulosize" /> 
+        <result property="colortitulo" column="colortitulo" /> 
+        <result property="fonttitulodominioname" column="fonttitulodominioname" /> 
+        <result property="fonttitulodominiostyle" column="fonttitulodominiostyle" /> 
+        <result property="fonttitulodominiosize" column="fonttitulodominiosize" /> 
+        <result property="colortitulodominio" column="colortitulodominio" /> 
+        <result property="fontdominioname" column="fontdominioname" /> 
+        <result property="fontdominiostyle" column="fontdominiostyle" /> 
+        <result property="fontdominiosize" column="fontdominiosize" /> 
+        <result property="colordominio" column="colordominio" /> 
+        <result property="fonttitulorangoname" column="fonttitulorangoname" /> 
+        <result property="fonttitulorangostyle" column="fonttitulorangostyle" /> 
+        <result property="fonttitulorangosize" column="fonttitulorangosize" /> 
+        <result property="colortitulorango" column="colortitulorango" /> 
+        <result property="fontrangoname" column="fontrangoname" /> 
+        <result property="fontrangostyle" column="fontrangostyle" /> 
+        <result property="fontrangosize" column="fontrangosize" /> 
+        <result property="colorrango" column="colorrango" /> 
+        <result property="fondopaint" column="fondopaint" /> 
+        <result property="linerangepaint" column="linerangepaint" /> 
+        <result property="colorbarseries" column="colorbarseries" /> 
+        <result property="anchobar" column="anchobar" /> 
+        <result property="fontbarseriesname" column="fontbarseriesname" /> 
+        <result property="fontbarseriesstyle" column="fontbarseriesstyle" /> 
+        <result property="fontbarseriessize" column="fontbarseriessize" /> 
+        <result property="colorfontseries" column="colorfontseries" /> 
+        <result property="formatonumero" column="formatonumero" /> 
+        <result property="formatolabel" column="formatolabel" /> 
+        <result property="posicionnumbar" column="posicionnumbar" /> 
+        <result property="margenseries" column="margenseries" /> 
+        <result property="margencategorias" column="margencategorias" /> 
+        <result property="margenizquierda" column="margenizquierda" /> 
+        <result property="margenderecha" column="margenderecha" /> 
+        <result property="formatoimg" column="formatoimg" /> 
+        <result property="grafEstado" column="graf_estado" /> 
+        <result property="grafQuery" column="graf_query" /> 
+    </resultMap> 
+    
+    <select id="getGraficaBarv2d" parameterType="HashMap" resultMap="PlaneamientoGraficasMap">
+        SELECT graf_id, titulo, titulodominio, titulorango, incluirleyenda, incluirtooltips, anchoimg, altoimg, fondoimg, 
+        bordeleyenda, fontleyendaname, fontleyendastyle, fontleyendasize, alignleyenda, colorleyenda, fondoleyenda, 
+        fonttituloname, fonttitulostyle, fonttitulosize, colortitulo, fonttitulodominioname, fonttitulodominiostyle, 
+        fonttitulodominiosize, colortitulodominio, fontdominioname, fontdominiostyle, fontdominiosize, colordominio, 
+        fonttitulorangoname, fonttitulorangostyle, fonttitulorangosize, colortitulorango, fontrangoname, fontrangostyle, 
+        fontrangosize, colorrango, fondopaint, linerangepaint, colorbarseries, anchobar, fontbarseriesname, fontbarseriesstyle, 
+        fontbarseriessize, colorfontseries, formatonumero, formatolabel, posicionnumbar, margenseries, margencategorias, 
+        margenizquierda, margenderecha, formatoimg, graf_estado, graf_query
+        FROM planeamiento.grafica_barv2d ${c}
+    </select>
+    
+    <insert id="insertGraficaBarv2d" parameterType="PlaneamientoGraficas" >
+        <selectKey keyProperty="grafId" resultType="int" order="BEFORE">
+            select cast(((case when max(graf_id) is null then 0 else max(graf_id) end) +1) as int) 
+            from planeamiento.grafica_barv2d
+        </selectKey>
+        INSERT INTO planeamiento.grafica_barv2d(
+        graf_id, titulo, titulodominio, titulorango, incluirleyenda, incluirtooltips, anchoimg, altoimg, 
+        fondoimg, bordeleyenda, fontleyendaname, fontleyendastyle, fontleyendasize, alignleyenda, colorleyenda, 
+        fondoleyenda, fonttituloname, fonttitulostyle, fonttitulosize, colortitulo, fonttitulodominioname, 
+        fonttitulodominiostyle, fonttitulodominiosize, colortitulodominio, fontdominioname, fontdominiostyle, 
+        fontdominiosize, colordominio, fonttitulorangoname, fonttitulorangostyle, fonttitulorangosize, 
+        colortitulorango, fontrangoname, fontrangostyle, fontrangosize, colorrango, fondopaint, linerangepaint, 
+        colorbarseries, anchobar, fontbarseriesname, fontbarseriesstyle, fontbarseriessize, colorfontseries, 
+        formatonumero, formatolabel, posicionnumbar, margenseries, margencategorias, margenizquierda, 
+        margenderecha, formatoimg, graf_estado, graf_query)
+        VALUES (#{grafId}, #{titulo}, #{titulodominio}, #{titulorango}, #{incluirleyenda}, 
+        #{incluirtooltips}, #{anchoimg}, #{altoimg}, #{fondoimg}, #{bordeleyenda}, #{fontleyendaname}, 
+        #{fontleyendastyle}, #{fontleyendasize}, #{alignleyenda}, #{colorleyenda}, 
+        #{fondoleyenda}, #{fonttituloname}, #{fonttitulostyle}, #{fonttitulosize}, 
+        #{colortitulo}, #{fonttitulodominioname}, #{fonttitulodominiostyle}, #{fonttitulodominiosize}, 
+        #{colortitulodominio}, #{fontdominioname}, #{fontdominiostyle}, #{fontdominiosize}, 
+        #{colordominio}, #{fonttitulorangoname}, #{fonttitulorangostyle}, #{fonttitulorangosize}, 
+        #{colortitulorango}, #{fontrangoname}, #{fontrangostyle}, #{fontrangosize}, 
+        #{colorrango}, #{fondopaint}, #{linerangepaint}, #{colorbarseries}, #{anchobar}, 
+        #{fontbarseriesname}, #{fontbarseriesstyle}, #{fontbarseriessize}, #{colorfontseries}, 
+        #{formatonumero}, #{formatolabel}, #{posicionnumbar}, #{margenseries}, #{margencategorias}, 
+        #{margenizquierda}, #{margenderecha}, #{formatoimg}, #{grafEstado}, #{grafQuery});
+    </insert>  
+    
+    <update id="updateGraficaBarv2d" parameterType="PlaneamientoGraficas"> 
+        UPDATE planeamiento.grafica_barv2d
+        SET titulo=#{titulo}, titulodominio=#{titulodominio}, titulorango=#{titulorango}, incluirleyenda=#{incluirleyenda}, 
+        incluirtooltips=#{incluirtooltips}, anchoimg=#{anchoimg}, altoimg=#{altoimg}, fondoimg=#{fondoimg}, 
+        bordeleyenda=#{bordeleyenda}, fontleyendaname=#{fontleyendaname}, fontleyendastyle=#{fontleyendastyle}, 
+        fontleyendasize=#{fontleyendasize}, alignleyenda=#{alignleyenda}, colorleyenda=#{colorleyenda}, 
+        fondoleyenda=#{fondoleyenda}, fonttituloname=#{fonttituloname}, fonttitulostyle=#{fonttitulostyle}, 
+        fonttitulosize=#{fonttitulosize}, colortitulo=#{colortitulo}, fonttitulodominioname=#{fonttitulodominioname}, 
+        fonttitulodominiostyle=#{fonttitulodominiostyle}, fonttitulodominiosize=#{fonttitulodominiosize}, 
+        colortitulodominio=#{colortitulodominio}, fontdominioname=#{fontdominioname}, fontdominiostyle=#{fontdominiostyle}, 
+        fontdominiosize=#{fontdominiosize}, colordominio=#{colordominio}, fonttitulorangoname=#{fonttitulorangoname}, 
+        fonttitulorangostyle=#{fonttitulorangostyle}, fonttitulorangosize=#{fonttitulorangosize}, 
+        colortitulorango=#{colortitulorango}, fontrangoname=#{fontrangoname}, fontrangostyle=#{fontrangostyle}, 
+        fontrangosize=#{fontrangosize}, colorrango=#{colorrango}, fondopaint=#{fondopaint}, linerangepaint=#{linerangepaint}, 
+        colorbarseries=#{colorbarseries}, anchobar=#{anchobar}, fontbarseriesname=#{fontbarseriesname}, 
+        fontbarseriesstyle=#{fontbarseriesstyle}, fontbarseriessize=#{fontbarseriessize}, colorfontseries=#{colorfontseries}, 
+        formatonumero=#{formatonumero}, formatolabel=#{formatolabel}, posicionnumbar=#{posicionnumbar}, 
+        margenseries=#{margenseries}, margencategorias=#{margencategorias}, margenizquierda=#{margenizquierda}, 
+        margenderecha=#{margenderecha}, formatoimg=#{formatoimg}, graf_query=#{grafQuery}
+        WHERE graf_id=#{grafId};
+    </update>
+    
+    <update id="deleteGraficaBarv2d" parameterType="PlaneamientoGraficas"> 
+        UPDATE planeamiento.grafica_barv2d
+        SET graf_estado=#{grafEstado}
+        WHERE graf_id=#{grafId};
+    </update>
+
+</mapper>

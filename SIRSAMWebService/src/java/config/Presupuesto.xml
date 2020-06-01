@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+ // @author CARLOS SANTANDER
+-->
+<mapper namespace="Presupuesto">  
+   
+    <!--ACTIVIDAD/PROYECTO NOMBRE--> 
+    <insert id="upsertActProyNombre" parameterType="presupuesto.bean.ActProyNombre">  
+        INSERT INTO presupuesto.act_proy_nombre(
+        ano_eje, act_proy, tipo_act_proy, nombre, estado, proyecto_snip, es_foniprel)        
+        VALUES ( 
+        #{ano_eje}, #{act_proy}, #{tipo_act_proy}, #{nombre}, #{estado}, #{proyecto_snip}, #{es_foniprel})
+        ON CONFLICT ON CONSTRAINT id_act_proy_nombre_pk 
+        DO UPDATE SET
+        tipo_act_proy=#{tipo_act_proy}, nombre=#{nombre}, estado=#{estado}, 
+        proyecto_snip=#{proyecto_snip}, es_foniprel=#{es_foniprel};      
+    </insert> 
+    
+    <!--BANCOS--> 
+    <insert id="upsertBanco" parameterType="presupuesto.bean.Banco">  
+        INSERT INTO presupuesto.banco(
+        banco, nombre, estado, es_financiera, sec_ejec_ruc)
+        VALUES (#{banco}, #{nombre}, #{estado}, #{es_financiera}, #{sec_ejec_ruc})
+        ON CONFLICT ON CONSTRAINT id_banco_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, estado=#{estado}, es_financiera=#{es_financiera}, sec_ejec_ruc=#{sec_ejec_ruc};      
+    </insert> 
+    
+    <!-- CATEGORIA DE GASTO --> 
+    <insert id="upsertCategoriaGasto" parameterType="presupuesto.bean.CategoriaGasto">  
+        INSERT INTO presupuesto.categoria_gasto(
+        ano_eje, categ_gasto, nombre, estado)
+        VALUES ( 
+        #{ano_eje}, #{categ_gasto}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_categoria_gasto_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, estado=#{estado}; 
+    </insert> 
+    
+    <!-- CATEGORIA DE INGRESO --> 
+    <insert id="upsertCategoriaIngreso" parameterType="presupuesto.bean.CategoriaIngreso">  
+        INSERT INTO presupuesto.categoria_ingreso(
+        ano_eje, categoria_ingreso, descripcion, estado)
+        VALUES ( 
+        #{ano_eje}, #{categoria_ingreso}, #{descripcion}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_categoria_ingreso_pk 
+        DO UPDATE SET
+        descripcion=#{descripcion}, estado=#{estado}; 
+    </insert>
+    
+    <!--CERTIFICADO--> 
+    <insert id="upsertCertificado" parameterType="presupuesto.bean.Certificado">  
+        INSERT INTO presupuesto.certificado(
+        ano_eje, sec_ejec, certificado, estado_registro, estado_envio)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{certificado}, #{estado_registro}, #{estado_envio})
+        ON CONFLICT ON CONSTRAINT id_certificado_pk 
+        DO UPDATE SET
+        estado_registro=#{estado_registro}, estado_envio=#{estado_envio};
+    </insert> 
+    
+    <!--CERTIFICADO - FASE--> 
+    <insert id="upsertCertificadoFase" parameterType="presupuesto.bean.CertificadoFase">  
+        INSERT INTO presupuesto.certificado_fase(
+        ano_eje, sec_ejec, certificado, secuencia, secuencia_padre, fuente_financ, etapa, 
+        monto, monto_comprometido, monto_nacional, glosa, estado_registro, estado_envio)
+        VALUES ( 
+        #{ano_eje}, #{sec_ejec}, #{certificado}, #{secuencia}, #{secuencia_padre}, #{fuente_financ}, #{etapa}, 
+        #{monto}, #{monto_comprometido}, #{monto_nacional}, #{glosa}, #{estado_registro}, #{estado_envio})
+        ON CONFLICT ON CONSTRAINT id_certificado_fase_pk 
+        DO UPDATE SET
+        secuencia_padre=#{secuencia_padre}, fuente_financ=#{fuente_financ}, etapa=#{etapa}, 
+        monto=#{monto}, monto_comprometido=#{monto_comprometido}, monto_nacional=#{monto_nacional}, 
+        glosa=#{glosa}, estado_registro=#{estado_registro}, estado_envio=#{estado_envio};  
+    </insert>         
+    
+    <!--CERTIFICADO - META--> 
+    <insert id="upsertCertificadoMeta" parameterType="presupuesto.bean.CertificadoMeta">  
+        INSERT INTO presupuesto.certificado_meta(
+        ano_eje, sec_ejec, certificado, secuencia, correlativo, id_clasificador, 
+        sec_func, monto, monto_comprometido, monto_nacional, estado_registro, estado_envio)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{certificado}, #{secuencia}, #{correlativo}, #{id_clasificador}, 
+        #{sec_func}, #{monto}, #{monto_comprometido}, #{monto_nacional}, #{estado_registro}, #{estado_envio})
+        ON CONFLICT ON CONSTRAINT id_certificado_meta_pk 
+        DO UPDATE SET
+        monto=#{monto}, monto_comprometido=#{monto_comprometido}, monto_nacional=#{monto_nacional}, 
+        estado_registro=#{estado_registro}, estado_envio=#{estado_envio};
+    </insert>  
+      
+    <!--CERTIFICADO - SECUENCIA--> 
+    <insert id="upsertCertificadoSecuencia" parameterType="presupuesto.bean.CertificadoSecuencia">  
+        INSERT INTO presupuesto.certificado_secuencia(
+        ano_eje, sec_ejec, certificado, secuencia, correlativo, cod_doc, num_doc, fecha_doc, 
+        estado_registro, estado_envio, monto, monto_comprometido, monto_nacional, tipo_registro)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{certificado}, #{secuencia}, #{correlativo}, #{cod_doc}, #{num_doc}, #{fecha_doc}, 
+        #{estado_registro}, #{estado_envio}, #{monto}, #{monto_comprometido}, #{monto_nacional}, #{tipo_registro})
+        ON CONFLICT ON CONSTRAINT id_certificado_secuencia_pk 
+        DO UPDATE SET
+        cod_doc=#{cod_doc}, num_doc=#{num_doc}, fecha_doc=#{fecha_doc}, estado_registro=#{estado_registro}, 
+        estado_envio=#{estado_envio}, monto=#{monto}, monto_comprometido=#{monto_comprometido}, 
+        monto_nacional=#{monto_nacional}, tipo_registro=#{tipo_registro};  
+    </insert> 
+
+    <!--CICLO--> 
+    <insert id="upsertCiclo" parameterType="presupuesto.bean.Ciclo">  
+        INSERT INTO presupuesto.ciclo(
+        ciclo, nombre)
+        VALUES (
+        #{ciclo}, #{nombre})
+        ON CONFLICT ON CONSTRAINT id_ciclo_pk 
+        DO UPDATE SET
+        nombre=#{nombre};
+    </insert>  
+    
+    <!--COMPONENTE NOMBRE--> 
+    <insert id="upsertComponenteNombre" parameterType="presupuesto.bean.ComponenteNombre">  
+        INSERT INTO presupuesto.componente_nombre(
+        ano_eje, componente, tipo_componente, nombre, estado)
+        VALUES (
+        #{ano_eje}, #{componente}, #{tipo_componente}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_componente_nombre_pk 
+        DO UPDATE SET
+        tipo_componente=#{tipo_componente}, nombre=#{nombre}, estado=#{estado};        
+    </insert>
+    
+    <!--CUENTA CORRIENTE--> 
+    <insert id="upsertCtaCte" parameterType="presupuesto.bean.CtaCte">  
+        INSERT INTO presupuesto.cta_cte(
+        ano_eje, sec_ejec, banco, cta_cte, nombre, estado)
+        VALUES (#{ano_eje}, #{sec_ejec}, #{banco}, #{cta_cte}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_cta_cte_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, estado=#{estado};        
+    </insert>
+    
+    <!-- DEPARTAMENTO --> 
+    <insert id="upsertDepartamento" parameterType="presupuesto.bean.Departamento">  
+        INSERT INTO presupuesto.departamento(
+        departamento, nombre, estado)
+        VALUES ( 
+        #{departamento}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_departamento_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, estado=#{estado}; 
+    </insert>
+    
+    <!-- DISTRITO --> 
+    <insert id="upsertDistrito" parameterType="presupuesto.bean.Distrito">  
+        INSERT INTO presupuesto.distrito(
+        departamento, provincia, distrito, nombre, region, estado)
+        VALUES ( 
+        #{departamento}, #{provincia}, #{distrito}, #{nombre}, #{region}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_distrito_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, region=#{region}, estado=#{estado}; 
+    </insert>
+    
+    <!--EJECUCION HISTORICA-->
+    <select id="getEjecucionHistoricaTotal" parameterType="HashMap" resultType="presupuesto.bean.EjecucionHistorica">
+        SELECT ano_eje, sec_ejec, SUM(presupuesto) as pia, SUM(modificacion) as modificacion, SUM(presupuesto) + SUM(modificacion) as pim, 
+        SUM(monto_certificado) as certificado, SUM(monto_comprometido_anual) as compromiso_anual, SUM(compromiso) as compromiso, 
+        SUM(ejecucion) as ejecucion, SUM(devengado) as devengado, SUM(girado) as girado, SUM(pagado) as pagado
+        FROM presupuesto.gasto GROUP BY ano_eje, sec_ejec ORDER BY ano_eje, sec_ejec ASC          
+    </select>
+    
+    <select id="getEjecucionHistoricaActual" parameterType="HashMap" resultType="presupuesto.bean.EjecucionHistorica">
+        SELECT a.ano_eje, a.sec_ejec, a.pia, a.modificacion, a.pim, b.certificado, c.total - b.certificado as compromiso_anual, 
+        g.compromiso, d.devengado as ejecucion, d.devengado, e.girado, f.pagado
+        FROM
+        (SELECT ano_eje, sec_ejec, SUM(presupuesto) as pia, SUM(modificacion) as modificacion, SUM(presupuesto) + SUM(modificacion) as pim
+        FROM presupuesto.gasto GROUP BY ano_eje, sec_ejec) as a        
+        INNER JOIN (SELECT a.ano_eje, a.sec_ejec, SUM(b.monto) as certificado FROM presupuesto.certificado_fase as a 
+        INNER JOIN presupuesto.certificado_meta as b ON (a.ano_eje=b.ano_eje AND a.sec_ejec=b.sec_ejec AND a.certificado=b.certificado 
+        AND a.secuencia=b.secuencia AND a.estado_registro=b.estado_registro) WHERE a.estado_registro = 'A' AND a.secuencia_padre = '0000' 
+        GROUP BY a.ano_eje, a.sec_ejec) as b ON (a.ano_eje = b.ano_eje AND a.sec_ejec = b.sec_ejec)        
+        INNER JOIN (SELECT ano_eje, sec_ejec, SUM(monto) as total FROM presupuesto.certificado_meta 
+        WHERE estado_registro = 'A' GROUP BY ano_eje, sec_ejec) as c ON (a.ano_eje = c.ano_eje AND a.sec_ejec = c.sec_ejec)
+        INNER JOIN (SELECT ano_eje, sec_ejec, ciclo, SUM(monto_nacional) as devengado FROM presupuesto.expediente_meta
+        WHERE estado_envio = 'A' AND fase = 'D' AND sec_func != '0000' GROUP BY ano_eje, sec_ejec, ciclo) as d ON (a.ano_eje = d.ano_eje AND a.sec_ejec = d.sec_ejec)
+        INNER JOIN (SELECT ano_eje, sec_ejec, ciclo, SUM(monto_nacional) as girado FROM presupuesto.expediente_meta
+        WHERE estado_envio = 'A' AND fase = 'G' AND sec_func != '0000' GROUP BY ano_eje, sec_ejec, ciclo) as e ON (a.ano_eje = e.ano_eje AND a.sec_ejec = e.sec_ejec AND d.ciclo = e.ciclo)
+        INNER JOIN (SELECT ano_eje, sec_ejec, ciclo, SUM(monto_nacional) as pagado FROM presupuesto.expediente_meta
+        WHERE estado_envio = 'A' AND fase = 'P' AND sec_func != '0000' GROUP BY ano_eje, sec_ejec, ciclo) as f ON (a.ano_eje = f.ano_eje AND a.sec_ejec = f.sec_ejec AND d.ciclo = f.ciclo) 
+        INNER JOIN (SELECT ano_eje, sec_ejec, ciclo, SUM(monto_nacional) as compromiso FROM presupuesto.expediente_meta
+        WHERE estado_envio = 'A' AND fase = 'C' AND sec_func != '0000' GROUP BY ano_eje, sec_ejec, ciclo) as g ON (a.ano_eje = g.ano_eje AND a.sec_ejec = g.sec_ejec AND d.ciclo = g.ciclo) ${c}        
+    </select>
+      
+    <insert id="upsertEjecucionHistorica" parameterType="presupuesto.bean.EjecucionHistorica">  
+        INSERT INTO presupuesto.ejecucion_historica(
+        ano_eje, sec_ejec, pia, modificacion, pim, certificado, compromiso_anual, compromiso, ejecucion, devengado, girado, pagado)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{pia}, #{modificacion}, #{pim}, #{certificado}, #{compromiso_anual}, 
+        #{compromiso}, #{ejecucion}, #{devengado}, #{girado}, #{pagado})
+        ON CONFLICT ON CONSTRAINT id_ejecucion_historica_pk 
+        DO UPDATE SET        
+        pia=#{pia}, modificacion=#{modificacion}, pim=#{pim}, certificado=#{certificado}, compromiso_anual=#{compromiso_anual}, 
+        compromiso=#{compromiso}, ejecucion=#{ejecucion}, devengado=#{devengado}, girado=#{girado}, pagado=#{pagado};        
+    </insert> 
+    
+    <!-- EJECUTORA --> 
+    <insert id="upsertEjecutora" parameterType="presupuesto.bean.Ejecutora">  
+        INSERT INTO presupuesto.ejecutora(
+        ano_eje, sec_ejec, pliego, ejecutora, nombre, estado)
+        VALUES ( 
+        #{ano_eje}, #{sec_ejec}, #{pliego}, #{ejecutora}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_ejecutora_pk 
+        DO UPDATE SET
+        pliego=#{pliego}, ejecutora=#{ejecutora}, nombre=#{nombre}, estado=#{estado}; 
+    </insert>
+    
+    <!--ESPECIFICA--> 
+    <insert id="upsertEspecifica" parameterType="presupuesto.bean.Especifica">  
+        INSERT INTO presupuesto.especifica(
+        ano_eje, tipo_transaccion, generica, subgenerica, subgenerica_det, especifica, 
+        clasificador, descripcion, estado)    
+        VALUES ( 
+        #{ano_eje}, #{tipo_transaccion}, #{generica}, #{subgenerica}, #{subgenerica_det}, #{especifica}, 
+        #{tipo_transaccion}||'.'||#{generica}||'.'||TRIM(#{subgenerica})||' '||TRIM(#{subgenerica_det})
+        ||'.'||TRIM(#{especifica}), #{descripcion}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_especifica_pk 
+        DO UPDATE SET
+        descripcion=#{descripcion}, estado=#{estado};        
+    </insert> 
+    
+    <!--ESPECIFICA DETALLADA-->
+    <insert id="upsertEspecificaDet" parameterType="presupuesto.bean.EspecificaDet"> 
+        INSERT INTO presupuesto.especifica_det(
+        ano_eje, tipo_transaccion, generica, subgenerica, subgenerica_det, especifica, 
+        especifica_det, clasificador, id_clasificador, descripcion, estado)
+        VALUES (
+        #{ano_eje}, #{tipo_transaccion}, #{generica}, #{subgenerica}, #{subgenerica_det}, #{especifica}, 
+        #{especifica_det}, #{tipo_transaccion}||'.'||#{generica}||'.'||TRIM(#{subgenerica})||' '||
+        TRIM(#{subgenerica_det})||'.'||TRIM(#{especifica})||' '||TRIM(#{especifica_det}), #{id_clasificador}, 
+        #{descripcion}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_especifica_det_pk 
+        DO UPDATE SET
+        id_clasificador=#{id_clasificador}, descripcion=#{descripcion}, estado=#{estado};
+    </insert> 
+    
+    <!--EXPEDIENTE-->
+    <insert id="upsertExpediente" parameterType="presupuesto.bean.Expediente"> 
+        INSERT INTO presupuesto.expediente(
+        ano_eje, sec_ejec, expediente, estado_envio)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{expediente}, #{estado_envio})
+        ON CONFLICT ON CONSTRAINT id_expediente_pk 
+        DO UPDATE SET 
+        estado_envio=#{estado_envio};
+    </insert> 
+    
+    <!--EXPEDIENTE ADJUNTO -->
+    <insert id="upsertExpedienteAdjunto" parameterType="presupuesto.bean.ExpedienteAdjunto"> 
+        INSERT INTO presupuesto.expediente_adjunto(
+        ano_eje, sec_ejec, expediente, ciclo, fase, secuencia, correlativo, cta_bancaria, tipo_doc, 
+        num_doc, monto, estado_envio)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{expediente}, #{ciclo}, #{fase}, #{secuencia}, #{correlativo}, 
+        #{cta_bancaria}, #{tipo_doc}, #{num_doc}, #{monto}, #{estado_envio})
+        ON CONFLICT ON CONSTRAINT id_expediente_adjunto_pk 
+        DO UPDATE SET
+        tipo_doc=#{tipo_doc}, num_doc=#{num_doc}, monto=#{monto}, estado_envio=#{estado_envio};
+    </insert> 
+    
+    <!--EXPEDIENTE DOCUMENTO -->
+    <insert id="upsertExpedienteDocumento" parameterType="presupuesto.bean.ExpedienteDocumento"> 
+        INSERT INTO presupuesto.expediente_documento(
+        ano_eje, sec_ejec, expediente, ciclo, fase, secuencia, correlativo, cod_doc, num_doc, 
+        fecha_doc, nombre, estado_envio)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{expediente}, #{ciclo}, #{fase}, #{secuencia}, #{correlativo}, #{cod_doc},
+        #{num_doc}, #{fecha_doc}, #{nombre}, #{estado_envio})
+        ON CONFLICT ON CONSTRAINT id_expediente_documento_pk 
+        DO UPDATE SET
+        fecha_doc=#{fecha_doc}, nombre=#{nombre}, estado_envio=#{estado_envio};
+    </insert> 
+    
+    <!--EXPEDIENTE FASE -->
+    <insert id="upsertExpedienteFase" parameterType="presupuesto.bean.ExpedienteFase"> 
+        INSERT INTO presupuesto.expediente_fase(
+        ano_eje, sec_ejec, expediente, ciclo, fase, secuencia, secuencia_padre, monto_nacional, 
+        fuente_financ, tipo_id, ruc, tipo_pago, tipo_recurso, estado_envio, certificado)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{expediente}, #{ciclo}, #{fase}, #{secuencia}, #{secuencia_padre}, 
+        #{monto_nacional}, #{fuente_financ}, #{tipo_id}, #{ruc}, #{tipo_pago}, #{tipo_recurso}, 
+        #{estado_envio}, #{certificado})
+        ON CONFLICT ON CONSTRAINT id_expediente_fase_pk 
+        DO UPDATE SET
+        secuencia_padre=#{secuencia_padre}, monto_nacional=#{monto_nacional}, fuente_financ=#{fuente_financ}, 
+        tipo_id=#{tipo_id}, ruc=#{ruc}, tipo_pago=#{tipo_pago}, tipo_recurso=#{tipo_recurso}, 
+        estado_envio=#{estado_envio}, certificado=#{certificado};
+    </insert> 
+    
+    <!--EXPEDIENTE INGRESO -->
+    <insert id="upsertExpedienteIngreso" parameterType="presupuesto.bean.ExpedienteIngreso"> 
+        INSERT INTO presupuesto.expediente_ingreso(
+        ano_eje, sec_ejec, expediente, ciclo, fase, secuencia, correlativo, monto, 
+        monto_nacional, estado_envio, id_clasificador)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{expediente}, #{ciclo}, #{fase}, #{secuencia}, #{correlativo}, 
+        #{monto}, #{monto_nacional}, #{estado_envio}, #{id_clasificador})
+        ON CONFLICT ON CONSTRAINT id_expediente_ingreso_pk 
+        DO UPDATE SET
+        monto=#{monto}, monto_nacional=#{monto_nacional}, estado_envio=#{estado_envio};
+    </insert> 
+    
+    <!--EXPEDIENTE META -->
+    <insert id="upsertExpedienteMeta" parameterType="presupuesto.bean.ExpedienteMeta"> 
+        INSERT INTO presupuesto.expediente_meta(
+        ano_eje, sec_ejec, expediente, ciclo, fase, secuencia, correlativo, sec_func, monto, 
+        monto_nacional, estado_envio, id_clasificador)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{expediente}, #{ciclo}, #{fase}, #{secuencia}, #{correlativo},
+        #{sec_func}, #{monto}, #{monto_nacional}, #{estado_envio}, #{id_clasificador})
+        ON CONFLICT ON CONSTRAINT id_expediente_meta_pk 
+        DO UPDATE SET
+        monto=#{monto}, monto_nacional=#{monto_nacional}, estado_envio=#{estado_envio};
+    </insert> 
+    
+    <!--EXPEDIENTE NOTA -->
+    <insert id="upsertExpedienteNota" parameterType="presupuesto.bean.ExpedienteNota"> 
+        INSERT INTO presupuesto.expediente_nota(
+        ano_eje, sec_ejec, expediente, ciclo, fase, secuencia, secuencia_nota, notas, estado_envio)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{expediente}, #{ciclo}, #{fase}, #{secuencia}, #{secuencia_nota}, 
+        #{notas}, #{estado_envio})
+        ON CONFLICT ON CONSTRAINT id_expediente_nota_pk 
+        DO UPDATE SET
+        notas=#{notas}, estado_envio=#{estado_envio};
+    </insert> 
+    
+    <!--EXPEDIENTE SECUENCIA -->
+    <insert id="upsertExpedienteSecuencia" parameterType="presupuesto.bean.ExpedienteSecuencia"> 
+        INSERT INTO presupuesto.expediente_secuencia(
+        ano_eje, sec_ejec, expediente, ciclo, fase, secuencia, correlativo, cod_doc, num_doc, fecha_doc, 
+        monto, monto_nacional, ano_cta_cte, banco, cta_cte, fecha_autorizacion, estado_envio)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{expediente}, #{ciclo}, #{fase}, #{secuencia}, #{correlativo},
+        #{cod_doc}, #{num_doc}, #{fecha_doc}, #{monto}, #{monto_nacional}, #{ano_cta_cte}, 
+        #{banco}, #{cta_cte}, #{fecha_autorizacion}, #{estado_envio})
+        ON CONFLICT ON CONSTRAINT id_expediente_secuencia_pk 
+        DO UPDATE SET
+        cod_doc=#{cod_doc}, num_doc=#{num_doc}, fecha_doc=#{fecha_doc}, monto=#{monto}, 
+        monto_nacional=#{monto_nacional}, ano_cta_cte=#{ano_cta_cte}, banco=#{banco}, 
+        cta_cte=#{cta_cte}, fecha_autorizacion=#{fecha_autorizacion}, estado_envio=#{estado_envio};
+    </insert> 
+    
+    <!--FASE -->
+    <insert id="upsertFase" parameterType="presupuesto.bean.Fase"> 
+        INSERT INTO presupuesto.fase(
+        ciclo, fase, nombre)
+        VALUES (
+        #{ciclo}, #{fase}, #{nombre})
+        ON CONFLICT ON CONSTRAINT id_fase_pk 
+        DO UPDATE SET
+        nombre=#{nombre};
+    </insert> 
+    
+    <!--FINALIDAD -->
+    <insert id="upsertFinalidad" parameterType="presupuesto.bean.Finalidad">            
+        INSERT INTO presupuesto.finalidad(
+        ano_eje, finalidad, nombre, estado)
+        VALUES ( 
+        #{ano_eje}, #{finalidad}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_finalidad_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, estado=#{estado};       
+    </insert> 
+    
+    <!--RUBRO DE FINANCIAMIENTO-->
+    <insert id="upsertFuenteFinanc" parameterType="presupuesto.bean.FuenteFinanc"> 
+        INSERT INTO presupuesto.fuente_financ(
+        ano_eje, fuente_financ, nombre, estado, fuente_financ_agregada)
+        VALUES (
+        #{ano_eje}, #{fuente_financ}, #{nombre}, #{estado}, #{fuente_financ_agregada})
+        ON CONFLICT ON CONSTRAINT id_fuente_financ_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, estado=#{estado}, fuente_financ_agregada=#{fuente_financ_agregada};
+    </insert> 
+    
+    <!--FUENTE DE FINANCIAMIENTO-->     
+    <insert id="upsertFuenteFinancAgregada" parameterType="presupuesto.bean.FuenteFinancAgregada">  
+        INSERT INTO presupuesto.fuente_financ_agregada(
+        ano_eje, fuente_financ_agregada, nombre, estado)
+        VALUES (
+        #{ano_eje}, #{fuente_financ_agregada}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_fuente_financ_agregada_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, estado=#{estado};        
+    </insert>
+    
+    <!--FUNCION--> 
+    <insert id="upsertFuncion" parameterType="presupuesto.bean.Funcion">  
+        INSERT INTO presupuesto.funcion(
+        ano_eje, funcion, nombre, estado)  
+        VALUES ( 
+        #{ano_eje}, #{funcion}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_funcion_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, estado=#{estado};        
+    </insert>  
+    
+    <!--GASTO-->
+    <insert id="upsertGasto" parameterType="presupuesto.bean.Gasto"> 
+        INSERT INTO presupuesto.gasto(
+        ano_eje, sec_ejec, origen, fuente_financ, tipo_recurso, sec_func, presupuesto, 
+        modificacion, ejecucion, id_clasificador, compromiso, devengado, girado, pagado, 
+        monto_certificado, monto_comprometido_anual, monto_precertificado)
+        VALUES ( 
+        #{ano_eje}, #{sec_ejec}, #{origen}, #{fuente_financ}, #{tipo_recurso}, #{sec_func}, #{presupuesto}, 
+        #{modificacion}, #{ejecucion}, #{id_clasificador}, #{compromiso}, #{devengado}, #{girado}, #{pagado}, 
+        #{monto_certificado}, #{monto_comprometido_anual}, #{monto_precertificado})
+        ON CONFLICT ON CONSTRAINT id_gasto_pk 
+        DO UPDATE SET
+        presupuesto=#{presupuesto}, modificacion=#{modificacion}, ejecucion=#{ejecucion}, compromiso=#{compromiso}, 
+        devengado=#{devengado}, girado=#{girado}, pagado=#{pagado}, monto_certificado=#{monto_certificado}, 
+        monto_comprometido_anual=#{monto_comprometido_anual}, monto_precertificado=#{monto_precertificado};
+    </insert> 
+    
+    <!--GENERICA--> 
+    <insert id="upsertGenerica" parameterType="presupuesto.bean.Generica">  
+        INSERT INTO presupuesto.generica(
+        ano_eje, tipo_transaccion, generica, clasificador, descripcion, estado)    
+        VALUES (
+        #{ano_eje}, #{tipo_transaccion}, #{generica}, #{tipo_transaccion}||'.'||#{generica}, 
+        #{descripcion}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_generica_pk 
+        DO UPDATE SET
+        descripcion=#{descripcion}, estado=#{estado};        
+    </insert>  
+    
+    <!--INGRESO --> 
+    <insert id="upsertIngreso" parameterType="presupuesto.bean.Ingreso">  
+        INSERT INTO presupuesto.ingreso(
+        ano_eje, sec_ejec, origen, fuente_financ, tipo_recurso, presupuesto, modificacion, ejecucion, id_clasificador)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{origen}, #{fuente_financ}, #{tipo_recurso}, #{presupuesto}, 
+        #{modificacion}, #{ejecucion}, #{id_clasificador})
+        ON CONFLICT ON CONSTRAINT id_ingreso_pk 
+        DO UPDATE SET
+        presupuesto=#{presupuesto}, modificacion=#{modificacion}, ejecucion=#{ejecucion};        
+    </insert> 
+    
+    <!-- LOGS DE LAS SINCRONIZACIONES --> 
+    <insert id="insertLogsSincronizar" parameterType="presupuesto.bean.LogsSincronizar">        
+        INSERT INTO presupuesto.logs_sincronizar(
+        fecha_hora, sec_ejec, tabla, hostname, ip_local, sincronizo, log_cliente, log_servidor)
+        VALUES (#{fecha_hora}, #{sec_ejec}, #{tabla}, #{hostname}, #{ip_local}, #{sincronizo}, #{log_cliente}, #{log_servidor});
+    </insert> 
+    
+    <!--MAESTRO DOCUMENTO--> 
+    <insert id="upsertMaestroDocumento" parameterType="presupuesto.bean.MaestroDocumento">  
+        INSERT INTO presupuesto.maestro_documento(
+        cod_doc, nombre)
+        VALUES ( 
+        #{cod_doc}, #{nombre})
+        ON CONFLICT ON CONSTRAINT id_maestro_documento_pk 
+        DO UPDATE SET
+        nombre=#{nombre}; 
+    </insert>
+    
+    <!--META-->  
+    <insert id="upsertMeta" parameterType="presupuesto.bean.Meta">            
+        INSERT INTO presupuesto.meta(
+        ano_eje, sec_ejec, sec_func, funcion, programa, sub_programa, act_proy, componente, 
+        meta, finalidad, departamento, provincia, estado, distrito, programa_ppto, 
+        unidad_medida, cantidad, cantidad_semestral)
+        VALUES ( 
+        #{ano_eje}, #{sec_ejec}, #{sec_func}, #{funcion}, #{programa}, #{sub_programa}, #{act_proy}, #{componente}, 
+        #{meta}, #{finalidad}, #{departamento}, #{provincia}, #{estado}, #{distrito}, #{programa_ppto}, 
+        #{unidad_medida}, #{cantidad}, #{cantidad_semestral})
+        ON CONFLICT ON CONSTRAINT id_meta_pk 
+        DO UPDATE SET
+        funcion=#{funcion}, programa=#{programa}, sub_programa=#{sub_programa}, act_proy=#{act_proy}, 
+        componente=#{componente}, meta=#{meta}, finalidad=#{finalidad}, departamento=#{departamento}, 
+        provincia=#{provincia}, estado=#{estado}, distrito=#{distrito}, programa_ppto=#{programa_ppto}, 
+        unidad_medida=#{unidad_medida}, cantidad=#{cantidad}, cantidad_semestral=#{cantidad_semestral};        
+    </insert>
+    
+    <!--META TRIMESTRAL-->  
+    <insert id="upsertMetaTrimestral" parameterType="presupuesto.bean.MetaTrimestral">            
+        INSERT INTO presupuesto.meta_trimestral(
+        ano_eje, sec_ejec, sec_func, trimestre, programacion, avance, estado, estado_envio)
+        VALUES ( 
+        #{ano_eje}, #{sec_ejec}, #{sec_func}, #{trimestre}, #{programacion}, #{avance}, #{estado}, #{estado_envio})
+        ON CONFLICT ON CONSTRAINT id_meta_trimestral_pk 
+        DO UPDATE SET
+        programacion=#{programacion}, avance=#{avance}, estado=#{estado}, estado_envio=#{estado_envio};        
+    </insert>
+    
+    <!--NOTA MODIFICATORIA CAB--> 
+    <insert id="upsertNotaModificatoriaCab" parameterType="presupuesto.bean.NotaModificatoriaCab">  
+        INSERT INTO presupuesto.nota_modificatoria_cab(
+        ano_eje, sec_ejec, sec_ejec2, sec_nota, ind_habilita, tipo_modificacion, mes_eje, monto, sec_ejec_procedencia)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{sec_ejec2}, #{sec_nota}, #{ind_habilita}, #{tipo_modificacion}, 
+        #{mes_eje}, #{monto}, #{sec_ejec_procedencia})
+        ON CONFLICT ON CONSTRAINT id_nota_modificatoria_cab_pk 
+        DO UPDATE SET
+        ind_habilita=#{ind_habilita}, tipo_modificacion=#{tipo_modificacion}, mes_eje=#{mes_eje}, 
+        monto=#{monto}, sec_ejec_procedencia=#{sec_ejec_procedencia}; 
+    </insert>
+    
+    <!--NOTA MODIFICATORIA DETALLADA--> 
+    <insert id="upsertNotaModificatoriaDet" parameterType="presupuesto.bean.NotaModificatoriaDet">  
+        INSERT INTO presupuesto.nota_modificatoria_det(
+        ano_eje, sec_ejec, sec_ejec2, sec_nota, origen, fuente_financ, tipo_recurso, sec_func, 
+        monto_a, monto_de, id_clasificador)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{sec_ejec2}, #{sec_nota}, #{origen}, #{fuente_financ}, #{tipo_recurso}, 
+        #{sec_func}, #{monto_a}, #{monto_de}, #{id_clasificador})
+        ON CONFLICT ON CONSTRAINT id_nota_modificatoria_det_pk 
+        DO UPDATE SET
+        monto_a=#{monto_a}, monto_de=#{monto_de}; 
+    </insert>
+    
+    <!--NOTA MODIFICATORIA DOCUMENTO--> 
+    <insert id="upsertNotaModificatoriaDoc" parameterType="presupuesto.bean.NotaModificatoriaDoc">  
+        INSERT INTO presupuesto.nota_modificatoria_doc(
+        ano_eje, sec_ejec, sec_doc, cod_doc, num_doc, fecha_doc, observacion, estado)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{sec_doc}, #{cod_doc}, #{num_doc}, #{fecha_doc}, 
+        #{observacion}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_nota_modificatoria_doc_pk 
+        DO UPDATE SET
+        cod_doc=#{cod_doc}, num_doc=#{num_doc}, fecha_doc=#{fecha_doc}, 
+        observacion=#{observacion}, estado=#{estado}; 
+    </insert>
+    
+    <!--NOTA MODIFICATORIA INGRESO--> 
+    <insert id="upsertNotaModificatoriaIng" parameterType="presupuesto.bean.NotaModificatoriaIng">  
+        INSERT INTO presupuesto.nota_modificatoria_ing(
+        ano_eje, sec_ejec, sec_ejec2, sec_nota, origen, fuente_financ, tipo_recurso, 
+        monto_a, monto_de, id_clasificador)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{sec_ejec2}, #{sec_nota}, #{origen}, #{fuente_financ}, 
+        #{tipo_recurso}, #{monto_a}, #{monto_de}, #{id_clasificador})
+        ON CONFLICT ON CONSTRAINT id_nota_modificatoria_ing_pk 
+        DO UPDATE SET
+        monto_a=#{monto_a}, monto_de=#{monto_de}; 
+    </insert>
+    
+    <!--NOTA MODIFICATORIA SECUENCIA--> 
+    <insert id="upsertNotaModificatoriaSec" parameterType="presupuesto.bean.NotaModificatoriaSec">  
+        INSERT INTO presupuesto.nota_modificatoria_sec(
+        ano_eje, sec_ejec, sec_ejec2, sec_nota, secuencia, fecha, notas, estado, estado2, sec_doc, sec_doc_r)
+        VALUES (
+        #{ano_eje}, #{sec_ejec}, #{sec_ejec2}, #{sec_nota}, #{secuencia}, #{fecha}, 
+        #{notas}, #{estado}, #{estado2}, #{sec_doc}, #{sec_doc_r})
+        ON CONFLICT ON CONSTRAINT id_nota_modificatoria_sec_pk 
+        DO UPDATE SET
+        fecha=#{fecha}, notas=#{notas}, estado=#{estado}, estado2=#{estado2}, 
+        sec_doc=#{sec_doc}, sec_doc_r=#{sec_doc_r}; 
+    </insert>
+    
+    <!--PADRON PERSONA (Trabajadores Nombrados, CAS, 276, Cargo de Confianza)--> 
+    <insert id="upsertPadronPersona" parameterType="presupuesto.bean.PadronPersona">  
+        INSERT INTO presupuesto.padron_persona(
+        tipo_documento, numero_documento, apellido_paterno, apellido_materno, 
+        nombre, sexo, fecha_nacimiento, estado)
+        VALUES (#{tipo_documento}, #{numero_documento}, #{apellido_paterno}, #{apellido_materno}, 
+        #{nombre}, #{sexo}, #{fecha_nacimiento}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_padron_persona_pk 
+        DO UPDATE SET
+        apellido_paterno=#{apellido_paterno}, apellido_materno=#{apellido_materno}, 
+        nombre=#{nombre}, sexo=#{sexo}, fecha_nacimiento=#{fecha_nacimiento}, estado=#{estado}; 
+    </insert>
+    
+    <!--PERSONA (Proveedores de Servicio: Locadores, Consultores, Contratistas)--> 
+    <insert id="upsertPersona" parameterType="presupuesto.bean.Persona">  
+        INSERT INTO presupuesto.persona(
+        tipo_id, ruc, nombre, estado)
+        VALUES ( 
+        #{tipo_id}, #{ruc}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_persona_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, estado=#{estado}; 
+    </insert>
+   
+    <!--PERSONA - CCI EJECUCION --> 
+    <insert id="upsertPersonaCciEjec" parameterType="presupuesto.bean.PersonaCciEjec">  
+        INSERT INTO presupuesto.persona_cci_ejec(
+        tipo_id, ruc, sec_ejec, secuencia, cci, ano_eje, observaciones, estado)
+        VALUES ( 
+        #{tipo_id}, #{ruc}, #{sec_ejec}, #{secuencia}, #{cci}, #{ano_eje}, 
+        #{observaciones}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_persona_cci_ejec_pk 
+        DO UPDATE SET
+        cci=#{cci}, observaciones=#{observaciones}, estado=#{estado}; 
+    </insert>
+    
+    <!-- PLIEGO --> 
+    <insert id="upsertPliego" parameterType="presupuesto.bean.Pliego">  
+        INSERT INTO presupuesto.pliego(
+        ano_eje, pliego, nombre, estado)
+        VALUES ( 
+        #{ano_eje}, #{pliego}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_pliego_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, estado=#{estado}; 
+    </insert>
+    
+    <!--PROGRAMA NOMBRE--> 
+    <insert id="upsertProgramaNombre" parameterType="presupuesto.bean.ProgramaNombre">  
+        INSERT INTO presupuesto.programa_nombre(
+        ano_eje, programa, nombre, estado) 
+        VALUES ( 
+        #{ano_eje}, #{programa}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_programa_nombre_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, estado=#{estado};        
+    </insert> 
+    
+    <!--PROGRAMA PRESUPUESTO NOMBRE--> 
+    <insert id="upsertProgramaPptoNombre" parameterType="presupuesto.bean.ProgramaPptoNombre">  
+        INSERT INTO presupuesto.programa_ppto_nombre(
+        ano_eje, programa_ppto, nombre, estado)
+        VALUES (
+        #{ano_eje}, #{programa_ppto}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_programa_ppto_nombre_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, estado=#{estado};
+    </insert>    
+    
+    <!-- PROVINCIA --> 
+    <insert id="upsertProvincia" parameterType="presupuesto.bean.Provincia">  
+        INSERT INTO presupuesto.provincia(
+        departamento, provincia, nombre, estado)
+        VALUES ( 
+        #{departamento}, #{provincia}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_provincia_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, estado=#{estado}; 
+    </insert> 
+    
+    <!--RECAUDACION HISTORICA-->
+    <select id="getRecaudacionHistoricaTotal" parameterType="HashMap" resultType="presupuesto.bean.RecaudacionHistorica">
+        SELECT ano_eje, sec_ejec, SUM(presupuesto) as pia, SUM(modificacion) as modificacion, 
+        SUM(presupuesto) + SUM(modificacion) as pim, SUM(ejecucion) as recaudado
+        FROM presupuesto.ingreso WHERE id_clasificador != 'AAAAAAA' GROUP BY ano_eje, sec_ejec ORDER BY ano_eje, sec_ejec ASC                 
+    </select>
+    
+    <select id="getRecaudacionHistoricaActual" parameterType="HashMap" resultType="presupuesto.bean.RecaudacionHistorica">
+        SELECT a.ano_eje, a.sec_ejec, a.pia, a.modificacion, a.pim, b.recaudado
+        FROM (SELECT ano_eje, sec_ejec, SUM(presupuesto) as pia, SUM(modificacion) as modificacion, SUM(presupuesto) + SUM(modificacion) as pim
+        FROM presupuesto.ingreso WHERE id_clasificador != 'AAAAAAA' GROUP BY ano_eje, sec_ejec) as a
+        INNER JOIN (SELECT ano_eje, sec_ejec, ciclo, SUM(monto_nacional) as recaudado FROM presupuesto.expediente_ingreso
+        WHERE estado_envio = 'A' AND fase = 'R' AND id_clasificador != 'AAAAAAA' GROUP BY ano_eje, sec_ejec, ciclo) as b ON 
+        (a.ano_eje = b.ano_eje AND a.sec_ejec = b.sec_ejec) ${c}        
+    </select>
+      
+    <insert id="upsertRecaudacionHistorica" parameterType="presupuesto.bean.RecaudacionHistorica">  
+        INSERT INTO presupuesto.recaudacion_historica(
+        ano_eje, sec_ejec, pia, modificacion, pim, recaudado)
+        VALUES (#{ano_eje}, #{sec_ejec}, #{pia}, #{modificacion}, #{pim}, #{recaudado})
+        ON CONFLICT ON CONSTRAINT id_recaudacion_historica_pk 
+        DO UPDATE SET        
+        pia=#{pia}, modificacion=#{modificacion}, pim=#{pim}, recaudado=#{recaudado};        
+    </insert> 
+    
+    <!--SUB GENERICA--> 
+    <insert id="upsertSubGenerica" parameterType="presupuesto.bean.SubGenerica">  
+        INSERT INTO presupuesto.subgenerica(
+        ano_eje, tipo_transaccion, generica, subgenerica, clasificador, descripcion, estado)    
+        VALUES (
+        #{ano_eje}, #{tipo_transaccion}, #{generica}, #{subgenerica}, #{tipo_transaccion}||'.'||
+        #{generica}||'.'||TRIM(#{subgenerica}), #{descripcion}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_subgenerica_pk 
+        DO UPDATE SET
+        descripcion=#{descripcion}, estado=#{estado};        
+    </insert>   
+    
+    <!--SUB GENERICA DETALLADA--> 
+    <insert id="upsertSubGenericaDet" parameterType="presupuesto.bean.SubGenericaDet">  
+        INSERT INTO presupuesto.subgenerica_det(
+        ano_eje, tipo_transaccion, generica, subgenerica, subgenerica_det, clasificador, descripcion, 
+        categoria_gasto, estado, categoria_ingreso)    
+        VALUES ( 
+        #{ano_eje}, #{tipo_transaccion}, #{generica}, #{subgenerica}, #{subgenerica_det},
+        #{tipo_transaccion}||'.'||#{generica}||'.'||TRIM(#{subgenerica})||' '||TRIM(#{subgenerica_det}),
+        #{descripcion}, #{categoria_gasto}, #{estado}, #{categoria_ingreso})
+        ON CONFLICT ON CONSTRAINT id_subgenerica_det_pk 
+        DO UPDATE SET
+        descripcion=#{descripcion}, categoria_gasto=#{categoria_gasto}, 
+        estado=#{estado}, categoria_ingreso=#{categoria_ingreso};        
+    </insert>  
+    
+    <!--SUB PROGRAMA NOMBRE--> 
+    <insert id="upsertSubProgramaNombre" parameterType="presupuesto.bean.SubProgramaNombre">  
+        INSERT INTO presupuesto.sub_programa_nombre(
+        ano_eje, sub_programa, nombre, estado)
+        VALUES ( 
+        #{ano_eje}, #{sub_programa}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_sub_programa_nombre_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, estado=#{estado};        
+    </insert>
+    
+    <!--TIPO DE DOCUMENTO--> 
+    <insert id="upsertTipoDocumento" parameterType="presupuesto.bean.TipoDocumento">  
+        INSERT INTO presupuesto.tipo_documento(
+        tipo_documento, nombre, estado)
+        VALUES (
+        #{tipo_documento}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_tipo_documento_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, estado=#{estado}; 
+    </insert>    
+       
+    <!--TIPO DE OPERACION--> 
+    <insert id="upsertTipoOperacion" parameterType="presupuesto.bean.TipoOperacion">  
+        INSERT INTO presupuesto.tipo_operacion(
+        ano_eje, tipo_operacion, nombre, estado, ciclo)
+        VALUES (
+        #{ano_eje}, #{tipo_operacion}, #{nombre}, #{estado}, #{ciclo})
+        ON CONFLICT ON CONSTRAINT id_tipo_operacion_pk 
+        DO UPDATE SET
+        nombre=#{nombre}, estado=#{estado}, ciclo=#{ciclo}; 
+    </insert> 
+    
+    <!--TIPO DE PROGRAMA PRESUPUESTAL --> 
+    <insert id="upsertTipoProgramaPpto" parameterType="presupuesto.bean.TipoProgramaPpto">  
+        INSERT INTO presupuesto.tipo_programa_ppto(
+        ano_eje, tipo_programa_ppto, nombre, descripcion, estado)
+        VALUES (
+        #{ano_eje}, #{tipo_programa_ppto}, #{nombre}, #{descripcion}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_tipo_programa_ppto_pk 
+        DO UPDATE SET        
+        nombre=#{nombre}, descripcion=#{descripcion}, estado=#{estado};        
+    </insert>
+    
+    <!--TIPO DE RECURSO--> 
+    <insert id="upsertTipoRecurso" parameterType="presupuesto.bean.TipoRecurso">  
+        INSERT INTO presupuesto.tipo_recurso(
+        ano_eje, origen, fuente_financ, tipo_recurso, nombre, estado)
+        VALUES (
+        #{ano_eje}, #{origen}, #{fuente_financ}, #{tipo_recurso}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_tipo_recurso_pk 
+        DO UPDATE SET        
+        nombre=#{nombre}, estado=#{estado};        
+    </insert>
+    
+    <!--TIPO DE TRANSACCION--> 
+    <insert id="upsertTipoTransaccion" parameterType="presupuesto.bean.TipoTransaccion">  
+        INSERT INTO presupuesto.tipo_transaccion(
+        ano_eje, tipo_transaccion, descripcion, estado)    
+        VALUES (
+        #{ano_eje}, #{tipo_transaccion}, #{descripcion}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_tipo_transaccion_pk 
+        DO UPDATE SET        
+        descripcion=#{descripcion}, estado=#{estado};        
+    </insert>
+    
+    <!--UNIDAD DE MEDIDA--> 
+    <insert id="upsertUnidadMedida" parameterType="presupuesto.bean.UnidadMedida">  
+        INSERT INTO presupuesto.unidad_medida(
+        unidad_medida, nombre, estado)
+        VALUES (#{unidad_medida}, #{nombre}, #{estado})
+        ON CONFLICT ON CONSTRAINT id_unidad_medida_pk 
+        DO UPDATE SET        
+        unidad_medida=#{unidad_medida}, nombre=#{nombre}, estado=#{estado};        
+    </insert>     
+            
+</mapper>
+

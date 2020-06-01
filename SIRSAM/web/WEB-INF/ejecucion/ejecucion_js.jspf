@@ -1,0 +1,14 @@
+<%--
+ @author CARLOS SANTANDER
+--%>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/ejecucion.js" type="text/javascript"></script>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/ejecucion/CentroMeta.js" type="text/javascript"></script>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/ejecucion/SemaforoEjecucion.js" type="text/javascript"></script>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/ejecucion/ResumenEjecucion.js" type="text/javascript"></script>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/ejecucion/FiltroReporte01.js" type="text/javascript"></script>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/ejecucion/FiltroReporte02.js" type="text/javascript"></script>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/ejecucion/FiltroReporte03.js" type="text/javascript"></script>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/ejecucion/FiltroReporte04.js" type="text/javascript"></script>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/ejecucion/FiltroReporte05.js" type="text/javascript"></script>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/ejecucion/FiltroReporte06.js" type="text/javascript"></script>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/ejecucion/FiltroReporte07.js" type="text/javascript"></script>

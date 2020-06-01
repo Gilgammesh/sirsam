@@ -1,0 +1,4 @@
+<%--
+ @author CARLOS SANTANDER
+--%>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/inicio.js" type="text/javascript"></script>

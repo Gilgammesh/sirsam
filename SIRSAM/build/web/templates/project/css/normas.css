@@ -1,0 +1,10 @@
+#section_normas {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 13px;
+}
+
+#section_normas img.mantenimiento {
+    display:block;
+    margin:auto;
+}

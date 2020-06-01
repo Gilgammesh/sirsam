@@ -1,0 +1,73 @@
+<%--
+ @author CARLOS SANTANDER
+--%>
+<section id="section_proyectos" class="naranja_princ">
+    <div class="container">
+        <a href="#" id="aNewProyecto">
+            <div id="divNewProyecto" class="naranja_secun">
+                <img src="./resources/images/proyecto1.png" />
+                REGISTRAR NUEVO PROYECTO
+                <img src="./resources/images/proyecto2.png" />
+            </div>
+        </a>
+        <div class="filtro_princ naranja_secun">
+            <div class="form-group">
+                <label for="listProyReporte" class="col-form-label">Elija Tipo de Consulta :</label>                    
+                <select class="select-form" id="listProyReporte" name="tipo">
+                    <option value="00" selected>Semáforo de Proyectos (Avance Financiero)</option>
+                    <option value="02">Semáforo de Proyectos (Avance Físico)</option>
+                    <option value="01">Búsqueda Avanzada de Proyectos</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <form id="formProyectos" method="post" action="./Proyectos?tipo=01">
+            <div id="divProyReportes" class="oculto"></div>
+        </form>
+        <div id="divProySemaforo">
+            <div class="filtro_report naranja_secun">
+                <div class="form-group row">
+                    <label for="listProyEjecutoraSemaforo" class="col-sm-2 col-form-label">Elija Ejecutora :</label>
+                    <div class="col-sm-6">
+                        <select class="select-form" id="listProyEjecutoraSemaforo"></select>
+                    </div>
+                    <label class="col-sm-1"></label>
+                    <label for="listProyAñoSemaforo" class="col-sm-1 col-form-label">Elija Año :</label>
+                    <div class="col-sm-2">
+                        <select class="select-form" id="listProyAñoSemaforo"></select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="listProyFiltroSemaforo" class="col-sm-2 col-form-label">Filtro de Tipo :</label>
+                    <div class="col-sm-3">
+                        <select class="select-form" id="listProyFiltroSemaforo">
+                            <option value="00" selected>--TODOS--</option>
+                            <option value="01">Proyectos Genéricos</option>
+                            <option value="02">Proyectos Específicos</option>
+                        </select>
+                    </div>
+                    <label for="listProyRankingSemaforo" class="col-sm-1 col-form-label">PIM :</label>
+                    <div class="col-sm-3">
+                        <select class="select-form" id="listProyRankingSemaforo">
+                            <option value="00" selected>--TODOS--</option>
+                            <option value="01">Mayor o igual a 5 Millones</option>
+                            <option value="02">Entre 1 a 5 Millones</option>
+                            <option value="03">Menor a 1 Millón</option>
+                        </select>
+                    </div>
+                    <label for="listProyEstadoSemaforo" class="col-sm-1 col-form-label">Estado :</label>
+                    <div class="col-sm-2">
+                        <select class="select-form" id="listProyEstadoSemaforo">
+                            <option value= "00" selected>--TODOS--</option>
+                            <option value= "01" style="color: green; font-weight: bold;">Verde</option>
+                            <option value= "02" style="color: orange; font-weight: bold;">Naranja</option>
+                            <option value= "03" style="color: red; font-weight: bold;">Rojo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div id="divProySemaforoContenido" class="filtro_report naranja_secun"></div>
+        </div>
+    </div>
+</section>

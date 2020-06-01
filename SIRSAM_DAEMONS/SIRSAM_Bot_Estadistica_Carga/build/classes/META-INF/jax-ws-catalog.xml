@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://web.regionsanmartin.gob.pe:8080/SIRSAMWebService/EstadisticaBot?wsdl" uri="wsdl/web.regionsanmartin.gob.pe_8080/SIRSAMWebService/EstadisticaBot.wsdl"/>
+    <system systemId="http://web.regionsanmartin.gob.pe:8080/SIRSAMWebService/EstadisticaBot?xsd=1" uri="wsdl/web.regionsanmartin.gob.pe_8080/SIRSAMWebService/EstadisticaBot.xsd_1.xsd"/>
+</catalog>

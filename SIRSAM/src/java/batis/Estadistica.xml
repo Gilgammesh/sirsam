@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+ // @author CARLOS SANTANDER
+-->
+<mapper namespace="Estadistica">
+    
+    <resultMap id="EstadisticaMap" type="Estadistica">
+        
+        <result property="sectId" column="sect_id" />  
+        <result property="sectNombre" column="sect_nombre" />  
+        <result property="sectDescripcion" column="sect_descripcion" />  
+        <result property="sectIcon" column="sect_icon" />  
+        <result property="sectEstado" column="sect_estado" /> 
+        <result property="instId" column="inst_id" />  
+        <result property="instNombre" column="inst_nombre" />  
+        <result property="instSigla" column="inst_sigla" />  
+        <result property="instDescripcion" column="inst_descripcion" />  
+        <result property="instEstado" column="inst_estado" />
+        <result property="indiId" column="indi_id" />
+        <result property="indiCodigo" column="indi_codigo" />
+        <result property="indiNombre" column="indi_nombre" />
+        <result property="indiSigla" column="indi_sigla" />
+        <result property="indiDescripcion" column="indi_descripcion" />
+        <result property="indiDefinicion" column="indi_definicion" />
+        <result property="indiDesagregaGeografica" column="indi_desagrega_geografica" />
+        <result property="indiJustificacion" column="indi_justificacion" />
+        <result property="indiLimitaciones" column="indi_limitaciones" />
+        <result property="indiFormula" column="indi_formula" />
+        <result property="indiFuenteDatos" column="indi_fuente_datos" />
+        <result property="indiFuenteVerificacion" column="indi_fuente_verificacion" />
+        <result property="indiOrganoResponsable" column="indi_organo_responsable" />
+        <result property="indiFicha" column="indi_ficha" />
+        <result property="indiEstado" column="indi_estado" />
+
+        <result property="tiinId" column="tiin_id" />
+        <result property="unmeId" column="unme_id" />
+        <result property="periId" column="peri_id" />
+        <result property="sentId" column="sent_id" />
+        <result property="fuenId" column="fuen_id" />
+                     
+    </resultMap>
+    
+    <select id="getSectores" parameterType="HashMap" resultMap="EstadisticaMap">
+        SELECT sect_id, sect_nombre, sect_descripcion, sect_icon, sect_estado
+        FROM estadistica.sectores ${c}
+    </select>    
+    
+    <select id="getInstrumentos" parameterType="HashMap" resultMap="EstadisticaMap">
+        SELECT inst_id, inst_nombre, inst_sigla, inst_descripcion, inst_estado
+        FROM estadistica.instrumentos ${c}
+    </select>           
+      
+    <select id="getIndicadores" parameterType="HashMap" resultMap="EstadisticaMap">
+        SELECT indi_id, indi_codigo, indi_nombre, indi_sigla, indi_descripcion, indi_definicion, 
+        indi_desagrega_geografica, indi_justificacion, indi_limitaciones, indi_formula, 
+        indi_fuente_datos, indi_fuente_verificacion, indi_organo_responsable, indi_ficha, 
+        indi_estado, tiin_id, unme_id, peri_id, sent_id, fuen_id, inst_id, sect_id
+        FROM estadistica.indicadores ${c}
+    </select> 
+      
+</mapper>

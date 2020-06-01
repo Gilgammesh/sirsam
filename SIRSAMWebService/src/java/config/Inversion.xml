@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+ // @author CARLOS SANTANDER
+-->
+<mapper namespace="Inversion"> 
+    
+    <!-- LOGS DE LAS ACTUALIZACIONES DE PROYECTOS CON EL BOT --> 
+    <insert id="insertLogsProyectosBot" parameterType="inversion.bean.LogsProyectosBot">        
+        INSERT INTO inversion.logs_proyectos_bot(
+        fecha_hora, tabla, codigo_siaf, hostname, ip_local, actualizo, 
+        error_selenium, error_postgresql)
+        VALUES (#{fecha_hora}, #{tabla}, #{codigo_siaf}, #{hostname}, #{ip_local}, 
+        #{actualizo}, #{error_selenium}, #{error_postgresql});
+    </insert> 
+    
+    <!-- SELECCION DE PROYECTOS --> 
+    <select id="getCodigosSIAF" parameterType="HashMap" resultType="inversion.bean.Inversion">      
+        SELECT m.act_proy as proy_codigo_siaf
+        FROM presupuesto.gasto as g
+        INNER JOIN presupuesto.meta as m ON (g.ano_eje = m.ano_eje AND g.sec_ejec = m.sec_ejec AND g.sec_func = m.sec_func) ${q}
+    </select>    
+    
+    <!-- SELECCION DE LOGS DE CODIGOS SIAF --> 
+    <select id="getLogsBotCod" parameterType="HashMap" resultType="inversion.bean.Inversion">      
+        SELECT proy_codigo_siaf, fecha
+        FROM inversion.logs_bot_codigo ${q}
+    </select>
+    
+    <!-- ACTUALIZACIÓN DE LOGS DE CODIGOS SIAF --> 
+    <update id="updateLogsBotCod" parameterType="inversion.bean.Inversion"> 
+        UPDATE inversion.logs_bot_codigo
+        SET proy_codigo_siaf=#{proy_codigo_siaf}, fecha=#{fecha}
+        WHERE logs_id=#{logs_id};
+    </update>
+   
+    <!-- PROYECTO - INFORMACIÓN GENERAL --> 
+    <insert id="upsertProyecto" parameterType="inversion.bean.Inversion">  
+        INSERT INTO inversion.proyecto(
+        proy_codigo_siaf, proy_codigo_inversion, proy_nombre, proy_fecha_registro, 
+        proy_cadena_funcional, proy_unidad_formuladora, proy_unidad_ejecutora, 
+        proy_unidad_ejecutora_inversion, proy_unidad_ejecutora_presupuestal, 
+        proy_unidad_evaluadora, proy_beneficiarios, proy_fuente_financiamiento, 
+        proy_responsable_viabilidad, proy_fecha_viabilidad, proy_situacion, 
+        proy_nivel_viabilidad, proy_ultimo_estudio, proy_estado, proy_monto_viable, 
+        proy_monto_laudo, proy_monto_estudio_definitivo, proy_monto_carta_fianza, 
+        proy_monto_actualizado, proy_por_etapas, proy_tiene_expediente_tecnico, 
+        proy_tiene_informe_cierre, proy_objetivo, proy_tipo)
+        VALUES (#{proy_codigo_siaf}, #{proy_codigo_inversion}, #{proy_nombre}, #{proy_fecha_registro}, 
+        #{proy_cadena_funcional}, #{proy_unidad_formuladora}, #{proy_unidad_ejecutora}, 
+        #{proy_unidad_ejecutora_inversion}, #{proy_unidad_ejecutora_presupuestal},
+        #{proy_unidad_evaluadora}, #{proy_beneficiarios}, #{proy_fuente_financiamiento}, 
+        #{proy_responsable_viabilidad}, #{proy_fecha_viabilidad}, #{proy_situacion}, 
+        #{proy_nivel_viabilidad}, #{proy_ultimo_estudio}, #{proy_estado}, #{proy_monto_viable}, 
+        #{proy_monto_laudo}, #{proy_monto_estudio_definitivo}, #{proy_monto_carta_fianza}, 
+        #{proy_monto_actualizado}, #{proy_por_etapas}, #{proy_tiene_expediente_tecnico}, 
+        #{proy_tiene_informe_cierre}, #{proy_objetivo}, #{proy_tipo})
+        ON CONFLICT ON CONSTRAINT id_proyecto_pk 
+        DO UPDATE SET
+        proy_codigo_inversion=#{proy_codigo_inversion}, proy_nombre=#{proy_nombre}, 
+        proy_fecha_registro=#{proy_fecha_registro}, proy_cadena_funcional=#{proy_cadena_funcional}, 
+        proy_unidad_formuladora=#{proy_unidad_formuladora}, proy_unidad_ejecutora=#{proy_unidad_ejecutora}, 
+        proy_unidad_ejecutora_inversion=#{proy_unidad_ejecutora_inversion}, proy_unidad_ejecutora_presupuestal=#{proy_unidad_ejecutora_presupuestal}, 
+        proy_unidad_evaluadora=#{proy_unidad_evaluadora}, proy_beneficiarios=#{proy_beneficiarios}, 
+        proy_fuente_financiamiento=#{proy_fuente_financiamiento}, proy_responsable_viabilidad=#{proy_responsable_viabilidad}, 
+        proy_fecha_viabilidad=#{proy_fecha_viabilidad}, proy_situacion=#{proy_situacion}, 
+        proy_nivel_viabilidad=#{proy_nivel_viabilidad}, proy_ultimo_estudio=#{proy_ultimo_estudio}, 
+        proy_estado=#{proy_estado}, proy_monto_viable=#{proy_monto_viable}, 
+        proy_monto_laudo=#{proy_monto_laudo}, proy_monto_estudio_definitivo=#{proy_monto_estudio_definitivo},
+        proy_monto_carta_fianza=#{proy_monto_carta_fianza}, proy_monto_actualizado=#{proy_monto_actualizado}, 
+        proy_por_etapas=#{proy_por_etapas}, proy_tiene_expediente_tecnico=#{proy_tiene_expediente_tecnico}, 
+        proy_tiene_informe_cierre=#{proy_tiene_informe_cierre}, proy_objetivo=#{proy_objetivo}, proy_tipo=#{proy_tipo};      
+    </insert> 
+    
+    <!-- PROYECTO - CONTRATACIONES --> 
+    <insert id="upsertProyectoContrataciones" parameterType="inversion.bean.Inversion">  
+        INSERT INTO inversion.proyecto_contrataciones(
+        proy_codigo_siaf, prco_orden, prco_contratista, prco_tipo_proceso, prco_contrato, 
+        prco_fecha_suscripcion, prco_monto_suscripcion)
+        VALUES (#{proy_codigo_siaf}, #{prco_orden}, #{prco_contratista}, #{prco_tipo_proceso}, 
+        #{prco_contrato}, #{prco_fecha_suscripcion}, #{prco_monto_suscripcion})
+        ON CONFLICT ON CONSTRAINT id_proyecto_contrataciones_pk
+        DO UPDATE SET
+        prco_orden=#{prco_orden}, prco_contratista=#{prco_contratista}, prco_tipo_proceso=#{prco_tipo_proceso},         
+        prco_fecha_suscripcion=#{prco_fecha_suscripcion}, prco_monto_suscripcion=#{prco_monto_suscripcion};      
+    </insert> 
+    
+    <!-- PROYECTO - MODIFICACIONES FASE INVERSIÓN --> 
+    <insert id="upsertProyectoModificaciones" parameterType="inversion.bean.Inversion">  
+        INSERT INTO inversion.proyecto_modificaciones(
+        proy_codigo_siaf, prmo_fecha_modificacion, prmo_monto_actualizado, 
+        prmo_comentarios, prmo_usuario, prmo_tipo_documento)
+        VALUES (#{proy_codigo_siaf}, #{prmo_fecha_modificacion}, #{prmo_monto_actualizado}, 
+        #{prmo_comentarios}, #{prmo_usuario}, #{prmo_tipo_documento})
+        ON CONFLICT ON CONSTRAINT id_proyecto_modificaciones_pk
+        DO UPDATE SET
+        prmo_monto_actualizado=#{prmo_monto_actualizado}, prmo_comentarios=#{prmo_comentarios}, 
+        prmo_usuario=#{prmo_usuario}, prmo_tipo_documento=#{prmo_tipo_documento}; 
+    </insert> 
+    
+    <!-- PROYECTO - UBICACIÓN GEOGRÁFICA --> 
+    <insert id="upsertProyectoUbicacion" parameterType="inversion.bean.Inversion">  
+        INSERT INTO inversion.proyecto_ubicacion(
+        proy_codigo_siaf, prub_departamento, prub_provincia, prub_distrito, 
+        prub_localidad)
+        VALUES (#{proy_codigo_siaf}, #{prub_departamento}, #{prub_provincia}, 
+        #{prub_distrito}, #{prub_localidad})
+        ON CONFLICT ON CONSTRAINT id_proyecto_ubicacion_pk
+        DO NOTHING;
+    </insert> 
+    
+    <!-- PROYECTO - COMPONENTES --> 
+    <insert id="upsertProyectoComponentes" parameterType="inversion.bean.Inversion">  
+        INSERT INTO inversion.proyecto_componentes(
+        proy_codigo_siaf, prcp_componente, prcp_orden, prcp_unidad_medida, 
+        prcp_monto_viable)
+        VALUES (#{proy_codigo_siaf}, #{prcp_componente}, #{prcp_orden}, 
+        #{prcp_unidad_medida}, #{prcp_monto_viable})
+        ON CONFLICT ON CONSTRAINT id_proyecto_componentes_pk
+        DO UPDATE SET
+        prcp_orden=#{prcp_orden}, prcp_unidad_medida=#{prcp_unidad_medida},
+        prcp_monto_viable=#{prcp_monto_viable};
+    </insert> 
+            
+</mapper>

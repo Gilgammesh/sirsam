@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="SincronizarSIAF">
+      <implementation-class>presupuesto.webservice.SincronizarSIAF</implementation-class>
+    </service>
+    <service name="ProyectosBot">
+      <implementation-class>inversion.webservice.ProyectosBot</implementation-class>
+    </service>
+    <service name="EstadisticaBot">
+      <implementation-class>estadistica.webservice.EstadisticaBot</implementation-class>
+    </service>
+  </services>
+  <clients/>
+  <jsr109>false</jsr109>
+</jax-ws>

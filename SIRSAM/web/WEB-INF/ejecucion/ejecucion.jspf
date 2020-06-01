@@ -1,0 +1,75 @@
+<%--
+ @author CARLOS SANTANDER
+--%>
+<section id="section_ejecucion" class="naranja_princ">
+    <div class="container">
+        <div class="filtro_princ naranja_secun">
+            <div class="form-group">
+                <label for="listPresuReporte" class="col-form-label">Elija Tipo de Reporte :</label>                    
+                <select class="select-form" id="listPresuReporte" name="tipo">
+                    <option value="11" selected>Semáforo de Ejecución Presupuestal</option>
+                    <option value="10">Resumen de Ejecución Presupuestal</option>
+                    <option value="01" >Ejecución de Gasto Histórico</option>
+                    <option value="02">Ejecución de Gasto Anual</option>
+                    <option value="03">Certificaciones Presupuestarias</option>
+                    <option value="04">Expedientes SIAF</option>
+                    <option value="05">Notas Modificatorias</option>
+                    <option value="06">Recaudación de Ingresos Histórico</option>
+                    <option value="07">Recaudación de Ingresos Anual</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <form id="formPresupuesto" method="post">
+            <div id="divPresuReportes" class="oculto">
+                <label id="lblPresuFiltReporte">Filtro de Reporte</label>
+                <div id="divPresuFiltReporte" class="filtro_report naranja_secun">
+                    <%-- Aca se llena el Filtro del Reporte --%>
+                </div>
+                <br>
+                <div id="divPresuTabla" class="tabla_reporte naranja_secun oculto" style="overflow-x:auto;">
+                    <%-- Aca se llena la Tabla con los datos del Reporte --%>
+                </div>
+                <br>
+                <label id="lblPresuFiltGrafico" class="oculto">Filtro de Gráfico</label>
+                <div id="divPresuFiltGrafico" class="filtro_grafico naranja_secun oculto">
+                    <%-- Aca se llena el Filtro para el Grafico del Reporte --%>
+                </div>
+                <br>
+                <div id="divPresuGrafica" class="naranja_secun oculto">
+                    <%-- Aca se llena el Gráfico Estadístico del Reporte --%>
+                </div>
+            </div>
+        </form>
+        <div id="divPresuReporteResumen">
+            <%-- Aca se llena el Reporte Resumen para las presentaciones Gerenciales y  el Semáforo de Ejecución del Pliego--%>
+            <div class="filtro_report naranja_secun">
+                <div class="form-group row">
+                    <label for="listPresuEjecutoraSemaf" class="col-sm-2 col-form-label">Elija Ejecutora :</label>
+                    <div class="col-sm-6">
+                        <select class="select-form" id="listPresuEjecutoraSemaf"></select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="listSemaforoEjecAño" class="col-sm-2 col-form-label">Elija Año :</label>
+                    <div class="col-sm-2">
+                        <select class="select-form" id="listSemaforoEjecAño"></select>
+                    </div>
+                    <label for="listSemaforoEjecEstado" class="col-sm-2 col-form-label">Estado Semáforo :</label>
+                    <div class="col-sm-2">
+                        <select class="select-form" id="listSemaforoEjecEstado">
+                            <option value= "00" selected>--TODOS--</option>
+                            <option value= "01" style="color: green; font-weight: bold;">Verde</option>
+                            <option value= "02" style="color: orange; font-weight: bold;">Naranja</option>
+                            <option value= "03" style="color: red; font-weight: bold;">Rojo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div id="divPresuSemaforoEjecucionConte" class="filtro_report naranja_secun">
+                <%-- Aca se llena el contenido del Semáforo de Pliego--%>
+            </div>
+        </div>
+    </div>
+</section>

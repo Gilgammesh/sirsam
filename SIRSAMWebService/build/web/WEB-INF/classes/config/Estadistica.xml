@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+ // @author CARLOS SANTANDER
+-->
+<mapper namespace="Estadistica"> 
+    
+    <!-- LOGS DE LAS ACTUALIZACIONES DE LAS FUENTES ESTADISTICAS CON EL BOT --> 
+    <insert id="insertLogsEstadisticaBot" parameterType="estadistica.bean.LogsEstadisticaBot">        
+        INSERT INTO estadistica.logs_estadistica_bot(
+        fecha_hora, fuente, hostname, ip_local, actualizo, error_fuente, error_postgresql)
+        VALUES (#{fecha_hora}, #{fuente}, #{hostname}, #{ip_local}, #{actualizo}, 
+        #{error_fuente}, #{error_postgresql});
+    </insert> 
+    
+    <!-- INSTITUCIONES EDUCATIVAS --> 
+    <insert id="upsertInstitucionEducativa" parameterType="estadistica.bean.InstitucionEducativa">  
+        INSERT INTO utilitarios.instituciones_educativas(
+        cod_mod, anexo, codlocal, cen_edu, niv_mod, d_niv_mod, d_forma, 
+        cod_car, d_cod_car, tipssexo, d_tipssexo, gestion, d_gestion, 
+        ges_dep, d_ges_dep, director, telefono, email, pagweb, dir_cen, 
+        referencia, localidad, codcp_inei, codccpp, cen_pob, area_censo, 
+        dareacenso, codgeo, d_dpto, d_prov, d_dist, d_region, codooii, 
+        d_dreugel, nlat_ie, nlong_ie, tipoprog, d_tipoprog, cod_tur, 
+        d_cod_tur, estado, d_estado, d_fte_dato, talum_hom, talum_muj, 
+        talumno, tdocente, tseccion, fechareg, fecha_act)
+        VALUES (#{cod_mod}, #{anexo}, #{codlocal}, #{cen_edu}, #{niv_mod}, #{d_niv_mod}, #{d_forma}, 
+        #{cod_car}, #{d_cod_car}, #{tipssexo}, #{d_tipssexo}, #{gestion}, #{d_gestion}, 
+        #{ges_dep}, #{d_ges_dep}, #{director}, #{telefono}, #{email}, #{pagweb}, #{dir_cen}, 
+        #{referencia}, #{localidad}, #{codcp_inei}, #{codccpp}, #{cen_pob}, #{area_censo}, 
+        #{dareacenso}, #{codgeo}, #{d_dpto}, #{d_prov}, #{d_dist}, #{d_region}, #{codooii}, 
+        #{d_dreugel}, #{nlat_ie}, #{nlong_ie}, #{tipoprog}, #{d_tipoprog}, #{cod_tur}, 
+        #{d_cod_tur}, #{estado}, #{d_estado}, #{d_fte_dato}, #{talum_hom}, #{talum_muj}, 
+        #{talumno}, #{tdocente}, #{tseccion}, #{fechareg}, #{fecha_act})
+        ON CONFLICT ON CONSTRAINT id_instituciones_educativas_pk
+        DO UPDATE SET
+        codlocal=#{codlocal}, cen_edu=#{cen_edu}, niv_mod=#{niv_mod}, d_niv_mod=#{d_niv_mod}, 
+        d_forma=#{d_forma}, cod_car=#{cod_car}, d_cod_car=#{d_cod_car}, tipssexo=#{tipssexo}, 
+        d_tipssexo=#{d_tipssexo}, gestion=#{gestion}, d_gestion=#{d_gestion}, ges_dep=#{ges_dep}, 
+        d_ges_dep=#{d_ges_dep}, director=#{director}, telefono=#{telefono}, email=#{email}, 
+        pagweb=#{pagweb}, dir_cen=#{dir_cen}, referencia=#{referencia}, localidad=#{localidad}, 
+        codcp_inei=#{codcp_inei}, codccpp=#{codccpp}, cen_pob=#{cen_pob}, area_censo=#{area_censo}, 
+        dareacenso=#{dareacenso}, codgeo=#{codgeo}, d_dpto=#{d_dpto}, d_prov=#{d_prov}, 
+        d_dist=#{d_dist}, d_region=#{d_region}, codooii=#{codooii}, d_dreugel=#{d_dreugel}, 
+        nlat_ie=#{nlat_ie}, nlong_ie=#{nlong_ie}, tipoprog=#{tipoprog}, d_tipoprog=#{d_tipoprog}, 
+        cod_tur=#{cod_tur}, d_cod_tur=#{d_cod_tur}, estado=#{estado}, d_estado=#{d_estado}, 
+        d_fte_dato=#{d_fte_dato}, talum_hom=#{talum_hom}, talum_muj=#{talum_muj}, talumno=#{talumno}, 
+        tdocente=#{tdocente}, tseccion=#{tseccion}, fechareg=#{fechareg}, fecha_act=#{fecha_act};      
+    </insert>     
+    
+</mapper>

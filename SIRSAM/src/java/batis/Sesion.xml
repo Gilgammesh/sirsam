@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+ // @author CARLOS SANTANDER
+-->
+<mapper namespace="Sesion">
+    
+    <resultMap id="SesionMap" type="Sesion">
+        <result property="inicioNavega" column="sesi_inicio_navega" />
+        <result property="sesiId" column="sesi_id" />        
+        <result property="usuaId" column="usua_id" />       
+        <result property="browser" column="sesi_browser" />        
+        <result property="device" column="sesi_device" />
+        <result property="finNavega" column="sesi_fin_navega" />  
+        <result property="inicioLogin" column="sesi_inicio_login" />
+        <result property="finLogin" column="sesi_fin_login" />    
+        <result property="sesiNavega" column="sesi_navega" />  
+        <result property="sesiLogin" column="sesi_login" />
+        <result property="menuId" column="menu_id" /> 
+        <result property="menuNombre" column="menu_nombre" />         
+        <result property="menuDescripcion" column="menu_descripcion" />   
+        <result property="dni" column="usua_login" />
+        <result property="nombres" column="usua_nombres" />        
+        <result property="apellidoPaterno" column="usua_apellido_paterno" />        
+        <result property="apellidoMaterno" column="usua_apellido_materno" />  
+        <result property="sexo" column="usua_sexo" />                
+    </resultMap> 
+    
+    <select id="getListaDatos" parameterType="HashMap" resultMap="SesionMap">      
+        SELECT sesi_inicio_navega, sesi_id, usua_id, sesi_browser, sesi_device, sesi_fin_navega, 
+        sesi_inicio_login, sesi_fin_login, sesi_navega, sesi_login, menu_id
+        FROM sistema.sesion ${c}    
+    </select>
+    
+    <select id="getLoginActivos" parameterType="HashMap" resultMap="SesionMap">      
+        SELECT s.sesi_inicio_navega, s.sesi_id, s.usua_id, s.sesi_browser, s.sesi_device, 
+        s.sesi_fin_navega, s.sesi_inicio_login, s.sesi_fin_login, s.sesi_navega, s.sesi_login, 
+        u.usua_login, u.usua_nombres, s.menu_id, u.usua_apellido_paterno, u.usua_apellido_materno, 
+        u.usua_sexo, s.menu_id, m.menu_nombre, m.menu_descripcion
+        FROM sistema.sesion as s        
+        INNER JOIN sistema.usuario as u ON (s.usua_id = u.usua_id) 
+        INNER JOIN sistema.menu as m ON (s.menu_id = m.menu_id) ${c}
+    </select>
+    
+    <select id="getNavegaActivos" parameterType="HashMap" resultMap="SesionMap">      
+        SELECT s.sesi_inicio_navega, s.sesi_id, s.usua_id, s.sesi_browser, s.sesi_device, 
+        s.sesi_fin_navega, s.sesi_inicio_login, s.sesi_fin_login, s.sesi_navega, s.sesi_login,  
+        s.menu_id, m.menu_nombre, m.menu_descripcion
+        FROM sistema.sesion as s 
+        INNER JOIN sistema.menu as m ON (s.menu_id = m.menu_id) ${c}
+    </select>
+    
+    <select id="getDatos" parameterType="HashMap" resultMap="SesionMap">
+        SELECT a.sesi_inicio_navega, a.sesi_id, a.usua_id, a.sesi_browser, a.sesi_device, 
+        a.sesi_fin_navega, a.sesi_inicio_login, a.sesi_fin_login, a.sesi_navega, a.sesi_login, 
+        a.menu_id, b.menu_nombre, b.menu_descripcion
+        FROM sistema.sesion as a
+        INNER JOIN sistema.menu as b ON (a.menu_id = b.menu_id) ${c}       
+    </select> 
+    
+    <select id="getMenuId" parameterType="HashMap" resultMap="SesionMap">
+        SELECT menu_id, menu_nombre, menu_descripcion
+        FROM sistema.menu ${c}       
+    </select>
+    
+    <insert id="insert" parameterType="Sesion" >
+        INSERT INTO sistema.sesion(
+        sesi_inicio_navega, sesi_id, usua_id, sesi_browser, sesi_device, sesi_fin_navega, 
+        sesi_inicio_login, sesi_fin_login, sesi_navega, sesi_login, menu_id)
+        VALUES (#{inicioNavega}, #{sesiId}, #{usuaId}, #{browser}, #{device}, #{finNavega}, 
+        #{inicioLogin}, #{finLogin}, #{sesiNavega}, #{sesiLogin}, #{menuId});
+    </insert>  
+    
+    <update id="update" parameterType="Sesion"> 
+        UPDATE sistema.sesion
+        SET sesi_browser=#{browser}, sesi_device=#{device}
+        WHERE sesi_id=#{sesiId};
+    </update>
+              
+    <update id="updateFinNavega" parameterType="Sesion"> 
+        UPDATE sistema.sesion
+        SET sesi_fin_navega=#{finNavega}, sesi_navega=#{sesiNavega}
+        WHERE sesi_id=#{sesiId};
+    </update>  
+    
+    <update id="updateInicioLogin" parameterType="Sesion"> 
+        UPDATE sistema.sesion
+        SET sesi_inicio_login=#{inicioLogin}, sesi_login=#{sesiLogin}, usua_id=#{usuaId}
+        WHERE sesi_id=#{sesiId};
+    </update>  
+    
+    <update id="updateMenu" parameterType="Sesion"> 
+        UPDATE sistema.sesion
+        SET menu_id=#{menuId}
+        WHERE sesi_id=#{sesiId};
+    </update>
+    
+    <update id="updateFinLogin" parameterType="Sesion"> 
+        UPDATE sistema.sesion
+        SET sesi_fin_login=#{finLogin}, sesi_login=#{sesiLogin}
+        WHERE sesi_id=#{sesiId};
+    </update> 
+    
+    <update id="updateExpireLogin" parameterType="Sesion"> 
+        UPDATE sistema.sesion
+        SET sesi_fin_login=#{finLogin}, sesi_fin_navega=#{finNavega}, 
+        sesi_navega=#{sesiNavega}, sesi_login=#{sesiLogin}
+        WHERE sesi_id=#{sesiId};
+    </update>
+   
+</mapper>

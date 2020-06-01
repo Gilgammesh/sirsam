@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+ // @author CARLOS SANTANDER
+-->
+<mapper namespace="Siaf">
+    
+    <select id="getActProyNombre" parameterType="HashMap" resultType="presupuesto.webservice.ActProyNombre">         
+        SELECT ano_eje as anoEje, act_proy as actProy, tipo_act_proy as tipoActProy, nombre, estado, proyecto_snip as proyectoSnip, es_foniprel as esFoniprel
+        FROM act_proy_nombre ${c}
+        ORDER BY ano_eje, act_proy ASC
+    </select>
+    
+    <select id="getBanco" parameterType="HashMap" resultType="presupuesto.webservice.Banco">         
+        SELECT banco, nombre, estado, es_financiera as esFinanciera, sec_ejec_ruc as secEjecRuc
+        FROM banco ${c}
+        ORDER BY banco ASC
+    </select> 
+    
+    <select id="getCategoriaGasto" parameterType="HashMap" resultType="presupuesto.webservice.CategoriaGasto">        
+        SELECT ano_eje as anoEje, categ_gasto as categGasto, nombre, estado 
+        FROM categoria_gasto ${c}
+        ORDER BY ano_eje, categ_gasto ASC
+    </select>
+    
+    <select id="getCategoriaIngreso" parameterType="HashMap" resultType="presupuesto.webservice.CategoriaIngreso">        
+        SELECT ano_eje as anoEje, categoria_ingreso as categoriaIngreso, descripcion, estado 
+        FROM categoria_ingreso ${c}
+        ORDER BY ano_eje, categoria_ingreso ASC
+    </select>
+    
+    <select id="getCertificado" parameterType="HashMap" resultType="presupuesto.webservice.Certificado">         
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, certificado, estado_registro as estadoRegistro, estado_envio as estadoEnvio    
+        FROM certificado ${c}     
+        ORDER BY ano_eje, sec_ejec, certificado ASC
+    </select> 
+    
+    <select id="getCertificadoFase" parameterType="HashMap" resultType="presupuesto.webservice.CertificadoFase">         
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, certificado, secuencia, secuencia_padre as secuenciaPadre, fuente_financ as fuenteFinanc, etapa, 
+        monto, monto_comprometido as montoComprometido, monto_nacional as montoNacional, glosa, estado_registro as estadoRegistro, estado_envio as estadoEnvio
+        FROM certificado_fase ${c}     
+        ORDER BY ano_eje, sec_ejec, certificado, secuencia ASC
+    </select>
+    
+    <select id="getCertificadoMeta" parameterType="HashMap" resultType="presupuesto.webservice.CertificadoMeta">         
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, certificado, secuencia, correlativo, id_clasificador as idClasificador, sec_func as secFunc, 
+        monto, monto_comprometido as montoComprometido, monto_nacional as montoNacional, estado_registro as estadoRegistro, estado_envio as estadoEnvio
+        FROM certificado_meta ${c}     
+        ORDER BY ano_eje, sec_ejec, certificado, secuencia, correlativo, id_clasificador, sec_func ASC
+    </select> 
+           
+    <select id="getCertificadoSecuencia" parameterType="HashMap" resultType="presupuesto.webservice.CertificadoSecuencia">         
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, certificado, secuencia, correlativo, cod_doc as codDoc, num_doc as numDoc, fecha_doc as fechaDocXml,
+        estado_registro as estadoRegistro, estado_envio as estadoEnvio, monto, monto_comprometido as montoComprometido, monto_nacional as montoNacional, tipo_registro as tipoRegistro
+        FROM certificado_secuencia ${c}     
+        ORDER BY ano_eje, sec_ejec, certificado, secuencia, correlativo ASC
+    </select> 
+    
+    <select id="getCiclo" parameterType="HashMap" resultType="presupuesto.webservice.Ciclo">         
+        SELECT ciclo, nombre 
+        FROM ciclo ${c}
+        ORDER BY ciclo ASC
+    </select>
+    
+    <select id="getComponenteNombre" parameterType="HashMap" resultType="presupuesto.webservice.ComponenteNombre">         
+        SELECT ano_eje as anoEje, componente, tipo_componente as tipoComponente, nombre, estado
+        FROM componente_nombre ${c}    
+        ORDER BY ano_eje, componente ASC
+    </select> 
+    
+    <select id="getCtaCte" parameterType="HashMap" resultType="presupuesto.webservice.CtaCte">         
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, banco, cta_cte as ctaCte, nombre, estado
+        FROM cta_cte ${c}    
+        ORDER BY ano_eje, sec_ejec, banco, cta_cte ASC
+    </select> 
+    
+    <select id="getDepartamento" parameterType="HashMap" resultType="presupuesto.webservice.Departamento">        
+        SELECT departamento, nombre, estado 
+        FROM departamento ${c}
+        ORDER BY departamento ASC
+    </select> 
+    
+    <select id="getDistrito" parameterType="HashMap" resultType="presupuesto.webservice.Distrito">        
+        SELECT departamento, provincia, distrito, nombre, region, estado 
+        FROM distrito ${c}
+        ORDER BY departamento, provincia, distrito ASC
+    </select>
+    
+    <select id="getEjecutora" parameterType="HashMap" resultType="presupuesto.webservice.Ejecutora">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, pliego, ejecutora, nombre, estado
+        FROM ejecutora ${c}
+        ORDER BY ano_eje, sec_ejec ASC
+    </select>
+    
+    <select id="getEspecifica" parameterType="HashMap" resultType="presupuesto.webservice.Especifica">         
+        SELECT ano_eje as anoEje, tipo_transaccion as tipoTransaccion, generica, subgenerica, subgenerica_det as subgenericaDet, 
+        especifica, descripcion, estado
+        FROM especifica ${c}     
+        ORDER BY ano_eje, tipo_transaccion, generica, subgenerica, subgenerica_det, especifica ASC
+    </select> 
+    
+    <select id="getEspecificaDet" parameterType="HashMap" resultType="presupuesto.webservice.EspecificaDet">        
+        SELECT ano_eje as anoEje, tipo_transaccion as tipoTransaccion, generica, subgenerica, subgenerica_det as subgenericaDet, especifica, 
+        especifica_det as especificaDet, id_clasificador as idClasificador, descripcion, estado
+        FROM especifica_det ${c}         
+        ORDER BY ano_eje, tipo_transaccion, generica, subgenerica, subgenerica_det, especifica, especifica_det ASC
+    </select>
+    
+    <select id="getExpediente" parameterType="HashMap" resultType="presupuesto.webservice.Expediente">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, expediente, estado_envio as estadoEnvio 
+        FROM expediente ${c}         
+        ORDER BY ano_eje, sec_ejec, expediente ASC
+    </select>
+    
+    <select id="getExpedienteAdjunto" parameterType="HashMap" resultType="presupuesto.webservice.ExpedienteAdjunto">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, expediente, ciclo, fase, secuencia, correlativo, cta_bancaria as ctaBancaria, 
+        tipo_doc as tipoDoc, num_doc as numDoc, monto, estado_envio as estadoEnvio
+        FROM expediente_adjunto ${c}        
+        ORDER BY ano_eje, sec_ejec, expediente, ciclo, fase, secuencia, correlativo, cta_bancaria ASC
+    </select>
+    
+    <select id="getExpedienteDocumento" parameterType="HashMap" resultType="presupuesto.webservice.ExpedienteDocumento">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, expediente, ciclo, fase, secuencia, correlativo, cod_doc as codDoc, num_doc as numDoc, 
+        fecha_doc as fechaDocXml, nombre, estado_envio as estadoEnvio
+        FROM expediente_documento ${c}         
+        ORDER BY ano_eje, sec_ejec, expediente, ciclo, fase, secuencia, correlativo, cod_doc, num_doc ASC
+    </select>
+    
+    <select id="getExpedienteFase" parameterType="HashMap" resultType="presupuesto.webservice.ExpedienteFase">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, expediente, ciclo, fase, secuencia, secuencia_padre as secuenciaPadre, monto_nacional as montoNacional, 
+        fuente_financ as fuenteFinanc, tipo_id as tipoId, ruc, tipo_pago as tipoPago, tipo_recurso as tipoRecurso, estado_envio as estadoEnvio, certificado
+        FROM expediente_fase ${c}        
+        ORDER BY ano_eje, sec_ejec, expediente, ciclo, fase, secuencia ASC
+    </select>
+    
+    <select id="getExpedienteIngreso" parameterType="HashMap" resultType="presupuesto.webservice.ExpedienteIngreso">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, expediente, ciclo, fase, secuencia, correlativo, monto, 
+        monto_nacional as montoNacional, estado_envio as estadoEnvio, id_clasificador as idClasificador 
+        FROM expediente_ingreso ${c}         
+        ORDER BY ano_eje, sec_ejec, expediente, ciclo, fase, secuencia, correlativo, id_clasificador ASC
+    </select>
+    
+    <select id="getExpedienteMeta" parameterType="HashMap" resultType="presupuesto.webservice.ExpedienteMeta">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, expediente, ciclo, fase, secuencia, correlativo, sec_func as secFunc, monto, 
+        monto_nacional as montoNacional, estado_envio as estadoEnvio, id_clasificador as idClasificador 
+        FROM expediente_meta ${c}         
+        ORDER BY ano_eje, sec_ejec, expediente, ciclo, fase, secuencia, correlativo, id_clasificador, sec_func ASC
+    </select>
+    
+    <select id="getExpedienteNota" parameterType="HashMap" resultType="presupuesto.webservice.ExpedienteNota">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, expediente, ciclo, fase, secuencia, secuencia_nota as secuenciaNota, notas, estado_envio as estadoEnvio
+        FROM expediente_nota ${c}      
+        ORDER BY ano_eje, sec_ejec, expediente, ciclo, fase, secuencia, secuencia_nota ASC
+    </select>
+    
+    <select id="getExpedienteSecuencia" parameterType="HashMap" resultType="presupuesto.webservice.ExpedienteSecuencia">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, expediente, ciclo, fase, secuencia, correlativo, cod_doc as codDoc, num_doc as numDoc, fecha_doc as fechaDocXml, 
+        monto, monto_nacional as montoNacional, ano_cta_cte as anoCtaCte, banco, cta_cte as ctaCte, fecha_autorizacion as fechaAutorizacionXml, estado_envio as estadoEnvio
+        FROM expediente_secuencia ${c}        
+        ORDER BY ano_eje, sec_ejec, expediente, ciclo, fase, secuencia, correlativo ASC
+    </select>
+    
+    <select id="getFase" parameterType="HashMap" resultType="presupuesto.webservice.Fase">        
+        SELECT ciclo, fase, nombre 
+        FROM fase ${c}     
+        ORDER BY ciclo, fase ASC
+    </select>
+    
+    <select id="getFinalidad" parameterType="HashMap" resultType="presupuesto.webservice.Finalidad">        
+        SELECT ano_eje as anoEje, finalidad, nombre, estado
+        FROM finalidad ${c}
+        ORDER BY ano_eje, finalidad ASC    
+    </select>
+    
+    <select id="getFuenteFinanc" parameterType="HashMap" resultType="presupuesto.webservice.FuenteFinanc">        
+        SELECT ano_eje as anoEje, fuente_financ as fuenteFinanc, nombre, estado, fuente_financ_agregada as fuenteFinancAgregada
+        FROM fuente_financ ${c}  
+        ORDER BY ano_eje, origen, fuente_financ ASC
+    </select> 
+    
+    <select id="getFuenteFinancAgregada" parameterType="HashMap" resultType="presupuesto.webservice.FuenteFinancAgregada">        
+        SELECT ano_eje as anoEje, fuente_financ_agregada as fuenteFinancAgregada, nombre, estado
+        FROM fuente_financ_agregada ${c}     
+        ORDER BY ano_eje, fuente_financ_agregada ASC
+    </select>
+    
+    <select id="getFuncion" parameterType="HashMap" resultType="presupuesto.webservice.Funcion">         
+        SELECT ano_eje as anoEje, funcion, nombre, estado
+        FROM funcion ${c}     
+        ORDER BY ano_eje, funcion ASC
+    </select>
+    
+    <select id="getGasto" parameterType="HashMap" resultType="presupuesto.webservice.Gasto">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, origen, fuente_financ as fuenteFinanc, tipo_recurso as tipoRecurso, sec_func as secFunc, presupuesto, 
+        modificacion, ejecucion, id_clasificador as idClasificador, compromiso, devengado, girado, pagado, 
+        monto_certificado as montoCertificado, monto_comprometido_anual as montoComprometidoAnual, monto_precertificado as montoPrecertificado
+        FROM gasto ${c}
+        ORDER BY ano_eje, sec_ejec, origen, fuente_financ, tipo_recurso, sec_func, id_clasificador ASC    
+    </select>      
+    
+    <select id="getGenerica" parameterType="HashMap" resultType="presupuesto.webservice.Generica">         
+        SELECT ano_eje as anoEje, tipo_transaccion as tipoTransaccion, generica, descripcion, estado
+        FROM generica ${c}     
+        ORDER BY ano_eje, tipo_transaccion, generica ASC
+    </select>
+    
+    <select id="getIngreso" parameterType="HashMap" resultType="presupuesto.webservice.Ingreso">         
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, origen, fuente_financ as fuenteFinanc, tipo_recurso as tipoRecurso, presupuesto, 
+        modificacion, ejecucion, id_clasificador as idClasificador 
+        FROM ingreso ${c}    
+        ORDER BY ano_eje, sec_ejec, origen, fuente_financ, tipo_recurso, id_clasificador ASC
+    </select>
+    
+    <select id="getMaestroDocumento" parameterType="HashMap" resultType="presupuesto.webservice.MaestroDocumento">         
+        SELECT cod_doc as codDoc, nombre
+        FROM maestro_documento ${c}  
+        ORDER BY cod_doc ASC
+    </select>
+    
+    <select id="getMeta" parameterType="HashMap" resultType="presupuesto.webservice.Meta">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, sec_func as secFunc, funcion, programa, sub_programa as subPrograma, 
+        act_proy as actProy, componente, meta, finalidad, departamento, provincia, estado, distrito, programa_ppto as programaPpto, 
+        unidad_medida as unidadMedida, cantidad, cantidad_semestral as cantidadSemestral
+        FROM meta ${c}         
+        ORDER BY ano_eje, sec_ejec, sec_func ASC    
+    </select> 
+    
+    <select id="getMetaTrimestral" parameterType="HashMap" resultType="presupuesto.webservice.MetaTrimestral">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, sec_func as secFunc, trimestre, programacion, avance, estado, 
+        estado_envio as estadoEnvio
+        FROM meta_trimestral ${c}         
+        ORDER BY ano_eje, sec_ejec, sec_func, trimestre ASC    
+    </select>  
+    
+    <select id="getNotaModificatoriaCab" parameterType="HashMap" resultType="presupuesto.webservice.NotaModificatoriaCab">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, sec_ejec2 as secEjec2, sec_nota as secNota, ind_habilita as indHabilita, 
+        tipo_modificacion as tipoModificacion, mes_eje as mesEje, monto, sec_ejec_procedencia as secEjecProcedencia  
+        FROM nota_modificatoria_cab ${c}        
+        ORDER BY ano_eje, sec_ejec, sec_ejec2, sec_nota ASC    
+    </select>
+    
+    <select id="getNotaModificatoriaDet" parameterType="HashMap" resultType="presupuesto.webservice.NotaModificatoriaDet">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, sec_ejec2 as secEjec2, sec_nota as secNota, origen, fuente_financ as fuenteFinanc, 
+        tipo_recurso as tipoRecurso, sec_func as secFunc, monto_a as montoA, monto_de as montoDe, id_clasificador as idClasificador 
+        FROM nota_modificatoria_det ${c}       
+        ORDER BY ano_eje, sec_ejec, sec_ejec2, sec_nota, origen, fuente_financ, tipo_recurso, sec_func, id_clasificador ASC    
+    </select>
+    
+    <select id="getNotaModificatoriaDoc" parameterType="HashMap" resultType="presupuesto.webservice.NotaModificatoriaDoc">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, sec_doc as secDoc, cod_doc as codDoc, num_doc as numDoc, fecha_doc as fechaDocXml, observacion, estado
+        FROM nota_modificatoria_doc ${c}       
+        ORDER BY ano_eje, sec_ejec, sec_doc ASC    
+    </select>
+    
+    <select id="getNotaModificatoriaIng" parameterType="HashMap" resultType="presupuesto.webservice.NotaModificatoriaIng">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, sec_ejec2 as secEjec2, sec_nota as secNota, origen, fuente_financ as fuenteFinanc, 
+        tipo_recurso as tipoRecurso, monto_a as montoA, monto_de as montoDe, id_clasificador as idClasificador 
+        FROM nota_modificatoria_ing ${c}       
+        ORDER BY ano_eje, sec_ejec, sec_ejec2, sec_nota, origen, fuente_financ, tipo_recurso, id_clasificador ASC
+    </select>
+    
+    <select id="getNotaModificatoriaSec" parameterType="HashMap" resultType="presupuesto.webservice.NotaModificatoriaSec">        
+        SELECT ano_eje as anoEje, sec_ejec as secEjec, sec_ejec2 as secEjec2, sec_nota as secNota, secuencia, fecha as fechaXml, 
+        notas, estado, estado2, sec_doc as secDoc, sec_doc_r as secDocR
+        FROM nota_modificatoria_sec ${c}        
+        ORDER BY ano_eje, sec_ejec, sec_ejec2, sec_nota, secuencia ASC    
+    </select>
+    
+    <select id="getPadronPersona" parameterType="HashMap" resultType="presupuesto.webservice.PadronPersona">         
+        SELECT tipo_documento as tipoDocumento, numero_documento as numeroDocumento, apellido_paterno as apellidoPaterno, 
+        apellido_materno as apellidoMaterno, nombre, sexo, fecha_nacimiento as fechaNacimientoXml, estado
+        FROM padron_persona ${c}   
+        ORDER BY tipo_documento, numero_documento ASC
+    </select> 
+    
+    <select id="getPersona" parameterType="HashMap" resultType="presupuesto.webservice.Persona">         
+        SELECT tipo_id as tipoId, ruc, nombre, estado
+        FROM persona ${c}   
+        ORDER BY tipo_id, ruc ASC
+    </select>         
+    
+    <select id="getPersonaCciEjec" parameterType="HashMap" resultType="presupuesto.webservice.PersonaCciEjec">         
+        SELECT tipo_id as tipoId, ruc, sec_ejec as secEjec, secuencia, cci, ano_eje as anoEje, observaciones, estado
+        FROM persona_cci_ejec ${c}   
+        ORDER BY ano_eje, tipo_id, ruc, sec_ejec, secuencia ASC
+    </select>
+    
+    <select id="getPliego" parameterType="HashMap" resultType="presupuesto.webservice.Pliego">        
+        SELECT ano_eje as anoEje, pliego, nombre, estado
+        FROM pliego ${c}
+        ORDER BY ano_eje, pliego ASC
+    </select>
+    
+    <select id="getProgramaNombre" parameterType="HashMap" resultType="presupuesto.webservice.ProgramaNombre">         
+        SELECT ano_eje as anoEje, programa, nombre, estado
+        FROM programa_nombre ${c}     
+        ORDER BY ano_eje, programa ASC
+    </select> 
+    
+    <select id="getProgramaPptoNombre" parameterType="HashMap" resultType="presupuesto.webservice.ProgramaPptoNombre">         
+        SELECT ano_eje as anoEje, programa_ppto as programaPpto, nombre, estado
+        FROM programa_ppto_nombre ${c}     
+        ORDER BY ano_eje, programa_ppto ASC
+    </select>
+    
+    <select id="getProvincia" parameterType="HashMap" resultType="presupuesto.webservice.Provincia">        
+        SELECT departamento, provincia, nombre, estado 
+        FROM provincia ${c}
+        ORDER BY departamento, provincia ASC
+    </select>
+    
+    <select id="getSubGenerica" parameterType="HashMap" resultType="presupuesto.webservice.SubGenerica">         
+        SELECT ano_eje as anoEje, tipo_transaccion as tipoTransaccion, generica, subgenerica, descripcion, estado
+        FROM subgenerica ${c}     
+        ORDER BY ano_eje, tipo_transaccion, generica, subgenerica ASC
+    </select> 
+    
+    <select id="getSubGenericaDet" parameterType="HashMap" resultType="presupuesto.webservice.SubGenericaDet">         
+        SELECT ano_eje as anoEje, tipo_transaccion as tipoTransaccion, generica, subgenerica, subgenerica_det as subgenericaDet, descripcion, 
+        categoria_gasto as categoriaGasto, estado, categoria_ingreso as categoriaIngreso
+        FROM subgenerica_det ${c}    
+        ORDER BY ano_eje, tipo_transaccion, generica, subgenerica, subgenerica_det ASC
+    </select> 
+    
+    <select id="getSubProgramaNombre" parameterType="HashMap" resultType="presupuesto.webservice.SubProgramaNombre">         
+        SELECT ano_eje as anoEje, sub_programa as subPrograma, nombre, estado
+        FROM sub_programa_nombre ${c}     
+        ORDER BY ano_eje, sub_programa ASC
+    </select> 
+    
+    <select id="getTipoDocumento" parameterType="HashMap" resultType="presupuesto.webservice.TipoDocumento">         
+        SELECT tipo_documento as tipoDocumento, nombre, estado
+        FROM tipo_documento ${c}   
+        ORDER BY tipo_documento ASC
+    </select>
+    
+    <select id="getTipoOperacion" parameterType="HashMap" resultType="presupuesto.webservice.TipoOperacion">         
+        SELECT ano_eje as anoEje, tipo_operacion as tipoOperacion, nombre, estado, ciclo
+        FROM tipo_operacion ${c}   
+        ORDER BY ano_eje, tipo_operacion ASC
+    </select>
+    
+    <select id="getTipoProgramaPpto" parameterType="HashMap" resultType="presupuesto.webservice.TipoProgramaPpto">         
+        SELECT ano_eje as anoEje, tipo_programa_ppto as tipoProgramaPpto, nombre, descripcion, estado 
+        FROM tipo_programa_ppto ${c}    
+        ORDER BY ano_eje, tipo_programa_ppto ASC
+    </select>
+    
+    <select id="getTipoRecurso" parameterType="HashMap" resultType="presupuesto.webservice.TipoRecurso">         
+        SELECT ano_eje as anoEje, origen, fuente_financ as fuenteFinanc, tipo_recurso as tipoRecurso, nombre, estado
+        FROM tipo_recurso ${c}   
+        ORDER BY ano_eje, origen, fuente_financ, tipo_recurso ASC
+    </select>    
+   
+    <select id="getTipoTransaccion" parameterType="HashMap" resultType="presupuesto.webservice.TipoTransaccion">         
+        SELECT ano_eje as anoEje, tipo_transaccion as tipoTransaccion, descripcion, estado
+        FROM tipo_transaccion ${c}     
+        ORDER BY ano_eje, tipo_transaccion ASC
+    </select> 
+    
+    <select id="getUnidadMedida" parameterType="HashMap" resultType="presupuesto.webservice.UnidadMedida">         
+        SELECT unidad_medida as unidadMedida, nombre, estado
+        FROM unidad_medida ${c}     
+        ORDER BY unidad_medida ASC
+    </select> 
+    
+</mapper>
+

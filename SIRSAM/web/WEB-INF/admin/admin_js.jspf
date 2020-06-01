@@ -1,0 +1,8 @@
+<%--
+ @author CARLOS SANTANDER
+--%>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/admin.js" type="text/javascript"></script>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/admin/usuarios.js" type="text/javascript"></script>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/admin/perfiles.js" type="text/javascript"></script>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/admin/sesiones.js" type="text/javascript"></script>
+<script src="<% out.print(request.getContextPath());%>/templates/project/js/admin/sincronizacion.js" type="text/javascript"></script>

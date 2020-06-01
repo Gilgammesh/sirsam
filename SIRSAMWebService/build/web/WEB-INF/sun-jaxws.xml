@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
+  <endpoint implementation="presupuesto.webservice.SincronizarSIAF" name="SincronizarSIAF" url-pattern="/SincronizarSIAF"/>
+  <endpoint implementation="inversion.webservice.ProyectosBot" name="ProyectosBot" url-pattern="/ProyectosBot"/>
+  <endpoint implementation="estadistica.webservice.EstadisticaBot" name="EstadisticaBot" url-pattern="/EstadisticaBot"/>
+</endpoints>
