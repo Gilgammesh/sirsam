@@ -11,7 +11,7 @@
     
     <environments default="Seguridad">
         
-        <!--BASE DE DATOS DE SIRSAM (LOCAL)-->        
+        <!--BASE DE DATOS DE SIRSAM (LOCAL)      
         <environment id="SIRSAM">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">           
@@ -20,9 +20,10 @@
                 <property name="username" value="postgres"/>
                 <property name="password" value="123456"/> 
             </dataSource>
-        </environment>         
+        </environment>
+        -->           
         
-        <!--BASE DE DATOS DE SIRSAM (PRODUCCION)     
+        <!--BASE DE DATOS DE SIRSAM (PRODUCCION) -->    
         <environment id="SIRSAM">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
@@ -32,7 +33,7 @@
                 <property name="password" value="@PostgreSQL"/>
             </dataSource>
         </environment>
-        -->    
+            
            
     </environments>
                

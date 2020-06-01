@@ -31,7 +31,7 @@
                 <property name="driver" value="org.postgresql.Driver"/>
                 <property name="url" value="jdbc:postgresql://172.16.100.36:5433/SIRSAM"/>
                 <property name="username" value="postgres"/>
-                <property name="password" value="git "/> 
+                <property name="password" value="@PostgreSQL"/> 
             </dataSource>
         </environment>        
         
