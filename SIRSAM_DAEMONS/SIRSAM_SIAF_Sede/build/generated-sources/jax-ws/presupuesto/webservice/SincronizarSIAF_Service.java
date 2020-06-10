@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "SincronizarSIAF", targetNamespace = "http://webservice.presupuesto/", wsdlLocation = "https://web.regionsanmartin.gob.pe/SIRSAMWebService/SincronizarSIAF?wsdl")
+@WebServiceClient(name = "SincronizarSIAF", targetNamespace = "http://webservice.presupuesto/", wsdlLocation = "http://api.regionsanmartin.gob.pe:8080/SIRSAMWebService/SincronizarSIAF?wsdl")
 public class SincronizarSIAF_Service
     extends Service
 {
@@ -30,7 +30,7 @@ public class SincronizarSIAF_Service
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("https://web.regionsanmartin.gob.pe/SIRSAMWebService/SincronizarSIAF?wsdl");
+            url = new URL("http://api.regionsanmartin.gob.pe:8080/SIRSAMWebService/SincronizarSIAF?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

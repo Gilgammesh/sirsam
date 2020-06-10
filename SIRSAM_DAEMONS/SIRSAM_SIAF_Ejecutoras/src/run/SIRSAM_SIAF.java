@@ -73,9 +73,8 @@ public class SIRSAM_SIAF {
         //String tipo_sincronizacion = "general"; //=====>  Una vez al día: tablas generales 
         String tipo_sincronizacion = "diario"; //=====>  Varias veces al día: tablas transaccionales
 
-        //----------------------------------------------------------------------------------------------------------------------//
         //String ejec = "000921";  // U.E. 001 - Sede Central
-        //String ejec = "000922";  // U.E. 002 - Sub Región Alto Huallaga - Tocache
+        String ejec = "000922";  // U.E. 002 - Sub Región Alto Huallaga - Tocache
         //String ejec = "000923";  // U.E. 003 - Dirección Regional de Producción
         //String ejec = "000989";  // U.E. 004 - Sub Región Bajo Mayo - Tarapoto
         //String ejec = "001057";  // U.E. 005 - Sub Región Huallaga Central - Juanjui
@@ -94,7 +93,7 @@ public class SIRSAM_SIAF {
         //String ejec = "001058";  // U.E. 401 - Salud Alto Mayo - Moyobamba
         //String ejec = "001059";  // U.E. 402 - Salud Huallaga Central - Juanjui
         //String ejec = "001060";  // U.E. 403 - Salud Alto Huallaga - Tocache
-        String ejec = "001400";  // U.E. 404 - Hospital II - Tarapoto
+        //String ejec = "001400";  // U.E. 404 - Hospital II - Tarapoto
         //----------------------------------------------------------------------------------------------------------------------//
 
         InetAddress inet = InetAddress.getLocalHost();

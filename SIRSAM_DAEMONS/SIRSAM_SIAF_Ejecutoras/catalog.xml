@@ -6,4 +6,6 @@
     <system systemId="http://web.regionsanmartin.gob.pe:8080/SIRSAMWebService/SincronizarSIAF?xsd=1" uri="xml-resources/web-service-references/SincronizarSIAF/wsdl/web.regionsanmartin.gob.pe_8080/SIRSAMWebService/SincronizarSIAF.xsd_1.xsd"/>
     <system systemId="https://web.regionsanmartin.gob.pe/SIRSAMWebService/SincronizarSIAF?wsdl" uri="xml-resources/web-service-references/SincronizarSIAF/wsdl/web.regionsanmartin.gob.pe/SIRSAMWebService/SincronizarSIAF.wsdl"/>
     <system systemId="https://web.regionsanmartin.gob.pe:443/SIRSAMWebService/SincronizarSIAF?xsd=1" uri="xml-resources/web-service-references/SincronizarSIAF/wsdl/web.regionsanmartin.gob.pe_443/SIRSAMWebService/SincronizarSIAF.xsd_1.xsd"/>
+    <system systemId="http://api.regionsanmartin.gob.pe:8080/SIRSAMWebService/SincronizarSIAF?wsdl" uri="xml-resources/web-service-references/SincronizarSIAF/wsdl/api.regionsanmartin.gob.pe_8080/SIRSAMWebService/SincronizarSIAF.wsdl"/>
+    <system systemId="http://api.regionsanmartin.gob.pe:8080/SIRSAMWebService/SincronizarSIAF?xsd=1" uri="xml-resources/web-service-references/SincronizarSIAF/wsdl/api.regionsanmartin.gob.pe_8080/SIRSAMWebService/SincronizarSIAF.xsd_1.xsd"/>
 </catalog>

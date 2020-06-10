@@ -4,6 +4,8 @@ import dao.SiafDao;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 import java.util.List;
 import presupuesto.webservice.ActProyNombre;
@@ -70,7 +72,12 @@ import presupuesto.webservice.UnidadMedida;
  */
 public class SIRSAM_SIAF {
 
-    public static void main(String[] args) throws UnknownHostException {
+    public static void main(String[] args) throws UnknownHostException, NoSuchAlgorithmException, KeyStoreException {
+        
+        // Caso particular si la red tiene proxy
+        //System.setProperty("proxySet", "true");
+        //System.setProperty("proxyPort", "3128");
+        //System.setProperty("proxyHost", "10.30.2.6");
 
         Runtime rt = Runtime.getRuntime();
         long memoTotal = rt.totalMemory();

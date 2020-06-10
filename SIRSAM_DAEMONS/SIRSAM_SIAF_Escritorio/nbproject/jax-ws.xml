@@ -3,8 +3,8 @@
   <services/>
   <clients>
     <client name="SincronizarSIAF">
-      <wsdl-url>https://web.regionsanmartin.gob.pe/SIRSAMWebService/SincronizarSIAF?wsdl</wsdl-url>
-      <local-wsdl-file>web.regionsanmartin.gob.pe/SIRSAMWebService/SincronizarSIAF.wsdl</local-wsdl-file>
+      <wsdl-url>http://api.regionsanmartin.gob.pe:8080/SIRSAMWebService/SincronizarSIAF?wsdl</wsdl-url>
+      <local-wsdl-file>api.regionsanmartin.gob.pe_8080/SIRSAMWebService/SincronizarSIAF.wsdl</local-wsdl-file>
       <package-name>presupuesto.webservice</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -22,7 +22,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>https://web.regionsanmartin.gob.pe/SIRSAMWebService/SincronizarSIAF?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://api.regionsanmartin.gob.pe:8080/SIRSAMWebService/SincronizarSIAF?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

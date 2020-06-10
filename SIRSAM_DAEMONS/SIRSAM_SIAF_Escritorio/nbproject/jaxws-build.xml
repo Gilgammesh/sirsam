@@ -18,8 +18,8 @@
     </target>
     <target name="wsimport-client-SincronizarSIAF" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/SincronizarSIAF"/>
-        <property name="wsdl-SincronizarSIAF" location="xml-resources/web-service-references/SincronizarSIAF/wsdl/web.regionsanmartin.gob.pe/SIRSAMWebService/SincronizarSIAF.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/SincronizarSIAF" destdir="${build.generated.dir}/jax-wsCache/SincronizarSIAF" wsdl="${wsdl-SincronizarSIAF}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="https://web.regionsanmartin.gob.pe/SIRSAMWebService/SincronizarSIAF?wsdl" xnocompile="true" xendorsed="true">
+        <property name="wsdl-SincronizarSIAF" location="xml-resources/web-service-references/SincronizarSIAF/wsdl/api.regionsanmartin.gob.pe_8080/SIRSAMWebService/SincronizarSIAF.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/SincronizarSIAF" destdir="${build.generated.dir}/jax-wsCache/SincronizarSIAF" wsdl="${wsdl-SincronizarSIAF}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://api.regionsanmartin.gob.pe:8080/SIRSAMWebService/SincronizarSIAF?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-SincronizarSIAF}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/SincronizarSIAF"/>
         </wsimport>

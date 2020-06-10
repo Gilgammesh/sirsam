@@ -26,7 +26,7 @@ public interface SincronizarSIAF {
 
     /**
      * 
-     * @param dataNotaModificatoriaDet
+     * @param dataGenerica
      * @param ip
      * @param host
      * @param tabla
@@ -34,93 +34,12 @@ public interface SincronizarSIAF {
      * @param ejec
      */
     @WebMethod
-    @RequestWrapper(localName = "upsertNotaModificatoriaDet", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertNotaModificatoriaDet")
-    @ResponseWrapper(localName = "upsertNotaModificatoriaDetResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertNotaModificatoriaDetResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertNotaModificatoriaDetRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertNotaModificatoriaDetResponse")
-    public void upsertNotaModificatoriaDet(
-        @WebParam(name = "dataNotaModificatoriaDet", targetNamespace = "")
-        List<NotaModificatoriaDet> dataNotaModificatoriaDet,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataCertificadoMeta
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertCertificadoMeta", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCertificadoMeta")
-    @ResponseWrapper(localName = "upsertCertificadoMetaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCertificadoMetaResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertCertificadoMetaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertCertificadoMetaResponse")
-    public void upsertCertificadoMeta(
-        @WebParam(name = "dataCertificadoMeta", targetNamespace = "")
-        List<CertificadoMeta> dataCertificadoMeta,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataTipoOperacion
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertTipoOperacion", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoOperacion")
-    @ResponseWrapper(localName = "upsertTipoOperacionResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoOperacionResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoOperacionRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoOperacionResponse")
-    public void upsertTipoOperacion(
-        @WebParam(name = "dataTipoOperacion", targetNamespace = "")
-        List<TipoOperacion> dataTipoOperacion,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param host
-     * @param dataCtaCte
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertCtaCte", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCtaCte")
-    @ResponseWrapper(localName = "upsertCtaCteResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCtaCteResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertCtaCteRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertCtaCteResponse")
-    public void upsertCtaCte(
-        @WebParam(name = "dataCtaCte", targetNamespace = "")
-        List<CtaCte> dataCtaCte,
+    @RequestWrapper(localName = "upsertGenerica", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertGenerica")
+    @ResponseWrapper(localName = "upsertGenericaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertGenericaResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertGenericaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertGenericaResponse")
+    public void upsertGenerica(
+        @WebParam(name = "dataGenerica", targetNamespace = "")
+        List<Generica> dataGenerica,
         @WebParam(name = "time", targetNamespace = "")
         long time,
         @WebParam(name = "ejec", targetNamespace = "")
@@ -139,93 +58,15 @@ public interface SincronizarSIAF {
      * @param tabla
      * @param time
      * @param ejec
+     * @param dataIngreso
      */
     @WebMethod
-    @RequestWrapper(localName = "upsertEjecucionHistoricaTotal", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertEjecucionHistoricaTotal")
-    @ResponseWrapper(localName = "upsertEjecucionHistoricaTotalResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertEjecucionHistoricaTotalResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertEjecucionHistoricaTotalRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertEjecucionHistoricaTotalResponse")
-    public void upsertEjecucionHistoricaTotal(
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataProvincia
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertProvincia", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertProvincia")
-    @ResponseWrapper(localName = "upsertProvinciaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertProvinciaResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertProvinciaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertProvinciaResponse")
-    public void upsertProvincia(
-        @WebParam(name = "dataProvincia", targetNamespace = "")
-        List<Provincia> dataProvincia,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param host
-     * @param dataUnidadMedida
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertUnidadMedida", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertUnidadMedida")
-    @ResponseWrapper(localName = "upsertUnidadMedidaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertUnidadMedidaResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertUnidadMedidaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertUnidadMedidaResponse")
-    public void upsertUnidadMedida(
-        @WebParam(name = "dataUnidadMedida", targetNamespace = "")
-        List<UnidadMedida> dataUnidadMedida,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     * @param dataExpedienteIngreso
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertExpedienteIngreso", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteIngreso")
-    @ResponseWrapper(localName = "upsertExpedienteIngresoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteIngresoResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteIngresoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteIngresoResponse")
-    public void upsertExpedienteIngreso(
-        @WebParam(name = "dataExpedienteIngreso", targetNamespace = "")
-        List<ExpedienteIngreso> dataExpedienteIngreso,
+    @RequestWrapper(localName = "upsertIngreso", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertIngreso")
+    @ResponseWrapper(localName = "upsertIngresoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertIngresoResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertIngresoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertIngresoResponse")
+    public void upsertIngreso(
+        @WebParam(name = "dataIngreso", targetNamespace = "")
+        List<Ingreso> dataIngreso,
         @WebParam(name = "time", targetNamespace = "")
         long time,
         @WebParam(name = "ejec", targetNamespace = "")
@@ -272,438 +113,6 @@ public interface SincronizarSIAF {
 
     /**
      * 
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param dataFase
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertFase", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertFase")
-    @ResponseWrapper(localName = "upsertFaseResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertFaseResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertFaseRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertFaseResponse")
-    public void upsertFase(
-        @WebParam(name = "dataFase", targetNamespace = "")
-        List<Fase> dataFase,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param host
-     * @param dataSubGenericaDet
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertSubGenericaDet", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertSubGenericaDet")
-    @ResponseWrapper(localName = "upsertSubGenericaDetResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertSubGenericaDetResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertSubGenericaDetRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertSubGenericaDetResponse")
-    public void upsertSubGenericaDet(
-        @WebParam(name = "dataSubGenericaDet", targetNamespace = "")
-        List<SubGenericaDet> dataSubGenericaDet,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataNotaModificatoriaSec
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertNotaModificatoriaSec", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertNotaModificatoriaSec")
-    @ResponseWrapper(localName = "upsertNotaModificatoriaSecResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertNotaModificatoriaSecResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertNotaModificatoriaSecRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertNotaModificatoriaSecResponse")
-    public void upsertNotaModificatoriaSec(
-        @WebParam(name = "dataNotaModificatoriaSec", targetNamespace = "")
-        List<NotaModificatoriaSec> dataNotaModificatoriaSec,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ano
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertEjecucionHistoricaActual", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertEjecucionHistoricaActual")
-    @ResponseWrapper(localName = "upsertEjecucionHistoricaActualResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertEjecucionHistoricaActualResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertEjecucionHistoricaActualRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertEjecucionHistoricaActualResponse")
-    public void upsertEjecucionHistoricaActual(
-        @WebParam(name = "ano", targetNamespace = "")
-        int ano,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param dataTipoProgramaPpto
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertTipoProgramaPpto", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoProgramaPpto")
-    @ResponseWrapper(localName = "upsertTipoProgramaPptoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoProgramaPptoResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoProgramaPptoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoProgramaPptoResponse")
-    public void upsertTipoProgramaPpto(
-        @WebParam(name = "dataTipoProgramaPpto", targetNamespace = "")
-        List<TipoProgramaPpto> dataTipoProgramaPpto,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataPersonaCciEjec
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertPersonaCciEjec", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertPersonaCciEjec")
-    @ResponseWrapper(localName = "upsertPersonaCciEjecResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertPersonaCciEjecResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertPersonaCciEjecRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertPersonaCciEjecResponse")
-    public void upsertPersonaCciEjec(
-        @WebParam(name = "dataPersonaCciEjec", targetNamespace = "")
-        List<PersonaCciEjec> dataPersonaCciEjec,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataTipoDocumento
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertTipoDocumento", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoDocumento")
-    @ResponseWrapper(localName = "upsertTipoDocumentoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoDocumentoResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoDocumentoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoDocumentoResponse")
-    public void upsertTipoDocumento(
-        @WebParam(name = "dataTipoDocumento", targetNamespace = "")
-        List<TipoDocumento> dataTipoDocumento,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataCiclo
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertCiclo", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCiclo")
-    @ResponseWrapper(localName = "upsertCicloResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCicloResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertCicloRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertCicloResponse")
-    public void upsertCiclo(
-        @WebParam(name = "dataCiclo", targetNamespace = "")
-        List<Ciclo> dataCiclo,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     * @param dataCategoriaIngreso
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertCategoriaIngreso", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCategoriaIngreso")
-    @ResponseWrapper(localName = "upsertCategoriaIngresoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCategoriaIngresoResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertCategoriaIngresoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertCategoriaIngresoResponse")
-    public void upsertCategoriaIngreso(
-        @WebParam(name = "dataCategoriaIngreso", targetNamespace = "")
-        List<CategoriaIngreso> dataCategoriaIngreso,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     * @param dataFuncion
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertFuncion", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertFuncion")
-    @ResponseWrapper(localName = "upsertFuncionResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertFuncionResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertFuncionRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertFuncionResponse")
-    public void upsertFuncion(
-        @WebParam(name = "dataFuncion", targetNamespace = "")
-        List<Funcion> dataFuncion,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     * @param dataProgramaNombre
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertProgramaNombre", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertProgramaNombre")
-    @ResponseWrapper(localName = "upsertProgramaNombreResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertProgramaNombreResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertProgramaNombreRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertProgramaNombreResponse")
-    public void upsertProgramaNombre(
-        @WebParam(name = "dataProgramaNombre", targetNamespace = "")
-        List<ProgramaNombre> dataProgramaNombre,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataExpedienteMeta
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertExpedienteMeta", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteMeta")
-    @ResponseWrapper(localName = "upsertExpedienteMetaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteMetaResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteMetaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteMetaResponse")
-    public void upsertExpedienteMeta(
-        @WebParam(name = "dataExpedienteMeta", targetNamespace = "")
-        List<ExpedienteMeta> dataExpedienteMeta,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataPadronPersona
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertPadronPersona", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertPadronPersona")
-    @ResponseWrapper(localName = "upsertPadronPersonaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertPadronPersonaResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertPadronPersonaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertPadronPersonaResponse")
-    public void upsertPadronPersona(
-        @WebParam(name = "dataPadronPersona", targetNamespace = "")
-        List<PadronPersona> dataPadronPersona,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param dataCertificadoFase
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertCertificadoFase", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCertificadoFase")
-    @ResponseWrapper(localName = "upsertCertificadoFaseResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCertificadoFaseResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertCertificadoFaseRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertCertificadoFaseResponse")
-    public void upsertCertificadoFase(
-        @WebParam(name = "dataCertificadoFase", targetNamespace = "")
-        List<CertificadoFase> dataCertificadoFase,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataExpedienteDocumento
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertExpedienteDocumento", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteDocumento")
-    @ResponseWrapper(localName = "upsertExpedienteDocumentoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteDocumentoResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteDocumentoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteDocumentoResponse")
-    public void upsertExpedienteDocumento(
-        @WebParam(name = "dataExpedienteDocumento", targetNamespace = "")
-        List<ExpedienteDocumento> dataExpedienteDocumento,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataCategoriaGasto
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertCategoriaGasto", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCategoriaGasto")
-    @ResponseWrapper(localName = "upsertCategoriaGastoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCategoriaGastoResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertCategoriaGastoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertCategoriaGastoResponse")
-    public void upsertCategoriaGasto(
-        @WebParam(name = "dataCategoriaGasto", targetNamespace = "")
-        List<CategoriaGasto> dataCategoriaGasto,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
      * @param dataMaestroDocumento
      * @param ip
      * @param host
@@ -718,330 +127,6 @@ public interface SincronizarSIAF {
     public void upsertMaestroDocumento(
         @WebParam(name = "dataMaestroDocumento", targetNamespace = "")
         List<MaestroDocumento> dataMaestroDocumento,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     * @param dataExpedienteFase
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertExpedienteFase", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteFase")
-    @ResponseWrapper(localName = "upsertExpedienteFaseResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteFaseResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteFaseRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteFaseResponse")
-    public void upsertExpedienteFase(
-        @WebParam(name = "dataExpedienteFase", targetNamespace = "")
-        List<ExpedienteFase> dataExpedienteFase,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param host
-     * @param dataExpedienteNota
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertExpedienteNota", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteNota")
-    @ResponseWrapper(localName = "upsertExpedienteNotaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteNotaResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteNotaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteNotaResponse")
-    public void upsertExpedienteNota(
-        @WebParam(name = "dataExpedienteNota", targetNamespace = "")
-        List<ExpedienteNota> dataExpedienteNota,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param dataNotaModificatoriaDoc
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertNotaModificatoriaDoc", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertNotaModificatoriaDoc")
-    @ResponseWrapper(localName = "upsertNotaModificatoriaDocResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertNotaModificatoriaDocResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertNotaModificatoriaDocRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertNotaModificatoriaDocResponse")
-    public void upsertNotaModificatoriaDoc(
-        @WebParam(name = "dataNotaModificatoriaDoc", targetNamespace = "")
-        List<NotaModificatoriaDoc> dataNotaModificatoriaDoc,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     * @param dataProgramaPptoNombre
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertProgramaPptoNombre", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertProgramaPptoNombre")
-    @ResponseWrapper(localName = "upsertProgramaPptoNombreResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertProgramaPptoNombreResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertProgramaPptoNombreRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertProgramaPptoNombreResponse")
-    public void upsertProgramaPptoNombre(
-        @WebParam(name = "dataProgramaPptoNombre", targetNamespace = "")
-        List<ProgramaPptoNombre> dataProgramaPptoNombre,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param dataComponenteNombre
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertComponenteNombre", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertComponenteNombre")
-    @ResponseWrapper(localName = "upsertComponenteNombreResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertComponenteNombreResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertComponenteNombreRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertComponenteNombreResponse")
-    public void upsertComponenteNombre(
-        @WebParam(name = "dataComponenteNombre", targetNamespace = "")
-        List<ComponenteNombre> dataComponenteNombre,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataDistrito
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertDistrito", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertDistrito")
-    @ResponseWrapper(localName = "upsertDistritoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertDistritoResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertDistritoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertDistritoResponse")
-    public void upsertDistrito(
-        @WebParam(name = "dataDistrito", targetNamespace = "")
-        List<Distrito> dataDistrito,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataBanco
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertBanco", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertBanco")
-    @ResponseWrapper(localName = "upsertBancoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertBancoResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertBancoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertBancoResponse")
-    public void upsertBanco(
-        @WebParam(name = "dataBanco", targetNamespace = "")
-        List<Banco> dataBanco,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     * @param dataSubProgramaNombre
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertSubProgramaNombre", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertSubProgramaNombre")
-    @ResponseWrapper(localName = "upsertSubProgramaNombreResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertSubProgramaNombreResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertSubProgramaNombreRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertSubProgramaNombreResponse")
-    public void upsertSubProgramaNombre(
-        @WebParam(name = "dataSubProgramaNombre", targetNamespace = "")
-        List<SubProgramaNombre> dataSubProgramaNombre,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataCertificado
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertCertificado", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCertificado")
-    @ResponseWrapper(localName = "upsertCertificadoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCertificadoResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertCertificadoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertCertificadoResponse")
-    public void upsertCertificado(
-        @WebParam(name = "dataCertificado", targetNamespace = "")
-        List<Certificado> dataCertificado,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataDepartamento
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertDepartamento", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertDepartamento")
-    @ResponseWrapper(localName = "upsertDepartamentoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertDepartamentoResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertDepartamentoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertDepartamentoResponse")
-    public void upsertDepartamento(
-        @WebParam(name = "dataDepartamento", targetNamespace = "")
-        List<Departamento> dataDepartamento,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param host
-     * @param dataFuenteFinancAgregada
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertFuenteFinancAgregada", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertFuenteFinancAgregada")
-    @ResponseWrapper(localName = "upsertFuenteFinancAgregadaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertFuenteFinancAgregadaResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertFuenteFinancAgregadaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertFuenteFinancAgregadaResponse")
-    public void upsertFuenteFinancAgregada(
-        @WebParam(name = "dataFuenteFinancAgregada", targetNamespace = "")
-        List<FuenteFinancAgregada> dataFuenteFinancAgregada,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ano
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertRecaudacionHistoricaActual", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertRecaudacionHistoricaActual")
-    @ResponseWrapper(localName = "upsertRecaudacionHistoricaActualResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertRecaudacionHistoricaActualResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertRecaudacionHistoricaActualRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertRecaudacionHistoricaActualResponse")
-    public void upsertRecaudacionHistoricaActual(
-        @WebParam(name = "ano", targetNamespace = "")
-        int ano,
         @WebParam(name = "time", targetNamespace = "")
         long time,
         @WebParam(name = "ejec", targetNamespace = "")
@@ -1082,61 +167,7 @@ public interface SincronizarSIAF {
 
     /**
      * 
-     * @param ip
-     * @param host
-     * @param dataSubGenerica
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertSubGenerica", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertSubGenerica")
-    @ResponseWrapper(localName = "upsertSubGenericaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertSubGenericaResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertSubGenericaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertSubGenericaResponse")
-    public void upsertSubGenerica(
-        @WebParam(name = "dataSubGenerica", targetNamespace = "")
-        List<SubGenerica> dataSubGenerica,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     * @param dataIngreso
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertIngreso", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertIngreso")
-    @ResponseWrapper(localName = "upsertIngresoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertIngresoResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertIngresoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertIngresoResponse")
-    public void upsertIngreso(
-        @WebParam(name = "dataIngreso", targetNamespace = "")
-        List<Ingreso> dataIngreso,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataExpediente
+     * @param dataMetaTrimestral
      * @param ip
      * @param host
      * @param tabla
@@ -1144,12 +175,12 @@ public interface SincronizarSIAF {
      * @param ejec
      */
     @WebMethod
-    @RequestWrapper(localName = "upsertExpediente", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpediente")
-    @ResponseWrapper(localName = "upsertExpedienteResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteResponse")
-    public void upsertExpediente(
-        @WebParam(name = "dataExpediente", targetNamespace = "")
-        List<Expediente> dataExpediente,
+    @RequestWrapper(localName = "upsertMetaTrimestral", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertMetaTrimestral")
+    @ResponseWrapper(localName = "upsertMetaTrimestralResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertMetaTrimestralResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertMetaTrimestralRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertMetaTrimestralResponse")
+    public void upsertMetaTrimestral(
+        @WebParam(name = "dataMetaTrimestral", targetNamespace = "")
+        List<MetaTrimestral> dataMetaTrimestral,
         @WebParam(name = "time", targetNamespace = "")
         long time,
         @WebParam(name = "ejec", targetNamespace = "")
@@ -1190,7 +221,7 @@ public interface SincronizarSIAF {
 
     /**
      * 
-     * @param dataPersona
+     * @param dataNotaModificatoriaDet
      * @param ip
      * @param host
      * @param tabla
@@ -1198,12 +229,12 @@ public interface SincronizarSIAF {
      * @param ejec
      */
     @WebMethod
-    @RequestWrapper(localName = "upsertPersona", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertPersona")
-    @ResponseWrapper(localName = "upsertPersonaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertPersonaResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertPersonaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertPersonaResponse")
-    public void upsertPersona(
-        @WebParam(name = "dataPersona", targetNamespace = "")
-        List<Persona> dataPersona,
+    @RequestWrapper(localName = "upsertNotaModificatoriaDet", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertNotaModificatoriaDet")
+    @ResponseWrapper(localName = "upsertNotaModificatoriaDetResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertNotaModificatoriaDetResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertNotaModificatoriaDetRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertNotaModificatoriaDetResponse")
+    public void upsertNotaModificatoriaDet(
+        @WebParam(name = "dataNotaModificatoriaDet", targetNamespace = "")
+        List<NotaModificatoriaDet> dataNotaModificatoriaDet,
         @WebParam(name = "time", targetNamespace = "")
         long time,
         @WebParam(name = "ejec", targetNamespace = "")
@@ -1220,98 +251,17 @@ public interface SincronizarSIAF {
      * @param ip
      * @param host
      * @param tabla
-     * @param time
-     * @param ejec
-     * @param dataEjecutora
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertEjecutora", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertEjecutora")
-    @ResponseWrapper(localName = "upsertEjecutoraResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertEjecutoraResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertEjecutoraRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertEjecutoraResponse")
-    public void upsertEjecutora(
-        @WebParam(name = "dataEjecutora", targetNamespace = "")
-        List<Ejecutora> dataEjecutora,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataMetaTrimestral
-     * @param ip
-     * @param host
-     * @param tabla
+     * @param dataNotaModificatoriaDoc
      * @param time
      * @param ejec
      */
     @WebMethod
-    @RequestWrapper(localName = "upsertMetaTrimestral", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertMetaTrimestral")
-    @ResponseWrapper(localName = "upsertMetaTrimestralResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertMetaTrimestralResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertMetaTrimestralRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertMetaTrimestralResponse")
-    public void upsertMetaTrimestral(
-        @WebParam(name = "dataMetaTrimestral", targetNamespace = "")
-        List<MetaTrimestral> dataMetaTrimestral,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataTipoTransaccion
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertTipoTransaccion", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoTransaccion")
-    @ResponseWrapper(localName = "upsertTipoTransaccionResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoTransaccionResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoTransaccionRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoTransaccionResponse")
-    public void upsertTipoTransaccion(
-        @WebParam(name = "dataTipoTransaccion", targetNamespace = "")
-        List<TipoTransaccion> dataTipoTransaccion,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param dataEspecifica
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertEspecifica", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertEspecifica")
-    @ResponseWrapper(localName = "upsertEspecificaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertEspecificaResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertEspecificaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertEspecificaResponse")
-    public void upsertEspecifica(
-        @WebParam(name = "dataEspecifica", targetNamespace = "")
-        List<Especifica> dataEspecifica,
+    @RequestWrapper(localName = "upsertNotaModificatoriaDoc", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertNotaModificatoriaDoc")
+    @ResponseWrapper(localName = "upsertNotaModificatoriaDocResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertNotaModificatoriaDocResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertNotaModificatoriaDocRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertNotaModificatoriaDocResponse")
+    public void upsertNotaModificatoriaDoc(
+        @WebParam(name = "dataNotaModificatoriaDoc", targetNamespace = "")
+        List<NotaModificatoriaDoc> dataNotaModificatoriaDoc,
         @WebParam(name = "time", targetNamespace = "")
         long time,
         @WebParam(name = "ejec", targetNamespace = "")
@@ -1352,7 +302,7 @@ public interface SincronizarSIAF {
 
     /**
      * 
-     * @param dataExpedienteAdjunto
+     * @param dataNotaModificatoriaSec
      * @param ip
      * @param host
      * @param tabla
@@ -1360,12 +310,12 @@ public interface SincronizarSIAF {
      * @param ejec
      */
     @WebMethod
-    @RequestWrapper(localName = "upsertExpedienteAdjunto", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteAdjunto")
-    @ResponseWrapper(localName = "upsertExpedienteAdjuntoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteAdjuntoResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteAdjuntoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteAdjuntoResponse")
-    public void upsertExpedienteAdjunto(
-        @WebParam(name = "dataExpedienteAdjunto", targetNamespace = "")
-        List<ExpedienteAdjunto> dataExpedienteAdjunto,
+    @RequestWrapper(localName = "upsertNotaModificatoriaSec", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertNotaModificatoriaSec")
+    @ResponseWrapper(localName = "upsertNotaModificatoriaSecResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertNotaModificatoriaSecResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertNotaModificatoriaSecRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertNotaModificatoriaSecResponse")
+    public void upsertNotaModificatoriaSec(
+        @WebParam(name = "dataNotaModificatoriaSec", targetNamespace = "")
+        List<NotaModificatoriaSec> dataNotaModificatoriaSec,
         @WebParam(name = "time", targetNamespace = "")
         long time,
         @WebParam(name = "ejec", targetNamespace = "")
@@ -1379,7 +329,7 @@ public interface SincronizarSIAF {
 
     /**
      * 
-     * @param dataTipoRecurso
+     * @param dataPadronPersona
      * @param ip
      * @param host
      * @param tabla
@@ -1387,12 +337,66 @@ public interface SincronizarSIAF {
      * @param ejec
      */
     @WebMethod
-    @RequestWrapper(localName = "upsertTipoRecurso", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoRecurso")
-    @ResponseWrapper(localName = "upsertTipoRecursoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoRecursoResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoRecursoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoRecursoResponse")
-    public void upsertTipoRecurso(
-        @WebParam(name = "dataTipoRecurso", targetNamespace = "")
-        List<TipoRecurso> dataTipoRecurso,
+    @RequestWrapper(localName = "upsertPadronPersona", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertPadronPersona")
+    @ResponseWrapper(localName = "upsertPadronPersonaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertPadronPersonaResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertPadronPersonaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertPadronPersonaResponse")
+    public void upsertPadronPersona(
+        @WebParam(name = "dataPadronPersona", targetNamespace = "")
+        List<PadronPersona> dataPadronPersona,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataPersona
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertPersona", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertPersona")
+    @ResponseWrapper(localName = "upsertPersonaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertPersonaResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertPersonaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertPersonaResponse")
+    public void upsertPersona(
+        @WebParam(name = "dataPersona", targetNamespace = "")
+        List<Persona> dataPersona,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataPersonaCciEjec
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertPersonaCciEjec", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertPersonaCciEjec")
+    @ResponseWrapper(localName = "upsertPersonaCciEjecResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertPersonaCciEjecResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertPersonaCciEjecRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertPersonaCciEjecResponse")
+    public void upsertPersonaCciEjec(
+        @WebParam(name = "dataPersonaCciEjec", targetNamespace = "")
+        List<PersonaCciEjec> dataPersonaCciEjec,
         @WebParam(name = "time", targetNamespace = "")
         long time,
         @WebParam(name = "ejec", targetNamespace = "")
@@ -1438,6 +442,87 @@ public interface SincronizarSIAF {
      * @param tabla
      * @param time
      * @param ejec
+     * @param dataProgramaNombre
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertProgramaNombre", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertProgramaNombre")
+    @ResponseWrapper(localName = "upsertProgramaNombreResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertProgramaNombreResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertProgramaNombreRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertProgramaNombreResponse")
+    public void upsertProgramaNombre(
+        @WebParam(name = "dataProgramaNombre", targetNamespace = "")
+        List<ProgramaNombre> dataProgramaNombre,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     * @param dataProgramaPptoNombre
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertProgramaPptoNombre", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertProgramaPptoNombre")
+    @ResponseWrapper(localName = "upsertProgramaPptoNombreResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertProgramaPptoNombreResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertProgramaPptoNombreRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertProgramaPptoNombreResponse")
+    public void upsertProgramaPptoNombre(
+        @WebParam(name = "dataProgramaPptoNombre", targetNamespace = "")
+        List<ProgramaPptoNombre> dataProgramaPptoNombre,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataProvincia
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertProvincia", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertProvincia")
+    @ResponseWrapper(localName = "upsertProvinciaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertProvinciaResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertProvinciaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertProvinciaResponse")
+    public void upsertProvincia(
+        @WebParam(name = "dataProvincia", targetNamespace = "")
+        List<Provincia> dataProvincia,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
      */
     @WebMethod
     @RequestWrapper(localName = "upsertRecaudacionHistoricaTotal", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertRecaudacionHistoricaTotal")
@@ -1457,7 +542,7 @@ public interface SincronizarSIAF {
 
     /**
      * 
-     * @param dataGasto
+     * @param ano
      * @param ip
      * @param host
      * @param tabla
@@ -1465,12 +550,579 @@ public interface SincronizarSIAF {
      * @param ejec
      */
     @WebMethod
-    @RequestWrapper(localName = "upsertGasto", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertGasto")
-    @ResponseWrapper(localName = "upsertGastoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertGastoResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertGastoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertGastoResponse")
-    public void upsertGasto(
-        @WebParam(name = "dataGasto", targetNamespace = "")
-        List<Gasto> dataGasto,
+    @RequestWrapper(localName = "upsertRecaudacionHistoricaActual", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertRecaudacionHistoricaActual")
+    @ResponseWrapper(localName = "upsertRecaudacionHistoricaActualResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertRecaudacionHistoricaActualResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertRecaudacionHistoricaActualRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertRecaudacionHistoricaActualResponse")
+    public void upsertRecaudacionHistoricaActual(
+        @WebParam(name = "ano", targetNamespace = "")
+        int ano,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param dataSubGenerica
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertSubGenerica", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertSubGenerica")
+    @ResponseWrapper(localName = "upsertSubGenericaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertSubGenericaResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertSubGenericaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertSubGenericaResponse")
+    public void upsertSubGenerica(
+        @WebParam(name = "dataSubGenerica", targetNamespace = "")
+        List<SubGenerica> dataSubGenerica,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param dataSubGenericaDet
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertSubGenericaDet", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertSubGenericaDet")
+    @ResponseWrapper(localName = "upsertSubGenericaDetResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertSubGenericaDetResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertSubGenericaDetRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertSubGenericaDetResponse")
+    public void upsertSubGenericaDet(
+        @WebParam(name = "dataSubGenericaDet", targetNamespace = "")
+        List<SubGenericaDet> dataSubGenericaDet,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     * @param dataSubProgramaNombre
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertSubProgramaNombre", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertSubProgramaNombre")
+    @ResponseWrapper(localName = "upsertSubProgramaNombreResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertSubProgramaNombreResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertSubProgramaNombreRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertSubProgramaNombreResponse")
+    public void upsertSubProgramaNombre(
+        @WebParam(name = "dataSubProgramaNombre", targetNamespace = "")
+        List<SubProgramaNombre> dataSubProgramaNombre,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataTipoDocumento
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertTipoDocumento", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoDocumento")
+    @ResponseWrapper(localName = "upsertTipoDocumentoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoDocumentoResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoDocumentoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoDocumentoResponse")
+    public void upsertTipoDocumento(
+        @WebParam(name = "dataTipoDocumento", targetNamespace = "")
+        List<TipoDocumento> dataTipoDocumento,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataTipoOperacion
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertTipoOperacion", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoOperacion")
+    @ResponseWrapper(localName = "upsertTipoOperacionResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoOperacionResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoOperacionRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoOperacionResponse")
+    public void upsertTipoOperacion(
+        @WebParam(name = "dataTipoOperacion", targetNamespace = "")
+        List<TipoOperacion> dataTipoOperacion,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataTipoRecurso
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertTipoRecurso", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoRecurso")
+    @ResponseWrapper(localName = "upsertTipoRecursoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoRecursoResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoRecursoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoRecursoResponse")
+    public void upsertTipoRecurso(
+        @WebParam(name = "dataTipoRecurso", targetNamespace = "")
+        List<TipoRecurso> dataTipoRecurso,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataTipoTransaccion
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertTipoTransaccion", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoTransaccion")
+    @ResponseWrapper(localName = "upsertTipoTransaccionResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoTransaccionResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoTransaccionRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoTransaccionResponse")
+    public void upsertTipoTransaccion(
+        @WebParam(name = "dataTipoTransaccion", targetNamespace = "")
+        List<TipoTransaccion> dataTipoTransaccion,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param dataUnidadMedida
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertUnidadMedida", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertUnidadMedida")
+    @ResponseWrapper(localName = "upsertUnidadMedidaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertUnidadMedidaResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertUnidadMedidaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertUnidadMedidaResponse")
+    public void upsertUnidadMedida(
+        @WebParam(name = "dataUnidadMedida", targetNamespace = "")
+        List<UnidadMedida> dataUnidadMedida,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param dataComponenteNombre
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertComponenteNombre", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertComponenteNombre")
+    @ResponseWrapper(localName = "upsertComponenteNombreResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertComponenteNombreResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertComponenteNombreRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertComponenteNombreResponse")
+    public void upsertComponenteNombre(
+        @WebParam(name = "dataComponenteNombre", targetNamespace = "")
+        List<ComponenteNombre> dataComponenteNombre,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataDepartamento
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertDepartamento", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertDepartamento")
+    @ResponseWrapper(localName = "upsertDepartamentoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertDepartamentoResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertDepartamentoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertDepartamentoResponse")
+    public void upsertDepartamento(
+        @WebParam(name = "dataDepartamento", targetNamespace = "")
+        List<Departamento> dataDepartamento,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param dataTipoProgramaPpto
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertTipoProgramaPpto", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoProgramaPpto")
+    @ResponseWrapper(localName = "upsertTipoProgramaPptoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertTipoProgramaPptoResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoProgramaPptoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertTipoProgramaPptoResponse")
+    public void upsertTipoProgramaPpto(
+        @WebParam(name = "dataTipoProgramaPpto", targetNamespace = "")
+        List<TipoProgramaPpto> dataTipoProgramaPpto,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataExpedienteDocumento
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertExpedienteDocumento", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteDocumento")
+    @ResponseWrapper(localName = "upsertExpedienteDocumentoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteDocumentoResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteDocumentoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteDocumentoResponse")
+    public void upsertExpedienteDocumento(
+        @WebParam(name = "dataExpedienteDocumento", targetNamespace = "")
+        List<ExpedienteDocumento> dataExpedienteDocumento,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     * @param dataExpedienteFase
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertExpedienteFase", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteFase")
+    @ResponseWrapper(localName = "upsertExpedienteFaseResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteFaseResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteFaseRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteFaseResponse")
+    public void upsertExpedienteFase(
+        @WebParam(name = "dataExpedienteFase", targetNamespace = "")
+        List<ExpedienteFase> dataExpedienteFase,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     * @param dataExpedienteIngreso
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertExpedienteIngreso", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteIngreso")
+    @ResponseWrapper(localName = "upsertExpedienteIngresoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteIngresoResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteIngresoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteIngresoResponse")
+    public void upsertExpedienteIngreso(
+        @WebParam(name = "dataExpedienteIngreso", targetNamespace = "")
+        List<ExpedienteIngreso> dataExpedienteIngreso,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataExpedienteMeta
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertExpedienteMeta", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteMeta")
+    @ResponseWrapper(localName = "upsertExpedienteMetaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteMetaResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteMetaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteMetaResponse")
+    public void upsertExpedienteMeta(
+        @WebParam(name = "dataExpedienteMeta", targetNamespace = "")
+        List<ExpedienteMeta> dataExpedienteMeta,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param dataExpedienteNota
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertExpedienteNota", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteNota")
+    @ResponseWrapper(localName = "upsertExpedienteNotaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteNotaResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteNotaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteNotaResponse")
+    public void upsertExpedienteNota(
+        @WebParam(name = "dataExpedienteNota", targetNamespace = "")
+        List<ExpedienteNota> dataExpedienteNota,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataCategoriaGasto
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertCategoriaGasto", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCategoriaGasto")
+    @ResponseWrapper(localName = "upsertCategoriaGastoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCategoriaGastoResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertCategoriaGastoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertCategoriaGastoResponse")
+    public void upsertCategoriaGasto(
+        @WebParam(name = "dataCategoriaGasto", targetNamespace = "")
+        List<CategoriaGasto> dataCategoriaGasto,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     * @param dataCategoriaIngreso
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertCategoriaIngreso", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCategoriaIngreso")
+    @ResponseWrapper(localName = "upsertCategoriaIngresoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCategoriaIngresoResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertCategoriaIngresoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertCategoriaIngresoResponse")
+    public void upsertCategoriaIngreso(
+        @WebParam(name = "dataCategoriaIngreso", targetNamespace = "")
+        List<CategoriaIngreso> dataCategoriaIngreso,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataCertificado
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertCertificado", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCertificado")
+    @ResponseWrapper(localName = "upsertCertificadoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCertificadoResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertCertificadoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertCertificadoResponse")
+    public void upsertCertificado(
+        @WebParam(name = "dataCertificado", targetNamespace = "")
+        List<Certificado> dataCertificado,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param dataCertificadoFase
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertCertificadoFase", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCertificadoFase")
+    @ResponseWrapper(localName = "upsertCertificadoFaseResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCertificadoFaseResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertCertificadoFaseRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertCertificadoFaseResponse")
+    public void upsertCertificadoFase(
+        @WebParam(name = "dataCertificadoFase", targetNamespace = "")
+        List<CertificadoFase> dataCertificadoFase,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataCertificadoMeta
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertCertificadoMeta", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCertificadoMeta")
+    @ResponseWrapper(localName = "upsertCertificadoMetaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCertificadoMetaResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertCertificadoMetaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertCertificadoMetaResponse")
+    public void upsertCertificadoMeta(
+        @WebParam(name = "dataCertificadoMeta", targetNamespace = "")
+        List<CertificadoMeta> dataCertificadoMeta,
         @WebParam(name = "time", targetNamespace = "")
         long time,
         @WebParam(name = "ejec", targetNamespace = "")
@@ -1538,47 +1190,20 @@ public interface SincronizarSIAF {
 
     /**
      * 
-     * @param dataGenerica
      * @param ip
      * @param host
      * @param tabla
+     * @param dataFase
      * @param time
      * @param ejec
      */
     @WebMethod
-    @RequestWrapper(localName = "upsertGenerica", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertGenerica")
-    @ResponseWrapper(localName = "upsertGenericaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertGenericaResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertGenericaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertGenericaResponse")
-    public void upsertGenerica(
-        @WebParam(name = "dataGenerica", targetNamespace = "")
-        List<Generica> dataGenerica,
-        @WebParam(name = "time", targetNamespace = "")
-        long time,
-        @WebParam(name = "ejec", targetNamespace = "")
-        String ejec,
-        @WebParam(name = "tabla", targetNamespace = "")
-        String tabla,
-        @WebParam(name = "host", targetNamespace = "")
-        String host,
-        @WebParam(name = "ip", targetNamespace = "")
-        String ip);
-
-    /**
-     * 
-     * @param dataFuenteFinanc
-     * @param ip
-     * @param host
-     * @param tabla
-     * @param time
-     * @param ejec
-     */
-    @WebMethod
-    @RequestWrapper(localName = "upsertFuenteFinanc", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertFuenteFinanc")
-    @ResponseWrapper(localName = "upsertFuenteFinancResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertFuenteFinancResponse")
-    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertFuenteFinancRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertFuenteFinancResponse")
-    public void upsertFuenteFinanc(
-        @WebParam(name = "dataFuenteFinanc", targetNamespace = "")
-        List<FuenteFinanc> dataFuenteFinanc,
+    @RequestWrapper(localName = "upsertFase", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertFase")
+    @ResponseWrapper(localName = "upsertFaseResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertFaseResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertFaseRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertFaseResponse")
+    public void upsertFase(
+        @WebParam(name = "dataFase", targetNamespace = "")
+        List<Fase> dataFase,
         @WebParam(name = "time", targetNamespace = "")
         long time,
         @WebParam(name = "ejec", targetNamespace = "")
@@ -1619,6 +1244,168 @@ public interface SincronizarSIAF {
 
     /**
      * 
+     * @param dataFuenteFinanc
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertFuenteFinanc", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertFuenteFinanc")
+    @ResponseWrapper(localName = "upsertFuenteFinancResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertFuenteFinancResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertFuenteFinancRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertFuenteFinancResponse")
+    public void upsertFuenteFinanc(
+        @WebParam(name = "dataFuenteFinanc", targetNamespace = "")
+        List<FuenteFinanc> dataFuenteFinanc,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param dataFuenteFinancAgregada
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertFuenteFinancAgregada", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertFuenteFinancAgregada")
+    @ResponseWrapper(localName = "upsertFuenteFinancAgregadaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertFuenteFinancAgregadaResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertFuenteFinancAgregadaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertFuenteFinancAgregadaResponse")
+    public void upsertFuenteFinancAgregada(
+        @WebParam(name = "dataFuenteFinancAgregada", targetNamespace = "")
+        List<FuenteFinancAgregada> dataFuenteFinancAgregada,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     * @param dataFuncion
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertFuncion", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertFuncion")
+    @ResponseWrapper(localName = "upsertFuncionResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertFuncionResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertFuncionRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertFuncionResponse")
+    public void upsertFuncion(
+        @WebParam(name = "dataFuncion", targetNamespace = "")
+        List<Funcion> dataFuncion,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataGasto
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertGasto", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertGasto")
+    @ResponseWrapper(localName = "upsertGastoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertGastoResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertGastoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertGastoResponse")
+    public void upsertGasto(
+        @WebParam(name = "dataGasto", targetNamespace = "")
+        List<Gasto> dataGasto,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataBanco
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertBanco", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertBanco")
+    @ResponseWrapper(localName = "upsertBancoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertBancoResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertBancoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertBancoResponse")
+    public void upsertBanco(
+        @WebParam(name = "dataBanco", targetNamespace = "")
+        List<Banco> dataBanco,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param dataCtaCte
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertCtaCte", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCtaCte")
+    @ResponseWrapper(localName = "upsertCtaCteResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCtaCteResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertCtaCteRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertCtaCteResponse")
+    public void upsertCtaCte(
+        @WebParam(name = "dataCtaCte", targetNamespace = "")
+        List<CtaCte> dataCtaCte,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
      * @param dataActProyNombre
      * @param ip
      * @param host
@@ -1646,6 +1433,165 @@ public interface SincronizarSIAF {
 
     /**
      * 
+     * @param dataCiclo
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertCiclo", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCiclo")
+    @ResponseWrapper(localName = "upsertCicloResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertCicloResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertCicloRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertCicloResponse")
+    public void upsertCiclo(
+        @WebParam(name = "dataCiclo", targetNamespace = "")
+        List<Ciclo> dataCiclo,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataDistrito
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertDistrito", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertDistrito")
+    @ResponseWrapper(localName = "upsertDistritoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertDistritoResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertDistritoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertDistritoResponse")
+    public void upsertDistrito(
+        @WebParam(name = "dataDistrito", targetNamespace = "")
+        List<Distrito> dataDistrito,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertEjecucionHistoricaTotal", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertEjecucionHistoricaTotal")
+    @ResponseWrapper(localName = "upsertEjecucionHistoricaTotalResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertEjecucionHistoricaTotalResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertEjecucionHistoricaTotalRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertEjecucionHistoricaTotalResponse")
+    public void upsertEjecucionHistoricaTotal(
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ano
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertEjecucionHistoricaActual", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertEjecucionHistoricaActual")
+    @ResponseWrapper(localName = "upsertEjecucionHistoricaActualResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertEjecucionHistoricaActualResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertEjecucionHistoricaActualRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertEjecucionHistoricaActualResponse")
+    public void upsertEjecucionHistoricaActual(
+        @WebParam(name = "ano", targetNamespace = "")
+        int ano,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     * @param dataEjecutora
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertEjecutora", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertEjecutora")
+    @ResponseWrapper(localName = "upsertEjecutoraResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertEjecutoraResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertEjecutoraRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertEjecutoraResponse")
+    public void upsertEjecutora(
+        @WebParam(name = "dataEjecutora", targetNamespace = "")
+        List<Ejecutora> dataEjecutora,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param dataEspecifica
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertEspecifica", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertEspecifica")
+    @ResponseWrapper(localName = "upsertEspecificaResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertEspecificaResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertEspecificaRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertEspecificaResponse")
+    public void upsertEspecifica(
+        @WebParam(name = "dataEspecifica", targetNamespace = "")
+        List<Especifica> dataEspecifica,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
      * @param ip
      * @param host
      * @param dataEspecificaDet
@@ -1660,6 +1606,60 @@ public interface SincronizarSIAF {
     public void upsertEspecificaDet(
         @WebParam(name = "dataEspecificaDet", targetNamespace = "")
         List<EspecificaDet> dataEspecificaDet,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataExpediente
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertExpediente", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpediente")
+    @ResponseWrapper(localName = "upsertExpedienteResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteResponse")
+    public void upsertExpediente(
+        @WebParam(name = "dataExpediente", targetNamespace = "")
+        List<Expediente> dataExpediente,
+        @WebParam(name = "time", targetNamespace = "")
+        long time,
+        @WebParam(name = "ejec", targetNamespace = "")
+        String ejec,
+        @WebParam(name = "tabla", targetNamespace = "")
+        String tabla,
+        @WebParam(name = "host", targetNamespace = "")
+        String host,
+        @WebParam(name = "ip", targetNamespace = "")
+        String ip);
+
+    /**
+     * 
+     * @param dataExpedienteAdjunto
+     * @param ip
+     * @param host
+     * @param tabla
+     * @param time
+     * @param ejec
+     */
+    @WebMethod
+    @RequestWrapper(localName = "upsertExpedienteAdjunto", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteAdjunto")
+    @ResponseWrapper(localName = "upsertExpedienteAdjuntoResponse", targetNamespace = "http://webservice.presupuesto/", className = "presupuesto.webservice.UpsertExpedienteAdjuntoResponse")
+    @Action(input = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteAdjuntoRequest", output = "http://webservice.presupuesto/SincronizarSIAF/upsertExpedienteAdjuntoResponse")
+    public void upsertExpedienteAdjunto(
+        @WebParam(name = "dataExpedienteAdjunto", targetNamespace = "")
+        List<ExpedienteAdjunto> dataExpedienteAdjunto,
         @WebParam(name = "time", targetNamespace = "")
         long time,
         @WebParam(name = "ejec", targetNamespace = "")
